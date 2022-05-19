@@ -9,6 +9,9 @@ Customers can request customisation of each item, making them ideal gifts for fr
 
 ## UX
 ### User Stories
+
+#### User Goals
+
 * As a site visitor I would like to:
   * Be able to navigate the site without needing to register or login.
     * The site should be intuitive and easy to navigate.
@@ -50,6 +53,9 @@ Customers can request customisation of each item, making them ideal gifts for fr
   * Be able to contact the site owner by means of a contact form.
 * As a newsletter subscriber I would like to: 
     * Have the option to unsubscribe from the newsletter.
+
+#### Site Owner Goals
+
 * As the site owner I would like to:
   * Provide a site that's highly accessible to all customers.
   * Be able to advertise any offers or relative information to customers by means of an information banner.
@@ -61,4 +67,37 @@ Customers can request customisation of each item, making them ideal gifts for fr
   * Be able to view my workload.
     * I would like to be able to view all current orders in production sorted by date ordered.
     * I would like to be able to change the status of an order when the product has been created.
-    * I would like to change the status of an order when the product has been dispatched. 
+    * I would like to change the status of an order when the product has been dispatched.
+
+## Design (UXD)
+
+### Strategy
+#### Project Goal
+
+Create an e-commerce website to help a friend sell her handcrafted, customisable gifts to a wider audiance by utilising SEO techniques.
+
+* __Is the content culturally appropriate?__
+  * Yes. Users would only visit the site if they wanted to purchase a unique handcrafted gift.
+* __Is the content relevant?__
+  * Yes. All content is relevant to the project goal.
+* __Can we track and catalogue the content in an intuitive way?__
+  * Yes. All content is stored in a database and accessed via categories, filtering or search criteria.
+* __Is the technology appropriate?__
+  * Yes. The site will be created using Python and the Django framework, designed for the easy creation of full stack websites.
+* __Why are we so special? What sets us apart?__
+  * We offer a range of unique handcrafted gifts customised to the customer's liking.
+* __Tech Considerations?__
+  * The site will be built using Python with the Django framework, JavaScript & HTML. CSS will be used alongside Bootstrap for site responsiveness over different screen sizes. PostgreSQL will be used to host site information & AWS S3 will host site images. Stripe will be used to handle secure payments. The site will be hosted from Heroku and Github will be used for version control and Agile methodology.
+* __Why would a user want this?__
+  * A user would want this site to purchase unique customisable handcrafted gifts for friends or loved ones.
+### Scope
+#### Functional Scope
+#### Agile Methodology
+### Structure
+### Skeleton
+### Surface
+#### Colour Palette
+#### Typography
+#### Iconography
+## SEO (Search Engine Optimisation)
+
