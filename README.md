@@ -89,12 +89,25 @@ Create an e-commerce website to help a friend sell her handcrafted, customisable
 * __Tech Considerations?__
   * The site will be built using Python with the Django framework, JavaScript & HTML. CSS will be used alongside Bootstrap for site responsiveness over different screen sizes. PostgreSQL will be used to host site information & AWS S3 will host site images. Stripe will be used to handle secure payments. The site will be hosted from Heroku and Github will be used for version control and Agile methodology.
 * __Why would a user want this?__
-  * A user would want this site to purchase unique customisable handcrafted gifts for friends or loved ones.
+  * A user would want to use this site to purchase unique customisable handcrafted gifts for friends or loved ones.
 ### Scope
+
+* __What does the user want to accomplish?__.
+  * The user wants to purchase a unique handcrafted gift, customised to thier liking.
+* __What does the user need to do in order to achieve their objective?__
+  * The user needs to navigate to their product of choice, choose the size (if necessary), Write a short description of how they would like the product to be customised, review their purchase, fill in the checkout form, submit payment details, and receive a confirmation of purchase email.
+* __What constraints does the site/app have to fall within?__
+  * A limited build time.
+* __What dynamic constraints do we have to meet?__
+  * Customer preferences/mind-changes for features/UI.
 #### Functional Scope
+-Logic flow chart goes here-
+-ERD goes here-
 #### Agile Methodology
+-Link to github projects goes here-
 ### Structure
 ### Skeleton
+Wireframe layouts for the site were created using [balsamiq](https://balsamiq.com/). View the wireframes [here](readme_images/wireframes.pdf)
 ### Surface
 #### Colour Palette
 #### Typography
