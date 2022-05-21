@@ -106,8 +106,24 @@ Create an e-commerce website to help a friend sell her handcrafted, customisable
 #### Agile Methodology
 -Link to github projects goes here-
 ### Structure
+From the top down, the site will consist of the following:
+  * A fixed info banner at the top of the page.
+  * Medium screens and greater:
+    * Navbar with site logo and title.
+    * Fixed categories.
+    * Main content area.
+    * Footer (not fixed).
+
+  * Small screens:
+    * Site logo and title (moves with scroll).
+    * Sticky navbar (takes the place of the site logo and title on scroll)contains a search bar, shopping basket, and dropdown menu (account, baby clothes, gifts for her, gifts for him, gifts for pets).
+    * Current category or page title + filter options (if applicable).
+    * Fixed categories.
+    * Main content area.
+    * Footer (not fixed).
+  
 ### Skeleton
-Wireframe layouts for the site were created using [balsamiq](https://balsamiq.com/). View the wireframes [here](readme_images/wireframes.pdf)
+Wireframe layouts for the site were created using [balsamiq](https://balsamiq.com/). View the wireframes [here](readme_images/wireframes.pdf).
 ### Surface
 #### Colour Palette
 #### Typography
