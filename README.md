@@ -101,8 +101,8 @@ Create an e-commerce website to help a friend sell her handcrafted, customisable
 * __What dynamic constraints do we have to meet?__
   * Customer preferences/mind-changes for features/UI.
 #### Functional Scope
--Logic flow chart goes here-
--ERD goes here-
+Entity Relationship Diagram
+![ERD](readme_images/entity_relationship_diagram.png)
 #### Agile Methodology
 -Link to github projects goes here-
 ### Structure
