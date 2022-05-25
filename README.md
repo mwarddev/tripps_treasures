@@ -21,6 +21,7 @@ Customers can request customisation of each item, making them ideal gifts for fr
     * I would like to be able to view snapshots of products to easily find products of interest.
     * I would like to be able to view a the full details of a product including, multiple images, full description, sizing information (if necessary), pricing, user ratings, and FAQs.
     * I would like to be able to view related sites without having to find them with a search engine.
+    * I would like to easily navigate the site on a smaller screen and access all information available to larger screen users.
   * Be able to select a product(s) to purchase.
     * I would like to be able to select sizes for clothing.
     * I would like to select the quantity of products.
