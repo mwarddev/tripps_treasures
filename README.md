@@ -43,8 +43,8 @@ Customers can request customisation of each item, making them ideal gifts for fr
 * As a registered site visitor I would like to:
   * Have the option to login with a social media account for a speedier "1 click" login.
   * Be able to access my account/profile page.
-    * I would like to be able to view my personal information. update and delete personal information.
-    * I would like to be able to update my personal information. update and delete personal information.
+    * I would like to be able to view my personal information.
+    * I would like to be able to update my personal information.
     * I would like to be able to delete my personal information.
     * I would like to be able to view my order history and any current orders to track progress.
     * I would like the option to delete my account.
