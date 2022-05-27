@@ -41,6 +41,7 @@ Customers can request customisation of each item, making them ideal gifts for fr
     * I would like to pay for my purchase using a trusted payment portal.
     * On submitting my order, I would like to receive a confirmation email with my order details and a unique order number.
     * I would like to receive a dispatch confirmation email with and estimated delivery date.
+  * Be able to contact the site owner by means of a contact form.
 * As a registered site visitor I would like to:
   * Have the option to login with a social media account for a speedier "1 click" login.
   * Be able to access my account/profile page.
@@ -54,7 +55,6 @@ Customers can request customisation of each item, making them ideal gifts for fr
     * I would like to be able to update a review.
     * I would like to be able to delete a review.
     * I would like to be able to rate a product out of 5 stars.
-  * Be able to contact the site owner by means of a contact form.
 * As a newsletter subscriber I would like to: 
     * Have the option to unsubscribe from the newsletter.
 
