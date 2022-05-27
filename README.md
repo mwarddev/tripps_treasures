@@ -38,6 +38,7 @@ Customers can request customisation of each item, making them ideal gifts for fr
     * I would like to have the option to register with the site to save my personal information for a faster checkout next time I visit the site.
     * I would like to have the option to have my order sent to a different address to the billing address.
     * I would like to have the option to add a gift tag and have the items wrapped.
+    * I would like to pay for my purchase using a trusted payment portal.
     * On submitting my order, I would like to receive a confirmation email with my order details and a unique order number.
     * I would like to receive a dispatch confirmation email with and estimated delivery date.
 * As a registered site visitor I would like to:
