@@ -49,10 +49,11 @@ Customers can request customisation of each item, making them ideal gifts for fr
     * I would like to be able to delete my personal information.
     * I would like to be able to view my order history and any current orders to track progress.
     * I would like the option to delete my account.
-  * Be able to publish reviews of products I have received.
+  * Be able to publish reviews and ratings of products I have received.
     * I would like to be able to create a review.
     * I would like to be able to update a review.
     * I would like to be able to delete a review.
+    * I would like to be able to rate a product out of 5 stars.
   * Be able to contact the site owner by means of a contact form.
 * As a newsletter subscriber I would like to: 
     * Have the option to unsubscribe from the newsletter.
