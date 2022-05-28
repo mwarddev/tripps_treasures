@@ -127,7 +127,7 @@ Create an e-commerce website to help a friend sell her handcrafted, customisable
 * __Why are we so special? What sets us apart?__
   * We offer a range of unique handcrafted gifts customised to the customer's liking.
 * __Tech Considerations?__
-  * The site will be built using Python with the Django framework, JavaScript & HTML. CSS will be used alongside Bootstrap for site responsiveness over different screen sizes. PostgreSQL will be used to host site information & AWS S3 will host site images. Stripe will be used to handle secure payments. The site will be hosted from Heroku and Github will be used for version control and Agile methodology.
+  * The site will be built using [Python](https://www.python.org/) with the [Django framework](https://www.djangoproject.com/), [JavaScript](https://www.javascript.com/) & [HTML](https://html.com/semantic-markup/). [CSS](https://www.w3.org/Style/CSS/Overview.en.html) will be used alongside [Bootstrap](https://getbootstrap.com/) for site responsiveness over different screen sizes. [PostgreSQL](https://www.postgresql.org/) will be used to host site information & [AWS S3](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Categories=categories%23storage&trk=9845b571-f118-41f9-ae80-53f3364524c4&sc_channel=ps&sc_campaign=acquisition&sc_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Storage|S3|GB|EN|Text&s_kwcid=AL!4422!3!489216385180!e!!g!!aws%20s3&ef_id=CjwKCAjwkMeUBhBuEiwA4hpqEJmK52Rp_outs9Ama8hbA1IhA0MOr-OkiPis4BSWVAuobKN7yEmQsRoCSNMQAvD_BwE:G:s&s_kwcid=AL!4422!3!489216385180!e!!g!!aws%20s3&awsf.Free%20Tier%20Types=*all) will host site images. [Stripe](https://stripe.com/gb) will be used to handle secure payments. The site will be hosted from [Heroku](https://id.heroku.com/login) and [Github](https://github.com/) will be used for version control and Agile methodology.
 * __Why would a user want this?__
   * A user would want to use this site to purchase unique customisable handcrafted gifts for friends or loved ones.
 ### Scope
@@ -147,7 +147,7 @@ Entity Relationship Diagram
 The development of this project was managed with Agile Methodology, utilising [GitHub's](https://github.com/) Milestones tool to manage Epics, the Issues tool to manage User Stories, and the Projects tool to map out the User Stories on a Kanban board.
 * The project can be viewed [here](https://github.com/mwarddev/tripps_treasures/projects/1).
 * The Epics can be viewed [here](https://github.com/mwarddev/tripps_treasures/milestones).
-* The User Stories and be viewed [here](https://github.com/mwarddev/tripps_treasures/issues).
+* The User Stories can be viewed [here](https://github.com/mwarddev/tripps_treasures/issues).
 ### Structure
 From the top down, the site will consist of the following:
   * A fixed info banner at the top of the page.
@@ -169,8 +169,12 @@ From the top down, the site will consist of the following:
 Wireframe layouts for the site were created using [balsamiq](https://balsamiq.com/). View the wireframes [here](readme_images/wireframes.pdf).
 ### Surface
 #### Colour Palette
+![treasure_palette](readme_images/treasure_palette.png)
+The colour palette for this site was generated using [coolors.co](https://coolors.co/).
 #### Typography
+The typography for this site has been selected from [Google Fonts](https://fonts.google.com/). The Special Elite font has been selected for headers and the Roboto font has been selected for all other text.
 #### Iconography
+The site logo was created by Sherry Tripp, the site owner. ![Logo](readme_images/tripps_treasures_logo.jpg) All other iconograpy has been obtained from [Font Awesome](https://fontawesome.com/).
 ## SEO (Search Engine Optimisation) and Marketing
 ### SEO
 ### Marketing
