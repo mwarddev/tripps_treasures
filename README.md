@@ -7,7 +7,42 @@ Customers can request customisation of each item, making them ideal gifts for fr
 
 -link to live site with instructions-
 
-## UX
+## Contents
+
+* [User Experience (UX)](#user-experience-ux)
+  * [User Stories](#user-stories)
+    * [User Goals](#user-goals)
+    * [Site Owner Goals](#site-owner-goals)
+* [Design (UXD)](#design-uxd)
+  * [Strategy](#strategy)
+    * [Project Goal](#project-goal)
+  * [Scope](#scope)
+    * [Functional Scope](#functional-scope)
+    * [Agile Methodology](#agile-methodology)
+  * [Structure](#structure)
+  * [Skeleton](#skeleton)
+  * [Surface](#surface)
+    * [Colour Palette](#colour-palette)
+    * [Typeography](#typography)
+    * [Iconography](#iconography)
+* [SEO and Marketing](#seo-search-engine-optimisation-and-marketing)
+  * [SEO](#seo)
+  * [Marketing](#marketing)
+* [Features](#features)
+  * [Existing Features](#existing-features)
+  * [Future Features](#future-features)
+* [Technologies Used](#technologies-used)
+* [Testing](#testing)
+  * [Validator Testing](#validator-testing)
+  * [Manual Testing](#manual-testing)
+  * [Automated Testing](#automated-testing)
+  * [Bugs and Fixes](#bugs-and-fixes)
+* [Deployment](#deployment)
+* [Credits](#credits)
+* [Aknowledgements](#aknowledgements)
+
+
+## User Experience UX
 ### User Stories
 
 #### User Goals
@@ -72,6 +107,7 @@ Customers can request customisation of each item, making them ideal gifts for fr
     * I would like to be able to view all current orders in production sorted by date ordered.
     * I would like to be able to change the status of an order when the product has been created.
     * I would like to change the status of an order when the product has been dispatched.
+    * I would like to send an order despatched email to the customer when the order is complete.
 
 ## Design (UXD)
 
@@ -108,7 +144,10 @@ Create an e-commerce website to help a friend sell her handcrafted, customisable
 Entity Relationship Diagram
 ![ERD](readme_images/entity_relationship_diagram.png)
 #### Agile Methodology
--Link to github projects goes here-
+The development of this project was managed with Agile Methodology, utilising [GitHub's](https://github.com/) Milestones tool to manage Epics, the Issues tool to manage User Stories, and the Projects tool to map out the User Stories on a Kanban board.
+* The project can be viewed [here](https://github.com/mwarddev/tripps_treasures/projects/1).
+* The Epics can be viewed [here](https://github.com/mwarddev/tripps_treasures/milestones).
+* The User Stories and be viewed [here](https://github.com/mwarddev/tripps_treasures/issues).
 ### Structure
 From the top down, the site will consist of the following:
   * A fixed info banner at the top of the page.
@@ -132,5 +171,19 @@ Wireframe layouts for the site were created using [balsamiq](https://balsamiq.co
 #### Colour Palette
 #### Typography
 #### Iconography
-## SEO (Search Engine Optimisation)
+## SEO (Search Engine Optimisation) and Marketing
+### SEO
+### Marketing
+## Features
+### Existing Features
+### Future Features 
+## Technologies Used
+## Testing
+### Validator Testing
+### Manual Testing
+### Automated Testing
+### Bugs and Fixes
+## Deployment
+## Credits
+## Aknowledgements
 
