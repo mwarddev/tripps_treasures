@@ -55,6 +55,7 @@ Customers can request customisation of each item, making them ideal gifts for fr
     * I would like to be able to find what I need by use of a search bar.
     * I would like to be able to view snapshots of products to easily find products of interest.
     * I would like to be able to view a the full details of a product including, multiple images, full description, sizing information (if necessary), pricing, user ratings, and FAQs.
+      * I would like to be able to view related products from the full product details page. 
     * I would like to be able to view related sites without having to find them with a search engine.
     * I would like to easily navigate the site on a smaller screen and access all information available to larger screen users.
     * I would like to be able to register/login to the site from any page.
@@ -174,9 +175,12 @@ The colour palette for this site was generated using [coolors.co](https://coolor
 #### Typography
 The typography for this site has been selected from [Google Fonts](https://fonts.google.com/). The Special Elite font has been selected for headers and the Roboto font has been selected for all other text.
 #### Iconography
-The site logo was created by Sherry Tripp, the site owner. ![Logo](readme_images/tripps_treasures_logo.jpg) All other iconograpy has been obtained from [Font Awesome](https://fontawesome.com/).
+The site logo was created by Sherry Tripp, the site owner. All other iconograpy has been obtained from [Font Awesome](https://fontawesome.com/). ![Logo](readme_images/tripps_treasures_logo.jpg)
 ## SEO (Search Engine Optimisation) and Marketing
 ### SEO
+Keywords and phrases
+![keywords](readme_images/seo_keywords.pdf)
+The footer contains links to the site owner's [Facebook Business page](https://www.facebook.com/business/pages) and [Etsy](https://www.etsy.com/uk/?ref=lgo) page.
 ### Marketing
 ## Features
 ### Existing Features
