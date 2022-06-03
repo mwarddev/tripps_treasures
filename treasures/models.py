@@ -5,7 +5,7 @@ class Category(models.Model):
     """ Product category model """
     class Meta:
 
-        plural_name = 'Categories'
+        verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=150)
     display_name = models.CharField(max_length=150, null=True, blank=True)
@@ -21,7 +21,7 @@ class Treasure(models.Model):
     """ Products model """
     category = models.ForeignKey(Category,
                                  null=True,
-                                 Blank=True,
+                                 blank=True,
                                  on_delete=models.SET_NULL)
     name = models.CharField(max_length=150)
     description = models.TextField()
