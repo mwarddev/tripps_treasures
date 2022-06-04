@@ -1,0 +1,60 @@
+<div class="col-12 d-block d-sm-none justify-content-between">
+    <ul class="list-group list-group-horizontal list-unstyled text-center">
+        <li class="list-group-item border-0">
+            <a href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="text-center">
+                    <div><i class="fa-solid fa-search"></i></div>
+                    <p class="mb-0">Search</p>
+                </div>
+            </a>
+            <div class="dropdown-menu w-100 border-0" aria-labelledby="mobile-search">
+                <form method="GET" action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Search here">
+                        <div class="input-group-append">
+                            <button class="btn border" type="submit">
+                                <span>
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </li>
+        <li class="list-group-item border-0">
+            <a href="#">
+                <div class="text-center">
+                    <div><i class="fa-solid fa-basket-shopping"><span class="badge badge-danger badge-pill">0</span></i></div>
+                    <p class="mb-0">Basket</p>
+                </div>
+            </a>
+        </li>
+        <li class="list-group-item border-0">
+            <a href="#" id="mobile-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="text-center">
+                    <div><i class="fa-solid fa-bars"></i></div>
+                    <p class="mb-0">Menu</p>
+                </div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="mobile-menu">
+                <a href="#" class="dropdown-item">Baby Gifts</a>
+                <a href="#" class="dropdown-item">Gifts for Him</a>
+                <a href="#" class="dropdown-item">Gifts for Her</a>
+                <a href="#" class="dropdown-item">Gifts for Pets</a>
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="#" class="dropdown-item">Manage Site</a>
+                        <a href="#" class="dropdown-item">Orders List</a>
+                    {% else %}
+                        <a href="#" class="dropdown-item">My Account</a>
+                    {% endif %}
+                    <a href="#" class="dropdown-item">Logout</a>
+                {% else %}
+                    <a href="#" class="dropdown-item">Login</a>
+                    <a href="#" class="dropdown-item">Register</a>
+                {% endif %}
+            </div>
+        </li>
+    </ul>
+</div>
