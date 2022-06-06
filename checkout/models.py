@@ -100,6 +100,11 @@ class PurchaseItem(models.Model):
                                  on_delete=models.CASCADE)
     item_size = models.CharField(max_length=7, null=True, blank=True)
     qty = models.IntegerField(null=False, blank=False, default=0)
+    customise = models.TextField(null=True, blank=True)
+    personalise = models.CharField(max_length=150, null=True, blank=True)
+    upload_images = models.ImageField(upload_to='customer_images',
+                                      null=True,
+                                      blank=True)
     item_total = models.DecimalField(max_digits=6,
                                      decimal_places=2,
                                      null=False,

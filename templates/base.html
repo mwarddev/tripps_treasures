@@ -40,7 +40,7 @@
     <header class="container-fluid fixed-top">
         <div id="info-banner" class="row text-center">
             <div class="col bg-info text-white">
-                <h4>This is an Info Banner... with information in it.</h4>
+                <h4>Info!</h4>
             </div>
         </div>
         <div id="nav-top" class="row pt-3 d-flex">
@@ -155,6 +155,51 @@
 
     {% block content %}
     {% endblock %}
+    <!-- Footer -->
+    <footer class="container-fluid fixed-bottom">
+        <hr>
+        <div class="row">
+            <div class="col-2">
+                <p>
+                    Sign up for our newsletter <a href="#">here.</a>
+                </p>
+            </div>
+            <div class="col-2 text-right">
+                <span>
+                    <i class="fa-brands fa-cc-stripe"></i>
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                </span>
+            </div>
+            <div class="col-2 text-right">
+                <a href="#"><i class="fa-brands fa-etsy"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <div class="col-2">
+                <ul class="list-unstyled text-right">
+                    <li>
+                        <a href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-2">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Site Map</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-2">
+                <p class="text-right copywrite"><span>&copy;</span> {% now 'Y' %} Tripp's Treasures</p>
+            </div>
+        </div>
+    </footer>
 
     {% block postloadjs %}
     <!-- <script type="text/javascript">
