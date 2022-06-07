@@ -2,41 +2,49 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
 
     {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
 
     {% block corecss %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Special+Elite&display=swap">
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Special+Elite&display=swap">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
-        <script src="https://kit.fontawesome.com/46a3eeb20c.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <!-- Stripe -->
-        <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://kit.fontawesome.com/46a3eeb20c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
     <title>Tripp's Treasures</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="container-fluid fixed-top">
         <div id="info-banner" class="row text-center">
             <div class="col bg-info text-white">
@@ -46,7 +54,7 @@
         <div id="nav-top" class="row pt-3 d-flex">
             <div class="col-12 col-md-6 pr-1">
                 <a href="{% url 'home' %}">
-                    <div class="row px-1">                    
+                    <div class="row px-1">
                         <div class="col-3 text-right">
                             <img src="{% static 'logo.jpg' %}" alt="Site logo">
                         </div>
@@ -79,39 +87,40 @@
             <div class="col-md-3 my-auto d-none d-sm-block">
                 <ul class="list-group list-group-horizontal list-unstyled text-center">
                     {% if request.user.is_authenticated %}
-                        <li class="list-group-item dropdown border-0">
-                            <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <div><i class="fa-solid fa-circle-user"></i></div>
-                                    <p class="mb-0">Account</p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="user-menu">
-                                {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Manage Site</a>
-                                    <a href="#" class="dropdown-item">Orders List</a>
-                                {% else %}
-                                    <a href="#" class="dropdown-item">My Account</a>
-                                {% endif %}
+                    <li class="list-group-item dropdown border-0">
+                        <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fa-solid fa-circle-user"></i></div>
+                                <p class="mb-0">Account</p>
                             </div>
-                        </li>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="user-menu">
+                            {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item">Manage Site</a>
+                            <a href="#" class="dropdown-item">Orders List</a>
+                            {% else %}
+                            <a href="#" class="dropdown-item">My Account</a>
+                            {% endif %}
+                        </div>
+                    </li>
                     {% endif %}
                     <li class="list-group-item border-0">
                         <a href="#">
                             <div class="text-center">
-                                <div><i class="fa-solid fa-basket-shopping"><span class="badge badge-danger badge-pill">0</span></i></div>
+                                <div><i class="fa-solid fa-basket-shopping"><span
+                                            class="badge badge-danger badge-pill">0</span></i></div>
                                 <p class="mb-0">Basket</p>
                             </div>
                         </a>
                     </li>
                     <li class="list-group-item dropdown border-0">
                         {% if request.user.is_authenticated %}
-                            <a href="#">
-                                <div class="text-center">
-                                    <div><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
-                                    <p class="mb-0">Logout</p>
-                                </div>
-                            </a>
+                        <a href="#">
+                            <div class="text-center">
+                                <div><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+                                <p class="mb-0">Logout</p>
+                            </div>
+                        </a>
                         {% else %}
                         <a href="#" id="auth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
@@ -133,21 +142,21 @@
     </header>
 
     {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -159,34 +168,14 @@
     <footer class="container-fluid fixed-bottom">
         <hr>
         <div class="row">
-            <div class="col-2">
-                <p>
-                    Sign up for our newsletter <a href="#">here.</a>
-                </p>
-            </div>
-            <div class="col-2 text-right">
-                <span>
-                    <i class="fa-brands fa-cc-stripe"></i>
-                    <i class="fa-brands fa-cc-visa"></i>
-                    <i class="fa-brands fa-cc-mastercard"></i>
-                </span>
-            </div>
-            <div class="col-2 text-right">
-                <a href="#"><i class="fa-brands fa-etsy"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            </div>
-            <div class="col-2">
-                <ul class="list-unstyled text-right">
+            <div class="col-4">
+                <ul class="list-unstyled">
                     <li>
                         <a href="#">About Us</a>
                     </li>
                     <li>
                         <a href="#">Contact Us</a>
                     </li>
-                </ul>
-            </div>
-            <div class="col-2">
-                <ul class="list-unstyled">
                     <li>
                         <a href="#">FAQ</a>
                     </li>
@@ -195,8 +184,23 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-2">
-                <p class="text-right copywrite"><span>&copy;</span> {% now 'Y' %} Tripp's Treasures</p>
+            <div class="col-4 text-center">
+                <a href="#"><i class="fa-brands fa-etsy"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <div class="col-4">
+                <ul class="list-unstyled text-right">
+                    <li>
+                        <p>
+                            Sign up for our newsletter <a href="#">here.</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="text-right copywrite">
+                            <span>&copy;</span> {% now 'Y' %} Tripp's Treasures
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
     </footer>
@@ -207,5 +211,6 @@
     </script> -->
     {% endblock %}
 
-  </body>
+</body>
+
 </html>

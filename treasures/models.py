@@ -27,9 +27,6 @@ class Treasure(models.Model):
     description = models.TextField()
     personalisable = models.BooleanField(default=False, null=True, blank=True)
     customisable = models.BooleanField(default=False, null=True, blank=True)
-    uploadable_images = models.BooleanField(default=False,
-                                            null=True,
-                                            blank=True)
     sizable = models.BooleanField(default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
