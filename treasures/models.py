@@ -33,7 +33,6 @@ class Treasure(models.Model):
     def __str__(self):
         return self.name
 
-
 class Image(models.Model):
     """ Image model to allow multiple images per Treasure (product) """
     treasure = models.ForeignKey(Treasure,
@@ -41,4 +40,4 @@ class Image(models.Model):
                                  blank=True,
                                  on_delete=models.CASCADE,
                                  related_name='images')
-    image = models.ImageField(default='no_image')
+    image = models.ImageField(null=True, blank=True)

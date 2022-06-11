@@ -1,69 +1,45 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_nav %}
+    {% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
 {% block content %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-6 col-md-3 text-center">
-                <a href="#">
+                <a href="{% url 'treasures' %}?category=baby_gifts">
                     <div class="card shadow">
                         <div class="card-body">
-                            <h2 class="card-title">
-                                Baby Gifts
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <img class="img-fluid" src="{% static 'images/20210209_142327.jpg' %}" alt="">
+                            <img class="img-fluid" src="media/20210209_142327.jpg" alt="Superhero boy soft toy">
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <a href="#">
+                <a href="{% url 'treasures' %}?category=gifts_for_her">
                     <div class="card shadow">
                         <div class="card-body">
-                            <h2 class="card-title">
-                                Gifts for Her
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <img src="/media/no_image.png" alt="">
+                            <img class="img-fluid" src="media/IMG-20191007-WA0000.jpg" alt="Fingerprint tree canvas">
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <a href="#">
+                <a href="{% url 'treasures' %}?category=gifts_for_him">
                     <div class="card shadow">
                         <div class="card-body">
-                            <h2 class="card-title">
-                                Gifts for Him
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <img src="/media/no_image.png" alt="">
+                            <img class="img-fluid" src="media/20220521_111241.jpg" alt="Travel mugs">
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <a href="#">
+                <a href="{% url 'treasures' %}?category=gifts_for_pets">
                     <div class="card shadow">
                         <div class="card-body">
-                            <h2 class="card-title">
-                                Gifts for Pets
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <img src="/media/no_image.png" alt="">
+                            <img class="img-fluid" src="media/20200306_174309.jpg" alt="Dog treat jar">
                         </div>
                     </div>
                 </a>

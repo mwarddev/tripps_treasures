@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_nav %}
+{% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-4 offset-sm-4 text-center">
+                <div class="card shadow">
+                    <div class="card-body">
+                        {% for cat in selected_categories %}
+                            <h2>{{ cat.display_name }}</h2>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <p>Showing {{ treasures|length }} treasures</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for treasure in treasures %}
+            <div class="col-12 col-sm-3">
+                <a href="#">
+                    <div class="card shadow mb-3">
+                        {% for img in treasure.images.all %}
+                            {% if img %}
+                                {% if forloop.first %}
+                                    <img class="img-fluid img-top" src="{{ img.image.url }}" alt="{{ treasure.name }}">
+                                {% endif %}
+                            {% else %}
+                            <img class="img-fluid img-top" src="{{ MEDIA_URL }}no_image.png" alt="{{ treasure.name }}">
+                            {% endif %}
+                        {% endfor %}
+                        <div class="card-body">
+                            <div>
+                                <p><em>{{ treasure.name }}</em></p>
+                            </div>
+                            <div>
+                                <p><b>£{{ treasure.price }}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
