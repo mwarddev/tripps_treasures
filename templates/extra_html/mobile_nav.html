@@ -8,7 +8,7 @@
                 </div>
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="mobile-search">
-                <form method="GET" action="">
+                <form method="GET" action="{% url 'treasures' %}">
                     <div class="input-group">
                         <input type="text" class="form-control" name="search" placeholder="Search here">
                         <div class="input-group-append">
@@ -39,8 +39,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="mobile-menu">
                 <a href="{% url 'treasures' %}?category=baby_gifts" class="dropdown-item">Baby Gifts</a>
-                <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item">Gifts for Him</a>
-                <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item">Gifts for Her</a>
+                <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item">Gifts for Her</a>
+                <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item">Gifts for Him</a>
                 <a href="{% url 'treasures' %}?category=gifts_for_pets" class="dropdown-item">Gifts for Pets</a>
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}

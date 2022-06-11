@@ -45,7 +45,7 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <header class="container-fluid fixed-top">
+    <header class="container-fluid fixed-top bg-white">
         <div id="info-banner" class="row text-center">
             <div class="col bg-info text-white">
                 <h4>Info!</h4>
@@ -68,10 +68,10 @@
                         </div>
                     </div>
                 </a>
-                <hr class="d-md-none">
+                <hr class="d-md-none m-0">
             </div>
             <div class="col-md-3 my-auto mx-auto d-none d-sm-block">
-                <form method="GET" action="">
+                <form method="GET" action="{% url 'treasures' %}">
                     <div class="input-group">
                         <input type="text" class="form-control" name="search" placeholder="Search here">
                         <div class="input-group-append">

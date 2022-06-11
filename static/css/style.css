@@ -1,4 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 main {
     margin-top: 200px;
     flex: 1;
+}
+
+
+/* Background colours */
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.bg-green {
+    background-color: #d3f8e2;
+}
+
+.bg-purple {
+    background-color: #e4c1f9;
+}
+
+.bg-pink {
+    background-color: #f694c1;
+}
+
+.bg-yellow {
+    background-color: #ede7b1;
+}
+
+.bg-blue {
+    background-color: #a9def9;
 }
