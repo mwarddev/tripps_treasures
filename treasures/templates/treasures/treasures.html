@@ -12,36 +12,32 @@
                 <div class="card border-0">
                     <div class="card-body">
                         {% for cat in selected_categories %}
-                            <h2>{{ cat.display_name }}</h2>
+                            <h2 class="title-font">{{ cat.display_name }}</h2>
                         {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="col-12 text-left">
-                <p>Showing {{ treasures|length }} treasures {% if search_query %}for <strong>{{ search_query }}</strong>{% else %} found {% endif %}</p>
+                <p>Showing {{ treasures|length }} treasures {% if search_query %}for <strong>{{ search_query }}</strong>{% endif %}</p>
             </div>
         </div>
         <div class="row">
             {% for treasure in treasures %}
             <div class="col-12 col-sm-3">
-                <a href="#"> 
-                    <div class="card shadow mb-3">
+                <a href="{% url 'full_details' treasure.id %}"> 
+                    <div class="card shadow mb-4">
                         {% for img in treasure.images.all %}
                             {% if img %}
                                 {% if forloop.first %}
-                                    <img class="img-fluid img-top" src="{{ img.image.url }}" alt="{{ treasure.name }}">
+                                    <img class="img-fluid img-top w-100 preview" src="{{ img.image.url }}" alt="{{ treasure.name }}">
                                 {% endif %}
                             {% else %}
-                            <img class="img-fluid img-top" src="{{ MEDIA_URL }}no_image.png" alt="{{ treasure.name }}">
+                            <img class="img-fluid img-top preview" src="{{ MEDIA_URL }}no_image.png" alt="{{ treasure.name }}">
                             {% endif %}
                         {% endfor %}
                         <div class="card-body">
-                            <div>
-                                <p><em>{{ treasure.name }}</em></p>
-                            </div>
-                            <div>
-                                <p><strong>£{{ treasure.price }}</strong></p>
-                            </div>
+                            <p><em class="text-dark">{{ treasure.name }}</em></p>
+                            <p class="mb-0"><strong class="text-dark">£{{ treasure.price }}</strong></p>
                         </div>
                     </div>
                 </a>

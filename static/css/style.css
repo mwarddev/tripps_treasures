@@ -1,10 +1,11 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 main {
-    margin-top: 200px;
+    margin-top: 170px;
     flex: 1;
 }
 
@@ -37,4 +38,37 @@ main {
 
 .bg-blue {
     background-color: #a9def9;
+}
+
+/* Page header */
+
+.title-font {
+    font-family: 'Special Elite', cursive;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+/* Footer */
+
+.site-link {
+    font-size: 0.75rem;
+}
+
+.external-link {
+    font-size: 1.5rem;
+}
+
+/* Treasures */
+
+.preview {
+    width: 300px;
+    height: 400px;
+}
+
+/* Full Details */
+
+.right-border {
+    border-right: 1px solid #aaa;
 }

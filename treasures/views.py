@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Treasure, Category
@@ -34,6 +34,19 @@ def all_treasures(request):
         'treasures': treasures,
         'selected_categories': categories,
         'search_query': query,
+    }
+
+    return render(request, template_name, context)
+
+
+def full_details(request, treasure_id):
+    """ Full details for an individual treasure """
+
+    treasure = get_object_or_404(Treasure, pk=treasure_id)
+    template_name = 'treasures/full_details.html'
+
+    context = {
+        'treasure': treasure,
     }
 
     return render(request, template_name, context)
