@@ -8,18 +8,22 @@
 {% block content %}
     <div class="container-fluid pt-4">
         <div class="row">
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-3 mb-4">
                 <div id="treasure-images" class="carousel slide" data-bs-ride="false" data-interval="false">
                     <div class="carousel-inner">
                     {% for img in treasure.images.all %}
                         {% if img %}
                             {% if forloop.first %}
                                 <div class="carousel-item active">
-                                    <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ treasure.name }}">
+                                    <a href="{{ img.image.url }}" target="_blank">
+                                        <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ treasure.name }}">
+                                    </a>
                                 </div>
                             {% else %}
                                 <div class="carousel-item">
-                                    <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ treasure.name }}">
+                                    <a href="{{ img.image.url }}" target="_blank">
+                                        <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ treasure.name }}">
+                                    </a>
                                 </div>
                             {% endif %}
                         {% else %}
@@ -38,12 +42,72 @@
                 </div>   
             </div>
             <div class="col-12 col-sm-5 right-border">
-                <h4 class="title-font text-center text-dark pb-4">{{ treasure.name }}</h4>
+                <h4 class="title-font text-center text-dark pb-2">{{ treasure.name }}</h4>
                 <p>{{ treasure.description }}</p>
                 <form action="" method="POST" class="form">
                     {% csrf_token %}
                     <div class="form-row">
-                        
+                        {% with treasure.sizable as size %}
+                            {% if size %}
+                            <div class="col-12">
+                                <p class="d-inline pr-3"><strong>Size:</strong></p>
+                                <select name="treasure_size" id="id_treasure_size" class="form-control-sm w-25 d-inline py-0 border-dark">
+                                    <option value="newborn" selected>Newborn</option>
+                                    <option value="3-6_months">3-6 Months</option>
+                                    <option value="6-9_months">6-9 Months</option>
+                                    <option value="9-12_months">9-12 Months</option>
+                                </select>
+                            </div>
+                            {% endif %}
+                        {% endwith %}
+                        {% with treasure.customisable as custom %}
+                            {% if custom %}
+                                <div class="col-12 mt-3">
+                                    <p class="mb-1"><strong>Customisation:</strong></p>
+                                    <textarea name="treasure_custom" id="id_treasure_custom" class="form-control border-dark" rows="3" placeholder="Please enter any customisations here (e.g., fabric name, letters and characters, any special requirements)."></textarea> 
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        {% with treasure.personalisable as personalise %}
+                            {% if personalise %}
+                                <div class="col-12 mt-5 d-flex">
+                                    <p class="d-inline pr-3"><strong>Personalise:</strong></p>
+                                    <input type="text"name="treasure_personalise" id="id_treeasure_personalise" class="form-control d-inline border-dark" placeholder="Please enter a name here.">
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <div class="col-6 d-flex mt-3 align-items-end">
+                            <p class="d-inline pr-3"><strong>Qty:</strong></p>
+                            <div class="form-group d-inline">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="btn minus-qty border-dark border-rounded-left py-0" data-item-id="{{ treasure.id }}" id="minus-qty_{{ treasure.id }}">
+                                            <span>
+                                                <i class="fa-solid fa-caret-down"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input type="number" name="treasure-qty" value="1" min="1" max="99" class="form-control-sm qty-input border-dark" data-item-id="{{ tereasure.id }}" id="id_qty_{{ treasure.id }}">
+                                    <div class="input-group-append">
+                                        <button class="btn plus-qty border-dark border-rounded-right py-0" data-item-id="{{ treasure.id }}" id="plus-qty_{{ treasure.id }}">
+                                            <span>
+                                                <i class="fa-solid fa-caret-up"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-right mt-5 price"><strong>£{{ treasure.price }}</strong></p>
+                        </div>
+                        <div class="col-12 text-center mt-3">
+                            <a href="{% url 'treasures' %}" class="btn bg-grey text-white">
+                                Continue Shopping
+                            </a>
+                            <input type="submit" class="btn bg-blue" value="Add to Basket">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                 </form>
             </div>

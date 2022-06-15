@@ -16,6 +16,10 @@ main {
     background-color: #fff;
 }
 
+.bg-grey {
+    background-color: #aaa;
+}
+
 .bg-black {
     background-color: #000;
 }
@@ -71,4 +75,8 @@ a:link {
 
 .right-border {
     border-right: 1px solid #aaa;
+}
+
+.price {
+    font-size: 1.3rem;
 }
