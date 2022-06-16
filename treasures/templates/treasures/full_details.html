@@ -51,7 +51,7 @@
                             {% if size %}
                             <div class="col-12">
                                 <p class="d-inline pr-3"><strong>Size:</strong></p>
-                                <select name="treasure_size" id="id_treasure_size" class="form-control-sm w-25 d-inline py-0 border-dark">
+                                <select name="treasure_size" id="id_treasure_size" class="form-control-sm w-25 d-inline py-0 border-secondary">
                                     <option value="newborn" selected>Newborn</option>
                                     <option value="3-6_months">3-6 Months</option>
                                     <option value="6-9_months">6-9 Months</option>
@@ -64,7 +64,7 @@
                             {% if custom %}
                                 <div class="col-12 mt-3">
                                     <p class="mb-1"><strong>Customisation:</strong></p>
-                                    <textarea name="treasure_custom" id="id_treasure_custom" class="form-control border-dark" rows="3" placeholder="Please enter any customisations here (e.g., fabric name, letters and characters, any special requirements)."></textarea> 
+                                    <textarea name="treasure_custom" id="id_treasure_custom" class="form-control border-secondary" rows="3" placeholder="Please enter any customisations here (e.g., fabric name, letters and characters, any special requirements)."></textarea> 
                                 </div>
                             {% endif %}
                         {% endwith %}
@@ -72,34 +72,16 @@
                             {% if personalise %}
                                 <div class="col-12 mt-5 d-flex">
                                     <p class="d-inline pr-3"><strong>Personalise:</strong></p>
-                                    <input type="text"name="treasure_personalise" id="id_treeasure_personalise" class="form-control d-inline border-dark" placeholder="Please enter a name here.">
+                                    <input type="text"name="treasure_personalise" id="id_treeasure_personalise" class="form-control d-inline border-secondary" placeholder="Please enter a name here.">
                                 </div>
                             {% endif %}
                         {% endwith %}
                         <div class="col-6 d-flex mt-3 align-items-end">
-                            <p class="d-inline pr-3"><strong>Qty:</strong></p>
-                            <div class="form-group d-inline">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="btn minus-qty border-dark border-rounded-left py-0" data-item-id="{{ treasure.id }}" id="minus-qty_{{ treasure.id }}">
-                                            <span>
-                                                <i class="fa-solid fa-caret-down"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input type="number" name="treasure-qty" value="1" min="1" max="99" class="form-control-sm qty-input border-dark" data-item-id="{{ tereasure.id }}" id="id_qty_{{ treasure.id }}">
-                                    <div class="input-group-append">
-                                        <button class="btn plus-qty border-dark border-rounded-right py-0" data-item-id="{{ treasure.id }}" id="plus-qty_{{ treasure.id }}">
-                                            <span>
-                                                <i class="fa-solid fa-caret-up"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="d-inline mb-1 pr-3"><strong>Qty:</strong></p>
+                            <input type="number" name="treasure-qty" value="1" min="1" max="99" class="form-control-sm qty-input border-secondary" data-item-id="{{ tereasure.id }}" id="id_qty_{{ treasure.id }}">
                         </div>
                         <div class="col-6">
-                            <p class="text-right mt-5 price"><strong>£{{ treasure.price }}</strong></p>
+                            <p class="text-right mt-4 mb-0 price"><strong>£{{ treasure.price }}</strong></p>
                         </div>
                         <div class="col-12 text-center mt-3">
                             <a href="{% url 'treasures' %}" class="btn bg-grey text-white">
@@ -112,8 +94,30 @@
                 </form>
             </div>
             <div class="col-12 col-sm-4">
-
+                <h5 class="title-font text-center mb-4">You May Also Like</h5>
+                <a href="{% url 'full_details' related.id %}"> 
+                    <div class="mb-4 text-center">
+                        {% for img in related.images.all %}
+                            {% if img %}
+                                {% if forloop.first %}
+                                    <img class="img-fluid img-top w-50 h-50 preview" src="{{ img.image.url }}" alt="{{ related.name }}">
+                                {% endif %}
+                            {% else %}
+                            <img class="img-fluid img-top preview" src="{{ MEDIA_URL }}no_image.png" alt="{{ related.name }}">
+                            {% endif %}
+                        {% endfor %}
+                        <div class="card-body">
+                            <p><em class="text-dark">{{ related.name }}</em></p>
+                            <p class="mb-0"><strong class="text-dark">£{{ related.price }}</strong></p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>       
+{% endblock %}
+
+{% block addscript %}
+{{ block.super }}
+{% include 'treasures/script/qty_script.html' %}
 {% endblock %}
