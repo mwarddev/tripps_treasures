@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center mt-3">
                 <h3 class="title-font">Shopping Basket</h3>
@@ -14,9 +14,36 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-8 right-border">
+                <p><strong>{{ treasure_count }}</strong> item(s)</p>
                 {% if basket_items %}
                     <div class="col-12">
-                        {{ basket_items }}
+                        {% for item in basket_items %}
+                            <div class="row">
+                                <div class="col-3">
+                                    {% for img in item.treasure.images.all %}
+                                        {% if img %}
+                                            {% if forloop.first %}
+                                                <img class="img-fluid img-top w-75 h-75 preview" src="{{ img.image.url }}" alt="{{ item.name }}">
+                                            {% endif %}
+                                        {% else %}
+                                            <img class="img-fluid img-top w-25 h-25 preview" src="{{ MEDIA_URL }}no_image.png" alt="{{ item.name }}">
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="col-3">
+                                    <p class="title-font"><strong>{{ item.treasure.name }}</strong></p>
+                                    <p><strong>Personalisation: </strong>{% if item.treasure.personalisable %}{{ item.treasure_personalise }} {% else %}N/A {% endif %}</p>
+                                    <p><strong>Customisation: </strong>{% if item.treasure.customisable %}{{ item.treasure_customise }} {% else %}N/A {% endif %}</p>
+                                </div>
+                                <div class="col-3">
+                                    <p><strong>Size: </strong>{% if item.treasure.sizable %}{{ item.size }} {% else %}N/A {% endif %}</p>
+                                    <p><strong>Qty: </strong>{{ item.quantity }}</p>
+                                </div>
+                                <div class="col-3">
+                                    <p><strong>£{{ item.treasure.price }}</strong></p>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 {% else %}
                     <p class="mt-5">There's nothing in your basket.</p>
