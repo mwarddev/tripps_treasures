@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_nav %}
+    {% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <h3 class="title-font">Shopping Basket</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 right-border">
+                {% if basket_items %}
+                    <div class="col-12">
+
+                    </div>
+                {% else %}
+                    <p class="mt-5">There's nothing in your basket.</p>
+                    <a href="{% url 'home' %}" class="btn bg-grey text-white mt-4">
+                        Continue Shopping
+                    </a>
+                {% endif %}                
+            </div>
+            <div class="col-12 col-sm-4">
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

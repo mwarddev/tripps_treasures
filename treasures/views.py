@@ -42,9 +42,13 @@ def all_treasures(request):
 def full_details(request, treasure_id):
     """ Full details for an individual treasure """
     treasure = get_object_or_404(Treasure, pk=treasure_id)
-    random_treasure = Treasure.objects.filter(category=treasure.category).order_by('?').first()
-    if random_treasure != treasure:
-        related = random_treasure
+
+    while True:
+        random_treasure = Treasure.objects.filter(category=treasure.category).order_by('?').first()
+        if random_treasure != treasure:
+            related = random_treasure
+            break
+
     template_name = 'treasures/full_details.html'
 
     context = {
