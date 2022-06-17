@@ -45,7 +45,7 @@
             <div class="col-12 col-sm-5 right-border">
                 <h4 class="title-font text-center text-dark pb-2">{{ treasure.name }}</h4>
                 <p>{{ treasure.description }}</p>
-                <form action="" method="POST" class="form">
+                <form action="{% url 'add_to_basket' treasure.id %}" method="POST" class="form">
                     {% csrf_token %}
                     <div class="form-row">
                         {% with treasure.sizable as size %}
@@ -79,7 +79,7 @@
                         {% endwith %}
                         <div class="col-6 d-flex mt-3 align-items-end">
                             <p class="d-inline mb-1 pr-3"><strong>Qty:</strong></p>
-                            <input type="number" name="treasure-qty" value="1" min="1" max="99" class="form-control-sm qty-input border-secondary" data-item-id="{{ tereasure.id }}" id="id_qty_{{ treasure.id }}">
+                            <input type="number" name="treasure_qty" value="1" min="1" max="99" class="form-control-sm qty-input border-secondary" data-item-id="{{ tereasure.id }}" id="id_qty_{{ treasure.id }}">
                         </div>
                         <div class="col-6">
                             <p class="text-right mt-4 mb-0 price"><strong>£{{ treasure.price }}</strong></p>
