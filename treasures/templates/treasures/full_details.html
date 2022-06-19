@@ -60,7 +60,7 @@
                                 </select>
                             </div>
                             {% endif %}
-                        {% endwith %}
+                        
                         {% with treasure.customisable as custom %}
                             {% if custom %}
                                 <div class="col-12 mt-3">
@@ -68,15 +68,15 @@
                                     <textarea name="treasure_custom" id="id_treasure_custom" class="form-control border-secondary" rows="3" placeholder="Please enter any customisations here (e.g., fabric name, letters and characters, any special requirements)."></textarea> 
                                 </div>
                             {% endif %}
-                        {% endwith %}
+                        
                         {% with treasure.personalisable as personalise %}
                             {% if personalise %}
                                 <div class="col-12 mt-5 d-flex">
                                     <p class="d-inline pr-3"><strong>Personalise:</strong></p>
-                                    <input type="text"name="treasure_personalise" id="id_treeasure_personalise" class="form-control d-inline border-secondary" placeholder="Please enter a name here.">
+                                    <input type="text"name="treasure_personalise" id="id_treasure_personalise" class="form-control d-inline border-secondary" placeholder="Please enter a name here.">
                                 </div>
                             {% endif %}
-                        {% endwith %}
+                        
                         <div class="col-6 d-flex mt-3 align-items-end">
                             <p class="d-inline mb-1 pr-3"><strong>Qty:</strong></p>
                             <input type="number" name="treasure_qty" value="1" min="1" max="99" class="form-control-sm qty-input border-secondary" data-item-id="{{ treasure.id }}" id="id_qty_{{ treasure.id }}">
@@ -91,6 +91,9 @@
                             <input type="submit" class="btn bg-blue" value="Add to Basket">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
                     </div>
                 </form>
             </div>

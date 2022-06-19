@@ -18,13 +18,12 @@ class PurchaseAdmin(admin.ModelAdmin):
               'full_name', 'email', 'phone', 'address_line1',
               'address_line2', 'city', 'county', 'country',
               'postcode', 'purchase_date', 'shipping',
-              'gift_wrapped', 'gift_message', 'subtotal',
-              'grand_total', 'original_basket', 'stripe_pid',
-              'purchase_status')
+              'subtotal','grand_total', 'original_basket',
+              'stripe_pid','purchase_status')
 
     list_display = ('purchase_number', 'purchase_date',
-                    'full_name', 'gift_wrapped', 'subtotal',
-                    'shipping', 'grand_total')
+                    'full_name','subtotal','shipping',
+                    'grand_total')
 
     ordering = ('-purchase_date',)
 

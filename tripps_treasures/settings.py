@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-&$rlb!@wdz+7e+)!)r&^0)&p6m@#cvl!dv*(719(6oe=dngs!%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -158,3 +158,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Stripe
+
+DELIVERY_PERCENTAGE = 0.1

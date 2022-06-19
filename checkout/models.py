@@ -42,8 +42,6 @@ class Purchase(models.Model):
                                  blank=False,
                                  on_delete=models.CASCADE,
                                  related_name='shipping')
-    gift_wrapped = models.BooleanField(default=False, null=True, blank=True)
-    gift_message = models.TextField()
     subtotal = models.DecimalField(max_digits=6,
                                    decimal_places=2,
                                    null=False,
