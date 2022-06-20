@@ -4,6 +4,7 @@ Django settings for tripps_treasures project.
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,9 +15,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-&$rlb!@wdz+7e+)!)r&^0)&p6m@#cvl!dv*(719(6oe=dngs!%'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+if os.environ.get("DEVELOPMENT"):
+    development = True
+else:
+    development = False
+
+DEBUG = True   # development
 
 ALLOWED_HOSTS = []
 
@@ -102,12 +110,20 @@ WSGI_APPLICATION = 'tripps_treasures.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# if DEBUG:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# else:
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://yxdbfbkxgegava:bd175a5d5d5a9f113cc5b9b23992b9576c12c11f47506f642bc43c7e21ccf031@ec2-99-80-170-190.eu-west-1.compute.amazonaws.com:5432/d4f17bef4og6rh')
+# }
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+# }
 
 
 # Password validation
