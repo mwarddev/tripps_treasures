@@ -18,12 +18,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-if os.environ.get("DEVELOPMENT"):
-    development = True
-else:
-    development = False
-
-DEBUG = development
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['tripps-treasures.herokuapp.com', 'localhost']
 
