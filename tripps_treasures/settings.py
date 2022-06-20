@@ -161,4 +161,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Stripe
 
-DELIVERY_PERCENTAGE = 0.1
+DELIVERY_PERCENTAGE = 10

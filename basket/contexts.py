@@ -14,7 +14,7 @@ def basket_contents(request):
 
     for treasure_id, treasure_data in basket.items():
         if isinstance(treasure_data, int):
-            treasure = get_object_or_404(Treasure, pk=treasure_id)
+            treasure = get_object_or_404(Treasure(), pk=treasure_id)
             total += treasure_data * treasure.price
             treasure_count += treasure_data
             basket_items.append({
@@ -22,20 +22,19 @@ def basket_contents(request):
                 'quantity': treasure_data,
                 'treasure': treasure,
             })
-
         else:
             treasure = get_object_or_404(Treasure, pk=treasure_id)
-            for size, quantity in treasure_data['treasures_by_size'].items():
-                total += quantity * treasure.price
-                treasure_count += quantity
+            for key, value in treasure_data['treasures_by_size'].items():
+                total += treasure.price * value
+                treasure_count += value
                 basket_items.append({
                     'treasure_id': treasure_id,
-                    'quantity': quantity,
+                    'quantity': value,
                     'treasure': treasure,
-                    'size': size,
+                    'size': key,
                 })
 
-    delivery = total * Decimal(settings.DELIVERY_PERCENTAGE)
+    delivery = total * Decimal(settings.DELIVERY_PERCENTAGE / 100)
     grand_total = total + delivery
 
     context = {
