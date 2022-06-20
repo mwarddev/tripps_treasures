@@ -1,0 +1,1 @@
+web: gunicorn tripps_treasures.wsgi:application
