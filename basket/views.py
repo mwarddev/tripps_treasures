@@ -15,8 +15,8 @@ def add_to_basket(request, treasure_id):
     quantity = int(request.POST.get('treasure_qty'))
     redirect_url = request.POST.get('redirect_url')
     size = None
-    # customise = 'N/A'
-    # personalise = 'N/A'
+    customise = 'N/A'
+    personalise = 'N/A'
 
     if 'treasure_size' in request.POST:
         size = request.POST['treasure_size']
@@ -73,3 +73,12 @@ def add_to_basket(request, treasure_id):
 
     request.session['basket'] = basket
     return redirect(redirect_url)
+
+
+def update_basket(request):
+    """ 
+    Update size, quantity, and add customisations and
+    personalisation in the shopping basket 
+    """
+
+

@@ -11,10 +11,10 @@ def basket_contents(request):
     total = 0
     treasure_count = 0
     basket = request.session.get('basket', {})
-
+    print(basket)
     for treasure_id, treasure_data in basket.items():
         if isinstance(treasure_data, int):
-            treasure = get_object_or_404(Treasure(), pk=treasure_id)
+            treasure = get_object_or_404(Treasure, pk=treasure_id)
             total += treasure_data * treasure.price
             treasure_count += treasure_data
             basket_items.append({

@@ -80,3 +80,10 @@ a:link {
 .price {
     font-size: 1.3rem;
 }
+
+/* Basket */
+
+.update-link,
+.remove-link {
+    cursor: pointer;
+}
