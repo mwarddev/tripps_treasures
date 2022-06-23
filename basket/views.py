@@ -27,26 +27,6 @@ def add_to_basket(request, treasure_id):
     basket = request.session.get('basket', {})
 
     # if size:
-    #     if treasure_id in list(basket['sizes'].keys()):
-    #         if size in basket['sizes'][treasure_id]['size']:
-    #             if customise in basket['sizes'][treasure_id]['customise']:
-    #                 if personalise in basket['sizes'][treasure_id]['personalise']:
-    #                     basket['sizes'][treasure_id]['quantity'] += quantity
-    #                 else:
-    #                     basket['sizes'][treasure_id]['quantity'] = quantity
-    #             else:
-    #                 basket['sizes'] = {treasure_id: {'size': size,'quantity': quantity, 'customise': customise, 'personalise': personalise}}
-    #         else:
-    #             basket['sizes'] = {treasure_id: {'size': size,'quantity': quantity, 'customise': customise, 'personalise': personalise}}
-    #     else:
-    #         basket['sizes'] = {treasure_id: {'size': size,'quantity': quantity, 'customise': customise, 'personalise': personalise}}
-    # else:
-    #     if treasure_id in list(basket.keys()):
-    #         basket[treasure_id] += quantity
-    #     else:
-    #         basket[treasure_id] = quantity
-
-    # if size:
     #     basket['sizes'][treasure_id] = {'quantity': quantity, 'size': size, 'customise': customise, 'personalise': personalise}
     # else:
     #     basket['no_sizes'][treasure_id] = {'quantity': quantity, 'customise': customise, 'personalise': personalise}
@@ -55,13 +35,17 @@ def add_to_basket(request, treasure_id):
         if treasure_id in list(basket.keys()):
             if size in basket[treasure_id]['treasures_by_size'].keys():
                 basket[treasure_id]['treasures_by_size'][size] += quantity
+                messages.success(request, f'{treasure.name} quantity updated to {basket[treasure_id]["treasures_by_size"][size]}.')
             else:
                 basket[treasure_id]['treasures_by_size'][size] = quantity
+                messages.success(request, f'{treasure.name} {size} successfully added to your basket.')
         else:
             basket[treasure_id] = {'treasures_by_size': {size: quantity}}
+            messages.success(request, f'{treasure.name} {size} successfully added to your basket.')
     else:
         if treasure_id in list(basket.keys()):
             basket[treasure_id] += quantity
+            messages.success(request, f'{treasure.name} quantity updated to {basket[treasure_id]}.')
         else:
             basket[treasure_id] = quantity
             messages.success(request, f'{treasure.name} successfully added to your basket.')
@@ -75,6 +59,7 @@ def update_basket(request, treasure_id):
     Update size, quantity, and add customisations and
     personalisation in the shopping basket 
     """
+    treasure = get_object_or_404(Treasure, pk=treasure_id)
     quantity = int(request.POST.get('treasure_qty'))
     size = None
     # customise = 'N/A'
@@ -94,27 +79,18 @@ def update_basket(request, treasure_id):
     if size:
         if quantity > 0:
             basket[treasure_id]['treasures_by_size'][size] = quantity
-            # messages.success(
-            #     request, f'Updated size {size.upper()} {product.name} \
-            #         quantity to {basket[item_id]["items_by_size"][size]}'
-            #     )
+            messages.success(request, f'{treasure.name} quantity updated to {basket[treasure_id]["treasures_by_size"][size]}.')
+           
         else:
-            del basket[treasure_id]['treasures_by_size'][size]
-            if not basket[treasure_id]['treasures_by_size']:
-                basket.pop(treasure_id)
-            # messages.success(
-            #     request, f'Removed size {size.upper()} {product.name} \
-            #         from your bag'
-            #     )
+            pass
+           
     else:
         if quantity > 0:
             basket[treasure_id] = quantity
-            # messages.success(
-            #     request, f'Updated {product.name} quantity to {bag[item_id]}'
-            #     )
+            messages.success(request, f'{treasure.name} quantity updated to {basket[treasure_id]}.')
         else:
-            basket.pop(treasure_id)
-            # messages.success(request, f'Removed {product.name} from your bag')
+            pass
+
 
     # if customise:
     #     basket[treasure_id][customise]['treasures_by_size'][size] = quantity
@@ -143,17 +119,14 @@ def delete_from_basket(request, treasure_id):
             del basket[treasure_id]['treasures_by_size'][size]
             if not basket[treasure_id]['treasures_by_size']:
                 basket.pop(treasure_id)
-            # messages.success(
-            #     request,
-            #     f'Removed size {size.upper()} {product.name} from your bag'
-            #     )
+                messages.success(request, f'{treasure.name} {size} successfully deleted from your basket.')
         else:
             basket.pop(treasure_id)
-            # messages.success(request, f'Removed {product.name} from your bag')
+            messages.success(request, f'{treasure.name} successfully deleted from your basket.')
 
         request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
-        # messages.error(request, f'Error removing item {e}')
+        messages.error(request, f'Error removing item {e}')
         return HttpResponse(status=500)

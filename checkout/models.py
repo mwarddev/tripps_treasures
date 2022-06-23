@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
+from django.conf import settings
 from django_countries.fields import CountryField
 
 from treasures.models import Treasure
@@ -37,6 +38,10 @@ class Purchase(models.Model):
     country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=False, blank=False)
     purchase_date = models.DateTimeField(auto_now_add=True)
+    delivery_cost = models.DecimalField(max_digits=6,
+                                   decimal_places=2,
+                                   null=False,
+                                   default=0)
     shipping = models.ForeignKey(Shipping,
                                  null=False,
                                  blank=False,
@@ -69,7 +74,8 @@ class Purchase(models.Model):
         added to or removed from the basket
         """
         self.subtotal = self.purchaseitems.aggregate(Sum('item_total'))['item_total__sum'] or 0  # noqa
-        self.grand_total = self.subtotal + self.shipping.delivery_cost
+        self.delivery_cost = self.subtotal * settings.DELIVERY_PERCENTAGE / 100
+        self.grand_total = self.subtotal + self.delivery_cost
         self.save()
 
     def save(self, *args, **kwargs):

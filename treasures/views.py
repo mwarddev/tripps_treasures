@@ -7,7 +7,7 @@ from .models import Treasure, Category
 def all_treasures(request):
     """ Returns all products including queries """
 
-    # treasures = Treasure.objects.prefetch_related('images')
+    treasures = Treasure.objects.prefetch_related('images')
     treasures = Treasure.objects.all()
 
     query = None
@@ -23,7 +23,7 @@ def all_treasures(request):
         if 'search' in request.GET:
             query = request.GET['search']
             if not query:
-                # messages.error(request, 'No search criteria entered')
+                messages.error(request, 'No search criteria entered')
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
