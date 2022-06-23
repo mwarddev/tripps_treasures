@@ -39,9 +39,9 @@ class Purchase(models.Model):
     postcode = models.CharField(max_length=20, null=False, blank=False)
     purchase_date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6,
-                                   decimal_places=2,
-                                   null=False,
-                                   default=0)
+                                        decimal_places=2,
+                                        null=False,
+                                        default=0)
     shipping = models.ForeignKey(Shipping,
                                  null=False,
                                  blank=False,
