@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponse
+from django.shortcuts import (
+    render, redirect, get_object_or_404, reverse, HttpResponse)
+from django.contrib import messages
 from treasures.models import Treasure
 
 
@@ -15,8 +17,8 @@ def add_to_basket(request, treasure_id):
     quantity = int(request.POST.get('treasure_qty'))
     redirect_url = request.POST.get('redirect_url')
     size = None
-    customise = 'N/A'
-    personalise = 'N/A'
+    # customise = 'N/A'
+    # personalise = 'N/A'
 
     if 'treasure_size' in request.POST:
         size = request.POST['treasure_size']
@@ -62,6 +64,7 @@ def add_to_basket(request, treasure_id):
             basket[treasure_id] += quantity
         else:
             basket[treasure_id] = quantity
+            messages.success(request, f'{treasure.name} successfully added to your basket.')
 
     request.session['basket'] = basket
     return redirect(redirect_url)

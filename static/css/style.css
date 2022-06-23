@@ -87,3 +87,12 @@ a:link {
 .remove-item {
     cursor: pointer;
 }
+
+/* Toasts */
+
+.toast {
+    position: fixed;
+    top: 120px;
+    right: 25px;
+    z-index: 99999999999;
+}

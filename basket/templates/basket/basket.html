@@ -41,7 +41,7 @@
                                         {% csrf_token %} 
                                         <div class="container d-flex p-0">
                                             <p class="d-inline pr-2"><strong>Qty:</strong></p>
-                                            <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="0"
+                                            <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="1"
                                                 max="99" class="form-control-sm qty-input border-secondary mr-5"
                                                 id="id_qty_{{ item.treasure_id }}">
                                         </div>
