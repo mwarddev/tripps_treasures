@@ -86,7 +86,7 @@
                                     <button type="submit" class="border-0">
                                         <i class="fa-solid fa-arrows-rotate fa-xl text-dark"></i>
                                     </button>
-                                    <a class="remove-item text-dark mb-5 pb-3" id="remove_{{item.treasure_id}}" data-product_size="{{ item.size }}">
+                                    <a class="remove-item text-dark mb-5 pb-3" id="remove_{{item.treasure_id}}" data-treasure_size="{{ item.size }}">
                                         <i class="fa-solid fa-trash-can fa-xl"></i>
                                     </a>
                                     <p class="mt-5"><strong>£{{ item.treasure.price }}</strong></p>
@@ -130,19 +130,13 @@
 <
 
 <script type="text/javascript">
-    // Update quantity on click
-    // $('.update-link').click(function (e) {
-    //     var form = $(this).prev('.update-form');
-    //     console.log(form);
-    //     form.submit();
-    // })
-
+    
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('treasure_size');
-        var url = `/basket/remove/${itemId}/`;
+        var url = `/basket/delete/${itemId}/`;
         var data = {
             'csrfmiddlewaretoken': csrfToken,
             'treasure_size': size

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponse
 from treasures.models import Treasure
 
 
@@ -79,21 +79,18 @@ def update_basket(request, treasure_id):
 
     if 'treasure_size' in request.POST:
         size = request.POST['treasure_size']
-    basket = request.session.get('basket', {})
-
+    
     # if 'treasure_custom' in request.POST:
-    #     if request.POST['treasure_custom'] != '':
-    #         customise = request.POST['treasure_custom']
+    #     customise = request.POST['treasure_custom']
 
     # if 'treasure_personalise' in request.POST:
-    #     if request.POST['treasure_personalise'] != '':
-    #         personalise = request.POST['treasure_personalise']
+    #     personalise = request.POST['treasure_personalise']
 
+    basket = request.session.get('basket', {})
 
     if size:
         if quantity > 0:
             basket[treasure_id]['treasures_by_size'][size] = quantity
-            print(quantity)
             # messages.success(
             #     request, f'Updated size {size.upper()} {product.name} \
             #         quantity to {basket[item_id]["items_by_size"][size]}'
@@ -116,5 +113,44 @@ def update_basket(request, treasure_id):
             basket.pop(treasure_id)
             # messages.success(request, f'Removed {product.name} from your bag')
 
+    # if customise:
+    #     basket[treasure_id][customise]['treasures_by_size'][size] = quantity
+    #     # messages.success(
+    #     #     request, f'Updated size {size.upper()} {product.name} \
+    #     #         quantity to {basket[item_id]["items_by_size"][size]}'
+    #     #     )
+    # else:
+    #     basket[treasure_id][customise] = quantity
+
     request.session['basket'] = basket
     return redirect(reverse('basket_view'))
+
+
+def delete_from_basket(request, treasure_id):
+    """ Remove the item from the shopping bag """
+
+    try:
+        treasure = get_object_or_404(Treasure, pk=treasure_id)
+        size = None
+        if 'treasure_size' in request.POST:
+            size = request.POST['treasure_size']
+        basket = request.session.get('basket', {})
+
+        if size:
+            del basket[treasure_id]['treasures_by_size'][size]
+            if not basket[treasure_id]['treasures_by_size']:
+                basket.pop(treasure_id)
+            # messages.success(
+            #     request,
+            #     f'Removed size {size.upper()} {product.name} from your bag'
+            #     )
+        else:
+            basket.pop(treasure_id)
+            # messages.success(request, f'Removed {product.name} from your bag')
+
+        request.session['basket'] = basket
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        # messages.error(request, f'Error removing item {e}')
+        return HttpResponse(status=500)
