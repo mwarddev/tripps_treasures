@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from treasures.models import Treasure
 
 
@@ -20,14 +20,6 @@ def add_to_basket(request, treasure_id):
 
     if 'treasure_size' in request.POST:
         size = request.POST['treasure_size']
-
-    # if 'treasure_custom' in request.POST:
-    #     if request.POST['treasure_custom'] != '':
-    #         customise = request.POST['treasure_custom']
-
-    # if 'treasure_personalise' in request.POST:
-    #     if request.POST['treasure_personalise'] != '':
-    #         personalise = request.POST['treasure_personalise']
 
     # basket = request.session.get('basket', {'sizes': {}, 'no_sizes': {}})
     basket = request.session.get('basket', {})
@@ -75,10 +67,54 @@ def add_to_basket(request, treasure_id):
     return redirect(redirect_url)
 
 
-def update_basket(request):
+def update_basket(request, treasure_id):
     """ 
     Update size, quantity, and add customisations and
     personalisation in the shopping basket 
     """
+    quantity = int(request.POST.get('treasure_qty'))
+    size = None
+    # customise = 'N/A'
+    # personalise = 'N/A'
+
+    if 'treasure_size' in request.POST:
+        size = request.POST['treasure_size']
+    basket = request.session.get('basket', {})
+
+    # if 'treasure_custom' in request.POST:
+    #     if request.POST['treasure_custom'] != '':
+    #         customise = request.POST['treasure_custom']
+
+    # if 'treasure_personalise' in request.POST:
+    #     if request.POST['treasure_personalise'] != '':
+    #         personalise = request.POST['treasure_personalise']
 
 
+    if size:
+        if quantity > 0:
+            basket[treasure_id]['treasures_by_size'][size] = quantity
+            print(quantity)
+            # messages.success(
+            #     request, f'Updated size {size.upper()} {product.name} \
+            #         quantity to {basket[item_id]["items_by_size"][size]}'
+            #     )
+        else:
+            del basket[treasure_id]['treasures_by_size'][size]
+            if not basket[treasure_id]['treasures_by_size']:
+                basket.pop(treasure_id)
+            # messages.success(
+            #     request, f'Removed size {size.upper()} {product.name} \
+            #         from your bag'
+            #     )
+    else:
+        if quantity > 0:
+            basket[treasure_id] = quantity
+            # messages.success(
+            #     request, f'Updated {product.name} quantity to {bag[item_id]}'
+            #     )
+        else:
+            basket.pop(treasure_id)
+            # messages.success(request, f'Removed {product.name} from your bag')
+
+    request.session['basket'] = basket
+    return redirect(reverse('basket_view'))

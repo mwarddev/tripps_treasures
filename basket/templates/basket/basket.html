@@ -35,29 +35,19 @@
                                 </div>
                                 <div class="col-6">
                                     <p class="title-font"><strong>{{ item.treasure.name }}</strong></p>
-                                    <form action="" method="POST" class="form update-form">
-                                        {% csrf_token %}
-                                        {% with item.treasure.sizable as size %}
-                                            {% if size %}
-                                                <div class="container d-flex p-0">
-                                                    <p class="d-inline pr-2"><strong>Size:</strong></p>
-                                                    <select name="treasure_size" id="id_treasure_size"
-                                                        class="form-control-sm w-100 d-inline py-0 border-secondary">
-                                                        <option value="newborn" selected>Newborn</option>
-                                                        <option value="3-6_months">3-6 Months</option>
-                                                        <option value="6-9_months">6-9 Months</option>
-                                                        <option value="9-12_months">9-12 Months</option>
-                                                    </select>
-                                                </div>
-                                            {% else %}
-                                                <p><strong>Size: </strong>N/A</p>
-                                            {% endif %}
-                                        {% endwith %}
+                                    <p><strong>Size: </strong>{% if item.treasure.sizable %}{{ item.size }}{% else %}N/A{% endif %}</p>
+                                    
+                                    <form action="{% url 'update_basket' item.treasure_id %}" method="POST" class="form update-form">
+                                        {% csrf_token %} 
                                         <div class="container d-flex p-0">
                                             <p class="d-inline pr-2"><strong>Qty:</strong></p>
-                                            <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="1"
-                                                max="99" class="form-control-sm qty-input border-secondary mr-5">
+                                            <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="0"
+                                                max="99" class="form-control-sm qty-input border-secondary mr-5"
+                                                id="id_qty_{{ item.treasure_id }}">
                                         </div>
+                                        {% if item.treasure.sizable %}
+                                            <input type="hidden" name="treasure_size" value="{{ item.size }}">
+                                        {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -88,18 +78,20 @@
                                             <p class="pt-2"><strong>Personalise: </strong>N/A</p>
                                         {% endif %}
                                     {% endwith %}
-                                    </form>
+                                        
+                                    
                                 </div>
                                 
                                 <div class="col-4 text-right align-self-end">
-                                    <a class="update-link mb-3">
-                                        <i class="fa-solid fa-pencil fa-xl text-dark"></i>
-                                    </a>
-                                    <a class="remove-link text-dark mb-5 pb-3" id="remove_{{item.treasure_id}}" data-size="{{ item.size }}" href="">
+                                    <button type="submit" class="border-0">
+                                        <i class="fa-solid fa-arrows-rotate fa-xl text-dark"></i>
+                                    </button>
+                                    <a class="remove-item text-dark mb-5 pb-3" id="remove_{{item.treasure_id}}" data-product_size="{{ item.size }}">
                                         <i class="fa-solid fa-trash-can fa-xl"></i>
                                     </a>
                                     <p class="mt-5"><strong>£{{ item.treasure.price }}</strong></p>
                                 </div>
+                                    </form>
                             </div>
                         </div>  
                     </div>
@@ -133,22 +125,27 @@
 </div>
 {% endblock %}
 
+{% block postloadjs %}
+{{ block.super }}
+<
+
 <script type="text/javascript">
     // Update quantity on click
-    $('.update-link').click(function (e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
+    // $('.update-link').click(function (e) {
+    //     var form = $(this).prev('.update-form');
+    //     console.log(form);
+    //     form.submit();
+    // })
 
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('product_size');
+        var size = $(this).data('treasure_size');
         var url = `/basket/remove/${itemId}/`;
         var data = {
             'csrfmiddlewaretoken': csrfToken,
-            'product_size': size
+            'treasure_size': size
         };
 
         $.post(url, data)
@@ -157,3 +154,4 @@
             });
     })
 </script>
+{% endblock %}

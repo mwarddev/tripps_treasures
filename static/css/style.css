@@ -84,6 +84,6 @@ a:link {
 /* Basket */
 
 .update-link,
-.remove-link {
+.remove-item {
     cursor: pointer;
 }
