@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load checkout_tools %}
 
 {% block page_nav %}
 {% include 'extra_html/main_nav.html' %}
@@ -78,10 +79,7 @@
                                             <p class="pt-2"><strong>Personalise: </strong>N/A</p>
                                         {% endif %}
                                     {% endwith %}
-                                        
-                                    
                                 </div>
-                                
                                 <div class="col-4 text-right align-self-end">
                                     <button type="submit" class="border-0 bg-white">
                                         <i class="fa-solid fa-arrows-rotate fa-xl text-dark"></i>
@@ -89,7 +87,7 @@
                                     <a class="remove-item text-dark mb-5 pb-3" id="remove_{{item.treasure_id}}" data-treasure_size="{{ item.size }}">
                                         <i class="fa-solid fa-trash-can fa-xl"></i>
                                     </a>
-                                    <p class="mt-5"><strong>£{{ item.treasure.price }}</strong></p>
+                                    <p class="mt-5"><strong>£{{ item.treasure.price | calc_subtotal:item.quantity }}</strong></p>
                                 </div>
                                     </form>
                             </div>
@@ -114,7 +112,7 @@
                         <a href="{% url 'home' %}" class="btn bg-grey text-white mr-2">
                             <strong>Continue Shopping</strong>
                         </a>
-                        <a href="#" class="btn bg-blue ml-2">
+                        <a href="{% url 'checkout' %}" class="btn bg-blue ml-2">
                             <strong>Go to Checkout</strong>
                         </a>
                     </div>
@@ -127,7 +125,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<
 
 <script type="text/javascript">
     

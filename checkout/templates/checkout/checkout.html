@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load checkout_tools %}
+
+{% block page_nav %}
+{% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center mt-3">
+            <h3 class="title-font">Checkout</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-4 right-border">
+            <p class="text-muted">Summary: {{ treasure_count }} item(s)</p>
+            {% for item in basket_items %}
+                <div class="row">
+                    <div class="col-3">
+                        {% for img in item.treasure.images.all %}
+                            {% if img %}
+                                {% if forloop.first %}
+                                    <img class="img-fluid h-100 preview" src="{{ img.image.url }}"
+                                        alt="{{ item.name }}">
+                                {% endif %}
+                            {% else %}
+                                <img class="img-fluid h-50 preview" src="{{ MEDIA_URL }}no_image.png"
+                                    alt="{{ item.name }}">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-5">
+                        <p class="small mb-1"><strong>{{ item.treasure.name }}</strong></p>
+                        <p class="small mb-1"><strong>Size: </strong>{% if item.treasure.sizable %}{{ item.size }}{% else %}N/A{% endif %}</p>
+                        <p class="small mb-1"><strong>Qty: </strong>{{ item.quantity}}</p>
+                    </div>
+                    <div class="col-4 text-right">
+                        <p class="small"><strong>Subtotal</strong></p>
+                        <p>£{{ item.treasure.price | calc_subtotal:item.quantity }}</p>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            <div class="row">
+                <div class="col-6">
+                    <p class="mb-1"><strong>Total:</strong></p>
+                    <p class="mb-1"><strong>Delivery:</strong></p>
+                    <p class="mb-1"><strong>Grand Total:</strong></p>
+                </div>
+                <div class="col-6">
+                    <p class="text-right mb-1">£{{ total | floatformat:2 }}</p>
+                    <p class="text-right mb-1">£{{ delivery | floatformat:2 }}</p>
+                    <p class="text-right mb-1">£{{ grand_total | floatformat:2 }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4 right-border">
+            <form action="{% url 'checkout' %}" method="POST" id="purchase-form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="fieldset-lable">
+                        Your Details
+                    </legend>
+                    {{ purchase_form.full_name | as_crispy_field }}
+                    {{ purchase_form.email | as_crispy_field }}
+                    {{ purchase_form.phone | as_crispy_field }}
+                    {{ purchase_form.city | as_crispy_field }}
+                    {{ purchase_form.address_line1 | as_crispy_field }}
+                    {{ purchase_form.address_line2 | as_crispy_field }}
+                    {{ purchase_form.county | as_crispy_field }}
+                    {{ purchase_form.postcode | as_crispy_field }}
+                    {{ purchase_form.country | as_crispy_field }}
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-12 col-sm-4"></div>
+    </div>
+</div>
+{% endblock %}

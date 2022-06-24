@@ -20,8 +20,8 @@ class PurchaseForm(forms.ModelForm):
             'email': 'example@email.com',
             'phone': '(optional)',
             'city': 'Town or City',
-            'street_address1': 'House/Flat Name/Number',
-            'street_address2': 'Street name',
+            'address_line1': 'Example: 42 The Street',
+            'address_line2': '(optional)',
             'county': 'County/State',
             'postcode': 'Postcode/Zipcode',
             'country': 'Country',
@@ -31,9 +31,9 @@ class PurchaseForm(forms.ModelForm):
         for field in self.fields:
             # if field != 'country':
             if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
+                placeholder = f'{placeholders[field]}'
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = True
+            # self.fields[field].label = True
