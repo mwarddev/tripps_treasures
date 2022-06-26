@@ -12,8 +12,8 @@
                 <h5 class="title-font">{{ treasure.category.display_name }}</h5>
                 <div id="treasure-images" class="carousel slide" data-bs-ride="false" data-interval="false">
                     <div class="carousel-inner">
-                    {% for img in treasure.images.all %}
-                        {% if img %}
+                    {% if treasure.images.all %}
+                        {% for img in treasure.images.all %}
                             {% if forloop.first %}
                                 <div class="carousel-item active">
                                     <a href="{{ img.image.url }}" target="_blank">
@@ -27,10 +27,10 @@
                                     </a>
                                 </div>
                             {% endif %}
-                        {% else %}
-                            <img class="d-block w-100" src="{{ MEDIA_URL }}no_image.png" alt="{{ treasure.name }}">
-                        {% endif %}
-                    {% endfor %}     
+                        {% endfor %}
+                    {% else %}
+                        <img class="d-block w-100" src="{{ MEDIA_URL }}no_image.png" alt="{{ treasure.name }}">
+                    {% endif %}
                     </div>
                     <a class="carousel-control-prev" href="#treasure-images" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -52,7 +52,7 @@
                             {% if size %}
                             <div class="col-12">
                                 <p class="d-inline pr-3"><strong>Size:</strong></p>
-                                <select name="treasure_size" id="id_treasure_size" class="form-control-sm w-25 d-inline py-0 border-secondary">
+                                <select name="treasure_size" id="id_treasure_size" class="form-control-sm w-50 d-inline py-0 border-secondary">
                                     <option value="newborn" selected>Newborn</option>
                                     <option value="3-6_months">3-6 Months</option>
                                     <option value="6-9_months">6-9 Months</option>
@@ -60,21 +60,21 @@
                                 </select>
                             </div>
                             {% endif %}
-                            <div class="col-6 d-flex mt-3 align-items-end">
-                                <p class="d-inline mb-1 pr-3"><strong>Qty:</strong></p>
-                                <input type="number" name="treasure_qty" value="1" min="1" max="99" class="form-control-sm qty-input border-secondary">
-                            </div>
-                            <div class="col-6">
-                                <p class="text-right mt-4 mb-0 price"><strong>£{{ treasure.price }}</strong></p>
-                            </div>
-                            <div class="col-12 text-center mt-3">
-                                <a href="{% url 'home' %}" class="btn bg-grey text-white">
-                                    Continue Shopping
-                                </a>
-                                <input type="submit" class="btn bg-blue" value="Add to Basket">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
+                        <div class="col-6 d-flex mt-3 align-items-end">
+                            <p class="d-inline mb-1 pr-3"><strong>Qty:</strong></p>
+                            <input type="number" name="treasure_qty" value="1" min="1" max="99" class="form-control-sm qty-input border-secondary">
+                        </div>
+                        <div class="col-6">
+                            <p class="text-right mt-4 mb-0 price"><strong>£{{ treasure.price }}</strong></p>
+                        </div>
+                        <div class="col-12 text-center mt-3">
+                            <a href="{% url 'home' %}" class="btn bg-grey text-white">
+                                Continue Shopping
+                            </a>
+                            <input type="submit" class="btn bg-blue" value="Add to Basket">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                 </form>
             </div>
@@ -82,15 +82,15 @@
                 <h5 class="title-font text-center mb-4">You May Also Like</h5>
                 <a href="{% url 'full_details' related.id %}"> 
                     <div class="mb-4 text-center">
-                        {% for img in related.images.all %}
-                            {% if img %}
+                        {% if treasure.images.all %}
+                            {% for img in related.images.all %}
                                 {% if forloop.first %}
                                     <img class="img-fluid img-top w-50 h-50 preview" src="{{ img.image.url }}" alt="{{ related.name }}">
                                 {% endif %}
-                            {% else %}
-                            <img class="img-fluid img-top preview" src="{{ MEDIA_URL }}no_image.png" alt="{{ related.name }}">
-                            {% endif %}
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                        <img class="img-fluid img-top preview" src="{{ MEDIA_URL }}no_image.png" alt="{{ related.name }}">
+                        {% endif %}
                         <div class="card-body">
                             <p><em class="text-dark">{{ related.name }}</em></p>
                             <p class="mb-0"><strong class="text-dark">£{{ related.price }}</strong></p>

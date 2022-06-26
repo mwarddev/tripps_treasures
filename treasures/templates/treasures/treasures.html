@@ -24,15 +24,17 @@
             <div class="col-12 col-sm-3">
                 <a href="{% url 'full_details' treasure.id %}"> 
                     <div class="card shadow mb-4">
-                        {% for img in treasure.images.all %}
-                            {% if img %}
+                        {% if treasure.images.all %}
+                            {% for img in treasure.images.all %}
                                 {% if forloop.first %}
-                                    <img class="img-fluid img-top w-100 preview" src="{{ img.image.url }}" alt="{{ treasure.name }}">
+                                    <img class="img-fluid w-100 preview" src="{{ img.image.url }}"
+                                        alt="{{ treasure.name }}">
                                 {% endif %}
-                            {% else %}
-                            <img class="img-fluid img-top preview" src="{{ MEDIA_URL }}no_image.png" alt="{{ treasure.name }}">
-                            {% endif %}
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                            <img class="img-fluid w-100 preview" src="{{ MEDIA_URL }}no_image.png"
+                                alt="{{ treasure.name }}">
+                        {% endif %}
                         <div class="card-body">
                             <p><em class="text-dark">{{ treasure.name }}</em></p>
                             <p class="mb-0"><strong class="text-dark">£{{ treasure.price }}</strong></p>

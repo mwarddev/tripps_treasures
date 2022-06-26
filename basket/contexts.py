@@ -12,26 +12,26 @@ def basket_contents(request):
     treasure_count = 0
     basket = request.session.get('basket', {})
     print(basket)
-    for treasure_id, treasure_data in basket.items():
-        if isinstance(treasure_data, int):
-            treasure = get_object_or_404(Treasure, pk=treasure_id)
-            total += treasure_data * treasure.price
-            treasure_count += treasure_data
+    for key, value in basket.items():
+        if isinstance(value, int):
+            treasure = get_object_or_404(Treasure, pk=key)
+            total += value * treasure.price
+            treasure_count += value
             basket_items.append({
-                'treasure_id': treasure_id,
-                'quantity': treasure_data,
+                'treasure_id': key,
                 'treasure': treasure,
+                'quantity': value,
             })
         else:
-            treasure = get_object_or_404(Treasure, pk=treasure_id)
-            for key, value in treasure_data['treasures_by_size'].items():
-                total += treasure.price * value
-                treasure_count += value
+            treasure = get_object_or_404(Treasure, pk=key)
+            for size, quantity in value['sizeable'].items():
+                total += quantity * treasure.price
+                treasure_count += quantity
                 basket_items.append({
-                    'treasure_id': treasure_id,
-                    'quantity': value,
+                    'treasure_id': key,
                     'treasure': treasure,
-                    'size': key,
+                    'size': size,
+                    'quantity': quantity,
                 })
 
     delivery = total * Decimal(settings.DELIVERY_PERCENTAGE / 100)

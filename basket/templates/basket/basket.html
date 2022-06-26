@@ -22,68 +22,44 @@
                         <div class="col-12 col-sm-6">
                             <div class="row">
                                 <div class="col-6">
-                                    {% for img in item.treasure.images.all %}
-                                        {% if img %}
+                                    {% if item.treasure.images.all %}
+                                        {% for img in item.treasure.images.all %}
                                             {% if forloop.first %}
-                                                <img class="img-fluid img-top w-75 h-75 preview" src="{{ img.image.url }}"
+                                                <img class="img-fluid h-75 w-75 preview" src="{{ img.image.url }}"
                                                     alt="{{ item.name }}">
                                             {% endif %}
-                                        {% else %}
-                                            <img class="img-fluid img-top w-75 h-75 preview" src="{{ MEDIA_URL }}no_image.png"
-                                                alt="{{ item.name }}">
-                                        {% endif %}
-                                    {% endfor %}
+                                        {% endfor %}
+                                    {% else %}
+                                        <img class="img-fluid h-75 w-75 preview" src="{{ MEDIA_URL }}no_image.png"
+                                            alt="{{ item.name }}">
+                                    {% endif %}
                                 </div>
                                 <div class="col-6">
                                     <p class="title-font"><strong>{{ item.treasure.name }}</strong></p>
-                                    <p><strong>Size: </strong>{% if item.treasure.sizable %}{{ item.size }}{% else %}N/A{% endif %}</p>
-                                    
                                     <form action="{% url 'update_basket' item.treasure_id %}" method="POST" class="form update-form">
                                         {% csrf_token %} 
-                                        <div class="container d-flex p-0">
-                                            <p class="d-inline pr-2"><strong>Qty:</strong></p>
-                                            <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="1"
-                                                max="99" class="form-control-sm qty-input border-secondary mr-5"
-                                                id="id_qty_{{ item.treasure_id }}">
-                                        </div>
-                                        {% if item.treasure.sizable %}
-                                            <input type="hidden" name="treasure_size" value="{{ item.size }}">
-                                        {% endif %}
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="row">
                                 <div class="col-8">
-                                    {% with item.treasure.customisable as custom %}
-                                        {% if custom %}
-                                            <div class="col-12 p-0">
-                                                <p class="mb-1"><strong>Customisation:</strong></p>
-                                                <textarea name="treasure_custom" id="id_treasure_custom"
-                                                    class="form-control border-secondary" rows="3"
-                                                    placeholder="Enter your customisations here (e.g., fabric name, letters and characters, any special requirements)."></textarea>
-                                            </div>
-                                        {% else %}
-                                            <p><strong>Customisation: </strong>N/A</p>
-                                        {% endif %}
-                                    {% endwith %}
-                                    {% with item.treasure.personalisable as personalise %}
-                                        {% if personalise %}
-                                            <div class="col-12 p-0">
-                                                <p class="mb-1 pt-2"><strong>Personalise:</strong></p>
-                                                <input type="text" name="treasure_personalise" id="id_treasure_personalise"
-                                                    class="form-control d-inline border-secondary py-0"
-                                                    placeholder="Enter a name here.">
-                                            </div>
-                                        {% else %}
-                                            <p class="pt-2"><strong>Personalise: </strong>N/A</p>
-                                        {% endif %}
-                                    {% endwith %}
+                                    <p><strong>Size: </strong>{% if item.treasure.sizable %}{{ item.size }}{% else %}N/A{% endif %}</p>
+                                    <div class="container d-flex p-0">
+                                        <p class="d-inline pr-2"><strong>Qty:</strong></p>
+                                        <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="1"
+                                            max="99" class="form-control-sm qty-input border-secondary mr-5"
+                                            id="id_qty_{{ item.treasure_id }}">
+                                        <button type="submit" class="border-0 bg-white">
+                                        <i class="fa-solid fa-arrows-rotate fa-xl text-dark"></i>
+                                        </button>
+                                    </div>
+                                    {% if item.treasure.sizable %}
+                                        <input type="hidden" name="treasure_size" value="{{ item.size }}">
+                                    {% endif %}
                                 </div>
                                 <div class="col-4 text-right align-self-end">
-                                    <button type="submit" class="border-0 bg-white">
-                                        <i class="fa-solid fa-arrows-rotate fa-xl text-dark"></i>
-                                    </button>
+                                    
                                     <a class="remove-item text-dark mb-5 pb-3" id="remove_{{item.treasure_id}}" data-treasure_size="{{ item.size }}">
                                         <i class="fa-solid fa-trash-can fa-xl"></i>
                                     </a>
@@ -136,7 +112,7 @@
         var url = `/basket/delete/${itemId}/`;
         var data = {
             'csrfmiddlewaretoken': csrfToken,
-            'treasure_size': size
+            'treasure_size': size,
         };
 
         $.post(url, data)
