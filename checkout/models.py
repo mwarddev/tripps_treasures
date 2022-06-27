@@ -49,11 +49,6 @@ class Purchase(models.Model):
     shp_county = models.CharField(max_length=100, null=True, blank=True)
     shp_country = CountryField(blank_label='Country *', null=False, blank=False)
     shp_postcode = models.CharField(max_length=20, null=False, blank=False)
-    shipping = models.ForeignKey(Shipping,
-                                 null=False,
-                                 blank=False,
-                                 on_delete=models.CASCADE,
-                                 related_name='shipping')
     subtotal = models.DecimalField(max_digits=6,
                                    decimal_places=2,
                                    null=False,

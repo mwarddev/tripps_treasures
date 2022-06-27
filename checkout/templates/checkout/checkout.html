@@ -93,10 +93,10 @@
                 {{ purchase_form.shp_country | as_crispy_field }}
                 <div class="form-check form-check-inline">
                     {% if user.is_authenticated %}
-                        <label class="form-check-label" for="save-user-info">Speed up future purchases by saving this information to my account.</label>
-                        <input class="form-check-input" type="checkbox" id="save-user-info" name="save-user-info" checked>
+                        <label class="form-check-label" for="save-info">Speed up future purchases by saving this information to my account.</label>
+                        <input class="form-check-input" type="checkbox" id="save-user-info" name="save-info" checked>
                     {% else %}
-                        <label class="form-check-label" for="save-user-info">
+                        <label class="form-check-label" for="save-info">
                             <a class="text-info" href="{% url 'account_signup' %}">Register </a>for an account or 
                             <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information and speed up future purchases.
                         </label>

@@ -43,21 +43,21 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-purchase').attr('disabled', true);
-    $('#purchase-form').fadeToggle(100);
-    $('#loading-overlay').fadeToggle(100);
+    // $('#purchase-form').fadeToggle(100);
+    // $('#loading-overlay').fadeToggle(100);
 
-    var saveInfo = Boolean($('#save-user-info').attr('checked'));
+    var saveInfo = Boolean($('#save-info').attr('checked'));
     // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
-        'client_secret': clientSecret,
+        'client_secret': client_secret,
         'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function () {
-        stripe.confirmCardPayment(clientSecret, {
+        stripe.confirmCardPayment(client_secret, {
             payment_method: {
                 card: card,
             } //remove this brace before uncommenting billing details
@@ -95,8 +95,8 @@ form.addEventListener('submit', function(ev) {
                     </span>
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
-                $('#purchase-form').fadeToggle(100);
-                $('#loading-overlay').fadeToggle(100);
+                // $('#purchase-form').fadeToggle(100);
+                // $('#loading-overlay').fadeToggle(100);
                 card.update({ 'disabled': false});
                 $('#submit-purchase').attr('disabled', false);
             } else {
