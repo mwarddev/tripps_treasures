@@ -8,7 +8,10 @@ class PurchaseForm(forms.ModelForm):
         fields = ('full_name', 'email', 'phone',
                   'address_line1', 'address_line2',
                   'city', 'county', 'country',
-                  'postcode',)
+                  'postcode', 'shp_full_name',
+                  'shp_address_line1', 'shp_address_line2',
+                  'shp_city', 'shp_county', 'shp_country',
+                  'shp_postcode',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -19,21 +22,39 @@ class PurchaseForm(forms.ModelForm):
             'full_name': 'First name, Surname',
             'email': 'example@email.com',
             'phone': '(optional)',
-            'city': 'Town or City',
-            'address_line1': 'Example: 42 The Street',
+            'address_line1': 'Example: 42 Church Street',
             'address_line2': '(optional)',
+            'city': 'Town or City',
             'county': 'County/State',
             'postcode': 'Postcode/Zipcode',
             'country': 'Country',
+            'shp_full_name': 'First name, Surname',
+            'shp_address_line1': 'Example: 42 Church Street',
+            'shp_address_line2': '(optional)',
+            'shp_city': 'Town or City',
+            'shp_county': 'County/State',
+            'shp_postcode': 'Postcode/Zipcode',
+            'shp_country': 'Country',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            # if field != 'country':
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]}'
-            else:
-                placeholder = placeholders[field]
+            if field != 'country':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]}'
+                else:
+                    placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            # self.fields[field].label = True
+            # Adjust labels for full name, address line 1 & 2
+            self.fields['full_name'].label = 'Full Name'
+            self.fields['address_line1'].label = 'Address Line 1'
+            self.fields['address_line2'].label = 'Address Line 2'
+            # Manually label shipping address fields
+            self.fields['shp_full_name'].label = 'Full Name'
+            self.fields['shp_address_line1'].label = 'Address Line 1'
+            self.fields['shp_address_line2'].label = 'Address Line 2'
+            self.fields['shp_city'].label = 'City'
+            self.fields['shp_county'].label = 'County'
+            self.fields['shp_postcode'].label = 'Postcode'
+            self.fields['shp_country'].label = 'Country'

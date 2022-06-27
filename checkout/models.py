@@ -42,6 +42,13 @@ class Purchase(models.Model):
                                         decimal_places=2,
                                         null=False,
                                         default=0)
+    shp_full_name = models.CharField(max_length=100, null=False, blank=False)
+    shp_address_line1 = models.CharField(max_length=100, null=False, blank=False)
+    shp_address_line2 = models.CharField(max_length=100, null=True, blank=True)
+    shp_city = models.CharField(max_length=50, null=False, blank=False)
+    shp_county = models.CharField(max_length=100, null=True, blank=True)
+    shp_country = CountryField(blank_label='Country *', null=False, blank=False)
+    shp_postcode = models.CharField(max_length=20, null=False, blank=False)
     shipping = models.ForeignKey(Shipping,
                                  null=False,
                                  blank=False,

@@ -2,6 +2,10 @@
 {% load static %}
 {% load checkout_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_nav %}
 {% include 'extra_html/main_nav.html' %}
 {% endblock %}
@@ -78,15 +82,15 @@
         <div class="col-12 col-sm-4">
             <fieldset>
                 <legend class="fieldset-lable title-font">
-                    Deliver to
+                    Deliver to:
                 </legend>
-                {{ purchase_form.full_name | as_crispy_field }}
-                {{ purchase_form.address_line1 | as_crispy_field }}
-                {{ purchase_form.address_line2 | as_crispy_field }}
-                {{ purchase_form.city | as_crispy_field }}
-                {{ purchase_form.county | as_crispy_field }}
-                {{ purchase_form.postcode | as_crispy_field }}
-                {{ purchase_form.country | as_crispy_field }}
+                {{ purchase_form.shp_full_name | as_crispy_field }}
+                {{ purchase_form.shp_address_line1 | as_crispy_field }}
+                {{ purchase_form.shp_address_line2 | as_crispy_field }}
+                {{ purchase_form.shp_city | as_crispy_field }}
+                {{ purchase_form.shp_county | as_crispy_field }}
+                {{ purchase_form.shp_postcode | as_crispy_field }}
+                {{ purchase_form.shp_country | as_crispy_field }}
                 <div class="form-check form-check-inline">
                     {% if user.is_authenticated %}
                         <label class="form-check-label" for="save-user-info">Speed up future purchases by saving this information to my account.</label>
@@ -108,7 +112,7 @@
                 <!-- Pass the client secret to the view so we can get the payment intent id -->
                 <input type="hidden" value="{{ client_secret }}" name="client_secret"> 
             </fieldset>
-            <span class="medium">Powered by <i class="fa-brands fa-cc-stripe"></i></span>
+            <span>Powered by <i class="fa-brands fa-cc-stripe fa-lg"></i></span>
             <div class="container-fluid text-center">                    
                 <p class="text-right"><strong>Pay £{{ grand_total|floatformat:2 }}</strong></p>
                 <a href="{% url 'home' %}" class="btn bg-grey text-white mr-2">

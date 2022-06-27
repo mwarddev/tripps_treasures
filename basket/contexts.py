@@ -11,7 +11,6 @@ def basket_contents(request):
     total = 0
     treasure_count = 0
     basket = request.session.get('basket', {})
-    print(basket)
     for key, value in basket.items():
         if isinstance(value, int):
             treasure = get_object_or_404(Treasure, pk=key)
