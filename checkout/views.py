@@ -8,8 +8,8 @@ from django.contrib import messages
 from django.conf import settings
 
 from treasures.models import Treasure
-# from accounts.forms import UserAccountForm
-# from accounts.models import UserAccount
+# from user_accounts.forms import UserAccountForm
+from user_accounts.models import UserAccount
 
 from basket.contexts import basket_contents
 from .forms import PurchaseForm
@@ -121,13 +121,13 @@ def checkout(request):
                 purchase_form = PurchaseForm(initial={
                     'full_name': account.user.get_full_name(),
                     'email': account.user.email,
-                    'phone': account.default_phone,
-                    'address_line1': account.default_address_line1,
-                    'address_line2': account.default_address_line2,
-                    'city': account.default_city,
-                    'county': account.default_county,
-                    'postcode': account.default_postcode,
-                    'country': account.default_country,
+                    'phone': account.saved_phone,
+                    'address_line1': account.saved_address_line1,
+                    'address_line2': account.saved_address_line2,
+                    'city': account.saved_city,
+                    'county': account.saved_county,
+                    'postcode': account.saved_postcode,
+                    'country': account.saved_country,
                 })
             except UserAccount.DoesNotExist:
                 purchase_form = PurchaseForm()
@@ -161,25 +161,25 @@ def checkout_success(request, purchase_number):
         purchase.user_account = account
         purchase.save()
 
-        # Save the user's info
-        if save_info:
-            account_data = {
-                'default_full_name': purchase.full_name,
-                'default_phone': purchase.phone,
-                'default_address_line1': purchase.address_line1,
-                'default_address_line2': purchase.address_line2,
-                'default_city': purchase.city,
-                'default_county': purchase.county,
-                'default_postcode': purchase.postcode,
-                'default_country': purchase.country,
-            }
-            user_account_form = UserAccountForm(account_data, instance=account)
-            if user_account_form.is_valid():
-                user_account_form.save()
+    #     # Save the user's info
+    #     if save_info:
+    #         account_data = {
+    #             'default_full_name': purchase.full_name,
+    #             'default_phone': purchase.phone,
+    #             'default_address_line1': purchase.address_line1,
+    #             'default_address_line2': purchase.address_line2,
+    #             'default_city': purchase.city,
+    #             'default_county': purchase.county,
+    #             'default_postcode': purchase.postcode,
+    #             'default_country': purchase.country,
+    #         }
+    #         user_account_form = UserAccountForm(account_data, instance=account)
+    #         if user_account_form.is_valid():
+    #             user_account_form.save()
 
-    messages.success(request, f'Purchase successfully processed! \
-        Your purchase number is {purchase_number}. A confirmation \
-        email will be sent to {purchase.email}.')
+    # messages.success(request, f'Purchase successfully processed! \
+    #     Your purchase number is {purchase_number}. A confirmation \
+    #     email will be sent to {purchase.email}.')
 
     if 'basket' in request.session:
         del request.session['basket']
