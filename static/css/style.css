@@ -64,6 +64,28 @@ a:link {
     font-size: 1.5rem;
 }
 
+/* Allauth */
+
+.comtainer-allauth {
+    
+}
+
+/* .overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: url(/static/images/logo_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    z-index: 9999999;
+    /* background-size: cover; */
+    /* background-color: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(6px); */ */
+}
+
 /* Treasures */
 
 .preview {

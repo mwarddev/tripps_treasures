@@ -4,8 +4,8 @@
 
 {% block head_title %}{% trans "Account" %}{% endblock %}
 
-{% block content %}
-    <h1>{% trans "E-mail Addresses" %}</h1>
+{% block inner-content %}
+    <h3 class="title-font text-center">{% trans "E-mail Addresses" %}</h3>
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
 
@@ -49,8 +49,8 @@
 
     <form method="post" action="{% url 'account_email' %}" class="add_email">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+        {{ form | crispy }}
+        <button class="btn bg-blue shadow" name="action_add" type="submit"><strong>{% trans "Add E-mail" %}</strong></button>
     </form>
 
 {% endblock %}

@@ -94,7 +94,7 @@
                             <a href="#" class="dropdown-item">Manage Site</a>
                             <a href="#" class="dropdown-item">Orders List</a>
                             {% else %}
-                            <a href="#" class="dropdown-item">My Account</a>
+                            <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
                             {% endif %}
                         </div>
                     </li>
@@ -110,7 +110,7 @@
                     </li>
                     <li class="list-group-item dropdown border-0">
                         {% if request.user.is_authenticated %}
-                        <a href="#">
+                        <a href="{% url 'account_logout' %}">
                             <div class="text-center text-secondary">
                                 <div><i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></div>
                                 <p class="mb-0">Logout</p>
@@ -124,8 +124,8 @@
                             </div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="auth">
-                            <a href="#" class="dropdown-item">Login</a>
-                            <a href="#" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                         </div>
                         {% endif %}
                     </li>

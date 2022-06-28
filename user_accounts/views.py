@@ -26,6 +26,7 @@ def account(request):
 
     template = 'user_accounts/user_account.html'
     context = {
+        'user_account': user_account,
         'form': form,
         'purchases': purchases,
         'on_user_account_page': True
