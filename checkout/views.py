@@ -6,6 +6,8 @@ from django.shortcuts import (render, redirect, reverse,
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from treasures.models import Treasure
 from user_accounts.forms import UserAccountForm
@@ -149,6 +151,24 @@ def checkout(request):
     return render(request, template, context)
 
 
+def _send_confirmation_email(purchase):
+    """ Send a confirmation email to the user on payment completion """
+    cust_email = purchase.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'purchase': purchase})
+
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'purchase': purchase, 'treasure_email': settings.DEFAULT_FROM_EMAIL})
+
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [cust_email]
+    )
+
 def checkout_success(request, purchase_number):
     """
     Handle successful checkouts
@@ -162,25 +182,27 @@ def checkout_success(request, purchase_number):
         purchase.user_account = account
         purchase.save()
 
-    #     # Save the user's info
-    #     if save_info:
-    #         account_data = {
-    #             'default_full_name': purchase.full_name,
-    #             'default_phone': purchase.phone,
-    #             'default_address_line1': purchase.address_line1,
-    #             'default_address_line2': purchase.address_line2,
-    #             'default_city': purchase.city,
-    #             'default_county': purchase.county,
-    #             'default_postcode': purchase.postcode,
-    #             'default_country': purchase.country,
-    #         }
-    #         user_account_form = UserAccountForm(account_data, instance=account)
-    #         if user_account_form.is_valid():
-    #             user_account_form.save()
+        # Save the user's info
+        if save_info:
+            account_data = {
+                'saved_full_name': purchase.full_name,
+                'saved_phone': purchase.phone,
+                'saved_address_line1': purchase.address_line1,
+                'saved_address_line2': purchase.address_line2,
+                'saved_city': purchase.city,
+                'saved_county': purchase.county,
+                'saved_postcode': purchase.postcode,
+                'saved_country': purchase.country,
+            }
+            user_account_form = UserAccountForm(account_data, instance=account)
+            if user_account_form.is_valid():
+                user_account_form.save()
 
     messages.success(request, f'Purchase successfully processed! \
         Your purchase number is {purchase_number}. A confirmation \
         email will be sent to {purchase.email}.')
+
+    _send_confirmation_email(purchase)
 
     if 'basket' in request.session:
         del request.session['basket']

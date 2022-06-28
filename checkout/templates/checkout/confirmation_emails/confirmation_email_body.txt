@@ -1,0 +1,30 @@
+Hello {{ purchase.full_name }}!
+
+Thank you for your purchase from Tripp's Treasures!
+
+Your treasure(s) are being created and may take a little time, 
+so we'll email you again to let you know when your treasure(s) have been despatched for delivery.
+
+Below is a summary of your order:
+
+Purchase Number:  {{ purchase.purchase_number }}
+Purchase Date:    {{ purchase.purchase_date }}
+
+Delivery Address: {{ purchase.shp_full_name }}
+                  {{ purchase.shp_address_line1 }}
+                  {% if purchase.shp_address_line2 %}{{ purchase.shp_address_line2 }}{% endif %}
+                  {{ purchase.shp_city }}
+                  {% if purchase.shp_county %}{{ purchase.shp_county }}{% endif %}
+                  {{ purchase.shp_postcode }}
+                  {{ purchase.shp_country }}
+
+Subtotal:         {{ purchase.subtotal }}
+Delivery Cost:    {{ purchase.delivery_cost }}
+Grand Toatal:     {{ purchase.grand_total }}
+
+If you have any questions about your order please contact us by email: {{ treasure_email }}
+
+Thank you again for your order!
+
+Tripp's Treasures
+
