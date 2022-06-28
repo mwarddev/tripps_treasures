@@ -114,12 +114,13 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with any 
+        # info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 account = UserAccount.objects.get(user=request.user)
                 purchase_form = PurchaseForm(initial={
-                    'full_name': account.user.get_full_name(),
+                    'full_name': account.saved_full_name,
                     'email': account.user.email,
                     'phone': account.saved_phone,
                     'address_line1': account.saved_address_line1,
