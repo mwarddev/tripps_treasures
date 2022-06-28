@@ -28,7 +28,12 @@ class UserAccountForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs['placeholder'] = placeholders[field]
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            # Adjust labels for full name, address line 1 & 2
+            # Adjust labels to remove the word "saved"
             self.fields['saved_full_name'].label = 'Full Name'
+            self.fields['saved_phone'].label = 'Phone'
             self.fields['saved_address_line1'].label = 'Address Line 1'
             self.fields['saved_address_line2'].label = 'Address Line 2'
+            self.fields['saved_city'].label = 'City'
+            self.fields['saved_county'].label = 'County'
+            self.fields['saved_postcode'].label = 'Postcode'
+            self.fields['saved_country'].label = 'Country'
