@@ -20,7 +20,7 @@ var style = {
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-// Handle realtime validation errors on the card element
+// Handle card validation errors
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -43,11 +43,8 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-purchase').attr('disabled', true);
-    // $('#purchase-form').fadeToggle(100);
-    // $('#loading-overlay').fadeToggle(100);
 
     var saveInfo = Boolean($('#save-info').attr('checked'));
-    // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
@@ -60,32 +57,7 @@ form.addEventListener('submit', function(ev) {
         stripe.confirmCardPayment(client_secret, {
             payment_method: {
                 card: card,
-            } //remove this brace before uncommenting billing details
-//                 billing_details: {
-//                     name: $.trim(form.full_name.value),
-//                     phone: $.trim(form.phone_number.value),
-//                     email: $.trim(form.email.value),
-//                     address:{
-//                         line1: $.trim(form.street_address1.value),
-//                         line2: $.trim(form.street_address2.value),
-//                         city: $.trim(form.town_or_city.value),
-//                         country: $.trim(form.country.value),
-//                         state: $.trim(form.county.value),
-//                     }
-//                 }
-//             },
-//             shipping: {
-//                 name: $.trim(form.full_name.value),
-//                 phone: $.trim(form.phone_number.value),
-//                 address: {
-//                     line1: $.trim(form.street_address1.value),
-//                     line2: $.trim(form.street_address2.value),
-//                     city: $.trim(form.town_or_city.value),
-//                     country: $.trim(form.country.value),
-//                     postal_code: $.trim(form.postcode.value),
-//                     state: $.trim(form.county.value),
-//                 }
-//             },
+            }
         }).then(function(result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
@@ -95,8 +67,6 @@ form.addEventListener('submit', function(ev) {
                     </span>
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
-                // $('#purchase-form').fadeToggle(100);
-                // $('#loading-overlay').fadeToggle(100);
                 card.update({ 'disabled': false});
                 $('#submit-purchase').attr('disabled', false);
             } else {
@@ -106,7 +76,6 @@ form.addEventListener('submit', function(ev) {
             }
         });
     }).fail(function () {
-        // just reload the page, the error will be in django messages
         location.reload();
     })
 });

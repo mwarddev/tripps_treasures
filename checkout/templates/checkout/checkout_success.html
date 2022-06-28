@@ -34,7 +34,7 @@
                     <p class="title-font"><u><strong>Purchased Items:</strong></u></p>
                     {% for item in purchase.purchaseitems.all %}
                         <p class="mb-1"><strong>Item Name: </strong>{{ item.treasure.name }}</p>
-                        {% if item_size %}
+                        {% if item.item_size %}
                         <p class="mb-1"><strong>Item Size: </strong>{{ item.item_size }}</p>
                         {% endif %}
                         <p class="mb-1"><strong>Qty: </strong>{{ item.qty }}</p>
@@ -79,6 +79,11 @@
                     <p><strong>Delivery Cost: </strong><span class="float-right">£{{ purchase.delivery_cost }}</span></p>
                     <p><strong>Grand Total: </strong><span class="float-right"><strong>£{{ purchase.grand_total }}</strong></span></p>
                 </div>
+            </div>
+            <div class="col text-center">                    
+                <a href="{% url 'home' %}" class="btn shadow bg-blue mr-2">
+                    <strong>Continue Shopping</strong>
+                </a>
             </div>
         </div>
     </div>

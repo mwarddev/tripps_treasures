@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from treasures.models import Treasure
-# from user_accounts.forms import UserAccountForm
+from user_accounts.forms import UserAccountForm
 from user_accounts.models import UserAccount
 
 from basket.contexts import basket_contents
@@ -18,6 +18,10 @@ from .models import Purchase, PurchaseItem
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Check if user has the save user
+    information box checked on form submission 
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -61,11 +65,7 @@ def checkout(request):
 
         purchase_form = PurchaseForm(form_data)
         if purchase_form.is_valid():
-            purchase = purchase_form.save(commit=False)
-            pid = request.POST.get('client_secret').split('_secret')[0]
-            purchase.stripe_pid = pid
-            purchase.original_basket = json.dumps(basket)
-            purchase.save()
+            purchase = purchase_form.save()
             for key, value in basket.items():
                 try:
                     treasure = Treasure.objects.get(id=key)
@@ -81,7 +81,7 @@ def checkout(request):
                             purchase_item = PurchaseItem(
                                 purchase=purchase,
                                 treasure=treasure,
-                                quantity=quantity,
+                                qty=quantity,
                                 item_size=size,
                             )
                             purchase_item.save()
@@ -177,9 +177,9 @@ def checkout_success(request, purchase_number):
     #         if user_account_form.is_valid():
     #             user_account_form.save()
 
-    # messages.success(request, f'Purchase successfully processed! \
-    #     Your purchase number is {purchase_number}. A confirmation \
-    #     email will be sent to {purchase.email}.')
+    messages.success(request, f'Purchase successfully processed! \
+        Your purchase number is {purchase_number}. A confirmation \
+        email will be sent to {purchase.email}.')
 
     if 'basket' in request.session:
         del request.session['basket']

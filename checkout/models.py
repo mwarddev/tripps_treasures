@@ -6,7 +6,6 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from treasures.models import Treasure
-from shipping.models import Shipping
 from user_accounts.models import UserAccount
 
 
@@ -57,11 +56,6 @@ class Purchase(models.Model):
                                       decimal_places=2,
                                       null=False,
                                       default=0)
-    original_basket = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254,
-                                  null=False,
-                                  blank=False,
-                                  default='')
     purchase_status = models.CharField(max_length=9,
                                        choices=STATUS,
                                        default='new')
@@ -104,7 +98,7 @@ class PurchaseItem(models.Model):
                                  null=False,
                                  blank=False,
                                  on_delete=models.CASCADE)
-    item_size = models.CharField(max_length=7, null=True, blank=True)
+    item_size = models.CharField(max_length=20, null=True, blank=True)
     qty = models.IntegerField(null=False, blank=False, default=0)
     customise = models.TextField(null=True, blank=True)
     personalise = models.CharField(max_length=150, null=True, blank=True)
