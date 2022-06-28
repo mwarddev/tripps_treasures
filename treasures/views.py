@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Treasure, Category
+from .forms import TreasureForm
 
 
 def all_treasures(request):
@@ -57,3 +58,23 @@ def full_details(request, treasure_id):
     }
 
     return render(request, template_name, context)
+
+
+def add_treasure(request):
+    """ Add new products """
+    if request.method == 'POST':
+        form = TreasureForm(request.POST, request.FILES)
+        if form.is_valid():
+            treasure = form.save()
+            messages.success(request, 'You successfully added a treasure!')
+            return redirect(reverse('full_details', args=[treasure.id]))
+        else:
+            messages.error(request, 'Whooops! We failed to add treasure. Please ensure the form is valid')
+    else:
+        form = TreasureForm()
+    template = 'treasures/add_treasure.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

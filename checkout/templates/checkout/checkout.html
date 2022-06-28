@@ -23,17 +23,13 @@
             {% for item in basket_items %}
                 <div class="row">
                     <div class="col-3">
-                        {% if item.treasure.images.all %}
-                            {% for img in item.treasure.images.all %}
-                                {% if forloop.first %}
-                                    <img class="img-fluid h-100 preview" src="{{ img.image.url }}"
-                                        alt="{{ item.name }}">
-                                {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            <img class="img-fluid h-100 preview" src="{{ MEDIA_URL }}no_image.png"
-                                alt="{{ item.name }}">
-                        {% endif %}
+                    {% if treasure.image %}
+                        <img class="img-fluid w-100 preview" src="{{ treasure.image.url }}"
+                            alt="{{ treasure.name }}">
+                    {% else %}
+                        <img class="img-fluid w-100 preview" src="{{ MEDIA_URL }}no_image.png"
+                            alt="{{ treasure.name }}">
+                    {% endif %}
                     </div>
                     <div class="col-5">
                         <p class="small mb-1"><strong>{{ item.treasure.name }}</strong></p>

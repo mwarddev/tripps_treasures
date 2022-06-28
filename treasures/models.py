@@ -25,6 +25,7 @@ class Treasure(models.Model):
                                  on_delete=models.SET_NULL)
     name = models.CharField(max_length=150)
     description = models.TextField()
+    image = models.ImageField(null=True, blank=True)
     personalisable = models.BooleanField(default=False, null=True, blank=True)
     customisable = models.BooleanField(default=False, null=True, blank=True)
     sizable = models.BooleanField(default=False, null=True, blank=True)

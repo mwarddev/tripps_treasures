@@ -24,13 +24,9 @@
             <div class="col-12 col-sm-3">
                 <a href="{% url 'full_details' treasure.id %}"> 
                     <div class="card shadow mb-4">
-                        {% if treasure.images.all %}
-                            {% for img in treasure.images.all %}
-                                {% if forloop.first %}
-                                    <img class="img-fluid w-100 preview" src="{{ img.image.url }}"
-                                        alt="{{ treasure.name }}">
-                                {% endif %}
-                            {% endfor %}
+                        {% if treasure.image %}
+                            <img class="img-fluid w-100 preview" src="{{ treasure.image.url }}"
+                                alt="{{ treasure.name }}">
                         {% else %}
                             <img class="img-fluid w-100 preview" src="{{ MEDIA_URL }}no_image.png"
                                 alt="{{ treasure.name }}">

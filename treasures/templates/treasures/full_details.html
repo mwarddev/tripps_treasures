@@ -10,37 +10,13 @@
         <div class="row">
             <div class="col-12 col-sm-3 mb-4 text-center">
                 <h5 class="title-font">{{ treasure.category.display_name }}</h5>
-                <div id="treasure-images" class="carousel slide" data-bs-ride="false" data-interval="false">
-                    <div class="carousel-inner">
-                    {% if treasure.images.all %}
-                        {% for img in treasure.images.all %}
-                            {% if forloop.first %}
-                                <div class="carousel-item active">
-                                    <a href="{{ img.image.url }}" target="_blank">
-                                        <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ treasure.name }}">
-                                    </a>
-                                </div>
-                            {% else %}
-                                <div class="carousel-item">
-                                    <a href="{{ img.image.url }}" target="_blank">
-                                        <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ treasure.name }}">
-                                    </a>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        <img class="d-block w-100" src="{{ MEDIA_URL }}no_image.png" alt="{{ treasure.name }}">
-                    {% endif %}
-                    </div>
-                    <a class="carousel-control-prev" href="#treasure-images" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#treasure-images" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>   
+                {% if treasure.image %}
+                    <img class="img-fluid w-100 preview" src="{{ treasure.image.url }}"
+                        alt="{{ treasure.name }}">
+                {% else %}
+                    <img class="img-fluid w-100 preview" src="{{ MEDIA_URL }}no_image.png"
+                        alt="{{ treasure.name }}">
+                {% endif %}
             </div>
             <div class="col-12 col-sm-5 right-border">
                 <h4 class="title-font text-center text-dark pb-2">{{ treasure.name }}</h4>
@@ -82,14 +58,12 @@
                 <h5 class="title-font text-center mb-4">You May Also Like</h5>
                 <a href="{% url 'full_details' related.id %}"> 
                     <div class="mb-4 text-center">
-                        {% if treasure.images.all %}
-                            {% for img in related.images.all %}
-                                {% if forloop.first %}
-                                    <img class="img-fluid img-top w-50 h-50 preview" src="{{ img.image.url }}" alt="{{ related.name }}">
-                                {% endif %}
-                            {% endfor %}
+                        {% if related.image %}
+                            <img class="img-fluid w-50 h-50 preview" src="{{ related.image.url }}"
+                                alt="{{ related.name }}">
                         {% else %}
-                        <img class="img-fluid img-top preview" src="{{ MEDIA_URL }}no_image.png" alt="{{ related.name }}">
+                            <img class="img-fluid w-50 h-50 preview" src="{{ MEDIA_URL }}no_image.png"
+                                alt="{{ related.name }}">
                         {% endif %}
                         <div class="card-body">
                             <p><em class="text-dark">{{ related.name }}</em></p>

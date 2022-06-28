@@ -8,6 +8,7 @@ class TreasureAdmin(admin.ModelAdmin):
         'category',
         'description',
         'price',
+        'image',
     )
 
     ordering = ('name',)
