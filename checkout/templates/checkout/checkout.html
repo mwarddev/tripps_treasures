@@ -23,12 +23,12 @@
             {% for item in basket_items %}
                 <div class="row">
                     <div class="col-3">
-                    {% if treasure.image %}
-                        <img class="img-fluid w-100 preview" src="{{ treasure.image.url }}"
-                            alt="{{ treasure.name }}">
+                    {% if item.treasure.image %}
+                        <img class="img-fluid w-100 preview" src="{{ item.treasure.image.url }}"
+                            alt="{{ item.treasure.name }}">
                     {% else %}
                         <img class="img-fluid w-100 preview" src="{{ MEDIA_URL }}no_image.png"
-                            alt="{{ treasure.name }}">
+                            alt="{{ item.treasure.name }}">
                     {% endif %}
                     </div>
                     <div class="col-5">

@@ -9,6 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO -->
+    <meta name="description" content="Handmade personalised gifts retailer, Unique gifts for special occasions">
+    <meta name="keywords" contents="Unique gifts, Gifts for her, Gifts for him, Gifts for pets, Baby clothes,
+    Homewares, Gifts, Baby taggies, Baby rompers, Personalised bibs">
+
     {% endblock %}
 
     {% block extra_meta %}
@@ -47,42 +53,42 @@
             </div>
         </div>
         <div class="row pt-2 d-flex shadow-sm">
-            <div class="col-12 col-md-6 pr-1">
+            <div class="col-12 col-lg-6 pr-1">
                 <a class="no-dec" href="{% url 'home' %}">
                     <div class="row px-1">
                         <div class="col-3 text-right">
-                            <img src="{% static 'images/logo.jpg' %}" alt="Site logo">
+                            <img class="img-fluid w-60 h-75" src="{% static 'images/logo.jpg' %}" alt="Site logo">
                         </div>
                         <div class="col-9">
                             <div>
                                 <h1 class="title-font text-dark">Tripp's Treasures</h1>
                             </div>
-                            <div class="text-right d-none d-sm-block">
-                                <h2 class="title-font text-dark">Handmade Personalised Gifts</h2>
+                            <div class="text-right d-none d-md-block">
+                                <h4 class="title-font text-dark">Handmade Personalised Gifts</h4>
                             </div>
                         </div>
                     </div>
                 </a>
                 <hr class="d-md-none m-0">
             </div>
-            <div class="col-md-3 my-auto mx-auto d-none d-sm-block">
+            <div class="col-lg-3 my-auto mx-auto d-none d-md-block">
                 <form method="GET" action="{% url 'treasures' %}">
                     <div class="input-group">
-                        <input type="text" class="form-control border-secondary" name="search" placeholder="Search here">
+                        <input type="text" class="form-control-sm border-secondary py-3" name="search" placeholder="Search here">
                         <div class="input-group-append">
-                            <button class="btn border-secondary bg-blue" type="submit">
+                            <button class="btn-sm border-secondary bg-blue" type="submit">
                                 <span>
-                                    <i class="fas fa-search"></i>
+                                    <i class="fas fa-search p-0"></i>
                                 </span>
                             </button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="col-md-3 my-auto d-none d-sm-block">
+            <div class="col-lg-3 my-auto d-none d-md-block">
                 <ul class="list-group list-group-horizontal list-unstyled text-center">
                     {% if request.user.is_authenticated %}
-                    <li class="list-group-item dropdown border-0">
+                    <li class="list-group-item dropdown border-0 ">
                         <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center text-secondary">
                                 <div><i class="fa-solid fa-circle-user fa-lg"></i></div>
@@ -93,7 +99,7 @@
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
                             {% else %}
-                            <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
+                            <a href="{% url 'account' %}" class="dropdown-item pl-0">My Account</a>
                             {% endif %}
                         </div>
                     </li>
@@ -177,8 +183,10 @@
                 </ul>
             </div>
             <div class="col-12 col-md-4 text-center external-link">
-                <a href="#"><i class="fa-brands fa-etsy text-dark px-2"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook-f text-dark px-2"></i></a>
+                <a href="https://www.etsy.com/uk/shop/TrippsTreasuresUK?ref=seller-platform-mcnav" target="_blank" rel="noopener" aria-label="External link to Tripp's Treasures Etsy site">
+                    <i class="fa-brands fa-etsy text-dark px-2"></i></a>
+                <a href="https://www.facebook.com/TrippsTreasure"target="_blank" rel="noopener" aria-label="External link to Tripp's Treasures facebook page.">
+                    <i class="fa-brands fa-facebook-f text-dark px-2"></i></a>
             </div>
             <div class="col-12 col-md-4">
                 <ul class="list-unstyled text-right">
