@@ -43,7 +43,7 @@
     <header class="container-fluid fixed-top bg-white">
         <div id="info-banner" class="row text-center">
             <div class="col bg-info text-white">
-                <h4 class="m-0 py-1">This is an info banner</h4>
+                <h4 class="m-0 py-1">New treasures comming soon!</h4>
             </div>
         </div>
         <div class="row pt-2 d-flex shadow-sm">
@@ -92,7 +92,6 @@
                         <div class="dropdown-menu" aria-labelledby="user-menu">
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
-                            <a href="#" class="dropdown-item">Orders List</a>
                             {% else %}
                             <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
                             {% endif %}
@@ -169,26 +168,22 @@
     <footer class="container-fluid">
         <hr>
         <div class="row">
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <ul class="list-unstyled">
-                    <li class="site-link">
-                        <a href="#">Contact Us</a>
+                    <li>
+                        {% include 'newsletter/news.html' %}
                     </li>
-                    <li class="site-link">
-                        <a href="#">Site Map</a>
-                    </li>
+                    
                 </ul>
             </div>
-            <div class="col-4 text-center external-link">
+            <div class="col-12 col-md-4 text-center external-link">
                 <a href="#"><i class="fa-brands fa-etsy text-dark px-2"></i></a>
                 <a href="#"><i class="fa-brands fa-facebook-f text-dark px-2"></i></a>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <ul class="list-unstyled text-right">
-                    <li>
-                        <p>
-                            Sign up for our newsletter <a href="#">here.</a>
-                        </p>
+                    <li class="site-link">
+                        <a href="#">Site Map</a>
                     </li>
                     <li>
                         <p class="text-right copywrite">

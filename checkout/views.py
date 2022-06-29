@@ -22,7 +22,7 @@ from .models import Purchase, PurchaseItem
 def cache_checkout_data(request):
     """
     Check if user has the save user
-    information box checked on form submission 
+    information box checked on form submission
     """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
@@ -89,7 +89,8 @@ def checkout(request):
                             purchase_item.save()
                 except Treasure.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your basket wasn't found in our database. "
+                        "One of the products in your basket\
+                             wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     purchase.delete()
@@ -97,7 +98,8 @@ def checkout(request):
 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[purchase.purchase_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[purchase.purchase_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')

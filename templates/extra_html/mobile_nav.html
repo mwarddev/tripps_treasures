@@ -45,7 +45,6 @@
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                         <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
-                        <a href="#" class="dropdown-item">Orders List</a>
                     {% else %}
                         <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
                     {% endif %}

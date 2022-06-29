@@ -1,0 +1,12 @@
+<form method="POST">
+    {% csrf_token %}
+    <div class="input-group">
+        <span class="mr-2">Sign up for our news letter</span>
+        <input type="email" class="form-control-sm" name="news" placeholder="Email">
+        <div class="input-group-append">
+            <button class="btn-sm border-info rounded-right bg-blue" type="submit">
+                Sign up
+            </button>
+        </div>
+    </div>
+</form>
