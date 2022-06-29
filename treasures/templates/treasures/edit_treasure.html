@@ -13,14 +13,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6 px-5 right-border">
-                <h3 class="title-font">Add Treasures</h3>
-                <form method="POST" action="{% url 'add_treasure' %}" class="form mb-3" enctype="multipart/form-data">
+            <div class="col-12 col-md-6 offset-3 px-5">
+                <h3 class="title-font">Edit Treasures</h3>
+                <form method="POST" action="{% url 'edit_treasure' treasure.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-center">
-                        <a class="btn bg-grey shadow text-white" href="{% url 'add_treasure' %}"><strong>Cancel</strong></a>
-                        <button class="btn bg-blue shadow" type="submit"><strong>Add Treasure</strong></button>
+                        <a class="btn bg-grey shadow text-white" href="{% url 'edit_treasure' treasure.id %}"><strong>Cancel</strong></a>
+                        <button class="btn bg-blue shadow" type="submit"><strong>Edit Treasure</strong></button>
                     </div>
                 </form>
             </div>          

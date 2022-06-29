@@ -34,6 +34,16 @@
                         <div class="card-body">
                             <p><em class="text-dark">{{ treasure.name }}</em></p>
                             <p class="mb-0"><strong class="text-dark">£{{ treasure.price }}</strong></p>
+                            {% if request.user.is_superuser %}
+                                <div class="text-right">
+                                    <a href="{% url 'edit_treasure' treasure.id %}" class="text-muted mr-3">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                    <a href="{% url 'delete_treasure' treasure.id %}" class="text-danger">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </a>

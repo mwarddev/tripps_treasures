@@ -53,6 +53,16 @@
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                 </form>
+                {% if request.user.is_superuser %}
+                    <div class="text-right">
+                        <a href="{% url 'edit_treasure' treasure.id %}" class="text-muted mr-3">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
+                        <a href="{% url 'delete_treasure' treasure.id %}" class="text-danger">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </a>
+                    </div>
+                {% endif %}
             </div>
             <div class="col-12 col-sm-4">
                 <h5 class="title-font text-center mb-4">You May Also Like</h5>

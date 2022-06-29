@@ -1,5 +1,4 @@
 from django import forms
-from .widgets import CustomClearableFileInput
 from .models import Treasure, Category
 
 
@@ -9,8 +8,6 @@ class TreasureForm(forms.ModelForm):
     class Meta:
         model = Treasure
         fields = '__all__'
-
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
