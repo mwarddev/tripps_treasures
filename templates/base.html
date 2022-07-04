@@ -49,7 +49,11 @@
     <header class="container-fluid fixed-top bg-white">
         <div id="info-banner" class="row text-center">
             <div class="col bg-info text-white">
-                <h4 class="m-0 py-1">New treasures comming soon!</h4>
+                <h4 class="m-0 py-1"></h4>
+                {% for banner in banners %}
+                    {{ banner.info }}
+                {% endfor %}
+                </h4>
             </div>
         </div>
         <div class="row pt-2 d-flex shadow-sm">
@@ -98,6 +102,7 @@
                         <div class="dropdown-menu" aria-labelledby="user-menu">
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
+                            <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
                             {% else %}
                             <a href="{% url 'account' %}" class="dropdown-item pl-0">My Account</a>
                             {% endif %}
@@ -177,9 +182,8 @@
             <div class="col-12 col-md-4">
                 <ul class="list-unstyled">
                     <li>
-                        {% include 'newsletter/news.html' %}
+                        Sign up for our newsletter <a href="{% url 'news_letter' %}">here!</a>
                     </li>
-                    
                 </ul>
             </div>
             <div class="col-12 col-md-4 text-center external-link">

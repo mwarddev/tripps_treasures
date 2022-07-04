@@ -1,12 +1,23 @@
-<form method="POST">
-    {% csrf_token %}
-    <div class="input-group">
-        <span class="mr-2">Sign up for our news letter</span>
-        <input type="email" class="form-control-sm" name="news" placeholder="Email">
-        <div class="input-group-append">
-            <button class="btn-sm border-info rounded-right bg-blue" type="submit">
-                Sign up
-            </button>
-        </div>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_nav %}
+    {% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col mx-auto mt-5 text-center">
+        <h4 class="title-font">Sign Up For Our Newsletter</h4>
+        <form action="{% url 'news_letter' %}" method="POST" class="">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="input-group">
+                <button class="btn-sm border-info rounded-right bg-blue mx-auto" type="submit">
+                    Sign up
+                </button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
+{% endblock %}

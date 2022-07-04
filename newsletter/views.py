@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 
 from .forms import NewsForm
@@ -10,11 +10,13 @@ def news_letter(request):
         form = NewsForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'You have successfully\
-                 signed up toour newsletter')
+            messages.success(request, 'Email address successfully\
+                 registered. Thank you.')
+            return redirect(reverse('home'))
         else:
-            messages.error(request, 'Did you enter your email correcty?\
-                Please try again.')
+            messages.error(request, 'Please enter a valid email address')
+    else:
+        form = NewsForm()
 
     template = 'newsletter/news.html'
     context = {

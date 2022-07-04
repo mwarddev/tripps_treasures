@@ -7,3 +7,10 @@ class NewsForm(forms.ModelForm):
     class Meta:
         model = Newsletter
         fields = ('email_address',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'border-dark w-25 mx-auto'
+            self.fields[field].widget.attrs['placeholder'] = 'example@example.com'
+            self.fields['email_address'].label = False
