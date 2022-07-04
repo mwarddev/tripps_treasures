@@ -33,8 +33,8 @@ def update_banner(request):
             messages.success(request, 'Banner successfully updated')
             return redirect(reverse('home'))
         else:
-            banner_form = BannerForm()
-            messages.error(request, 'Whooops! banner failed to update')
+            messages.error(request, 'Whooops! banner failed to update.\
+                 Please try again.')
     else:
         banner_form = BannerForm()
     template = 'banner/update_info.html'
