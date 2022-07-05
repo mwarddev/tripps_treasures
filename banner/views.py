@@ -4,19 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Banner
 from .forms import BannerForm
 
-
-def show_info(request):
-    """ Shows the info banner message """
-    banners = Banner.objects.all()
-
-    template = 'templates/base.html'
-    context = {
-        'banners': banners,
-    }
-
-    return redirect(request, template, context)
-
-
 @login_required
 def update_banner(request):
     """ Update the info banner """
