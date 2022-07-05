@@ -25,21 +25,21 @@ def update_banner(request):
             can update the banner')
         return redirect(reverse('home'))
     if request.method == 'POST':
-        banner_form = BannerForm(request.POST)
-        if banner_form.is_valid():
+        form = BannerForm(request.POST)
+        if form.is_valid():
             old_banner = Banner.objects.all()
             old_banner.delete()
-            banner_form.save()
+            form.save()
             messages.success(request, 'Banner successfully updated')
             return redirect(reverse('home'))
         else:
             messages.error(request, 'Whooops! banner failed to update.\
                  Please try again.')
     else:
-        banner_form = BannerForm()
+        form = BannerForm()
     template = 'banner/update_info.html'
     context = {
-        'banner_form': banner_form,
+        'form': form,
     }
 
     return render(request, template, context)

@@ -7,6 +7,10 @@ class BannerForm(forms.ModelForm):
     class Meta:
         model = Banner
         fields = ('info',)
-        lables = {
-            'info': 'Info Banner'
-        }
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'border-dark'
+            self.fields[field].widget.attrs['placeholder'] = 'Please enter the info banner text here.'
+            self.fields['info'].label = False

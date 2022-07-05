@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block page_nav %}
 {% include 'extra_html/main_nav.html' %}
@@ -9,18 +10,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h2 class="title-font text-center mt-3 mb-4">Manage Treasures</h2>
+                <h2 class="title-font text-center mt-3 mb-4">Update Info Banner</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-6 offset-3 px-5">
-                <h3 class="title-font">Add Treasures</h3>
-                <form method="POST" action="{% url 'add_treasure' %}" class="form mb-3" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'update_banner' %}" class="border-dark mb-3">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-center">
-                        <a class="btn bg-grey shadow text-white" href="{% url 'add_treasure' %}"><strong>Cancel</strong></a>
-                        <button class="btn bg-blue shadow" type="submit"><strong>Add Treasure</strong></button>
+                        <a class="btn bg-grey shadow text-white" href="{% url 'home' %}"><strong>Home</strong></a>
+                        <button class="btn bg-blue shadow" type="submit"><strong>Update Banner</strong></button>
                     </div>
                 </form>
             </div>         
