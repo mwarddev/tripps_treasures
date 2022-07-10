@@ -59,6 +59,8 @@ class Purchase(models.Model):
     purchase_status = models.CharField(max_length=9,
                                        choices=STATUS,
                                        default='new')
+    original_basket = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def generate_purchase_number(self):
         """ Generate a unique purchase number for purchase reference """

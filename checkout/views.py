@@ -6,8 +6,8 @@ from django.shortcuts import (render, redirect, reverse,
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
+# from django.core.mail import send_mail
+# from django.template.loader import render_to_string
 
 from treasures.models import Treasure
 from user_accounts.forms import UserAccountForm
@@ -67,7 +67,11 @@ def checkout(request):
 
         purchase_form = PurchaseForm(form_data)
         if purchase_form.is_valid():
-            purchase = purchase_form.save()
+            purchase = purchase_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            purchase.stripe_pid = pid
+            purchase.original_basket = json.dumps(basket)
+            purchase.save()
             for key, value in basket.items():
                 try:
                     treasure = Treasure.objects.get(id=key)
@@ -96,7 +100,7 @@ def checkout(request):
                     purchase.delete()
                     return redirect(reverse('basket_view'))
 
-            # Save the info to the user's profile if all is well
+            # Save the info to the user's account if all is well
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
                                     args=[purchase.purchase_number]))
@@ -118,8 +122,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any 
-        # info the user maintains in their profile
+        # Attempt to prefill the form with any
+        # info the user maintains in their account
         if request.user.is_authenticated:
             try:
                 account = UserAccount.objects.get(user=request.user)
@@ -153,23 +157,23 @@ def checkout(request):
     return render(request, template, context)
 
 
-def _send_confirmation_email(purchase):
-    """ Send a confirmation email to the user on payment completion """
-    cust_email = purchase.email
-    subject = render_to_string(
-        'checkout/confirmation_emails/confirmation_email_subject.txt',
-        {'purchase': purchase})
+# def _send_confirmation_email(purchase):
+#     """ Send a confirmation email to the user on payment completion """
+#     cust_email = purchase.email
+#     subject = render_to_string(
+#         'checkout/confirmation_emails/confirmation_email_subject.txt',
+#         {'purchase': purchase})
 
-    body = render_to_string(
-        'checkout/confirmation_emails/confirmation_email_body.txt',
-        {'purchase': purchase, 'treasure_email': settings.DEFAULT_FROM_EMAIL})
+#     body = render_to_string(
+#         'checkout/confirmation_emails/confirmation_email_body.txt',
+#         {'purchase': purchase, 'treasure_email': settings.DEFAULT_FROM_EMAIL})
 
-    send_mail(
-        subject,
-        body,
-        settings.DEFAULT_FROM_EMAIL,
-        [cust_email]
-    )
+#     send_mail(
+#         subject,
+#         body,
+#         settings.DEFAULT_FROM_EMAIL,
+#         [cust_email]
+#     )
 
 def checkout_success(request, purchase_number):
     """
@@ -177,6 +181,8 @@ def checkout_success(request, purchase_number):
     """
     save_info = request.session.get('save_info')
     purchase = get_object_or_404(Purchase, purchase_number=purchase_number)
+
+    # _send_confirmation_email(purchase)
 
     if request.user.is_authenticated:
         account = UserAccount.objects.get(user=request.user)
@@ -203,8 +209,6 @@ def checkout_success(request, purchase_number):
     messages.success(request, f'Purchase successfully processed! \
         Your purchase number is {purchase_number}. A confirmation \
         email will be sent to {purchase.email}.')
-
-    _send_confirmation_email(purchase)
 
     if 'basket' in request.session:
         del request.session['basket']
