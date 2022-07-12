@@ -1,14 +1,14 @@
+import json
+import time
+
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
-from .models import Purchase, PurchaseItem
 from treasures.models import Treasure
 from user_accounts.models import UserAccount
-
-import json
-import time
+from .models import Purchase, PurchaseItem
 
 
 class StripeWH_Handler:
@@ -48,7 +48,6 @@ class StripeWH_Handler:
         Handle the payment_intent.succeeded webhook from Stripe
         """
         intent = event.data.object
-        print(intent)
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
@@ -68,12 +67,12 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             account = UserAccount.objects.get(user__username=username)
             if save_info:
-                account.saved_full_name = shipping_details.full_name
+                # account.saved_full_name = shipping_details.name
                 account.saved_phone = shipping_details.phone
                 account.saved_address_line1 = shipping_details.address.line1
                 account.saved_address_line2 = shipping_details.address.line2
                 account.saved_city = shipping_details.address.city
-                account.saved_county = shipping_details.sddress.state
+                account.saved_county = shipping_details.address.state
                 account.saved_postcode = shipping_details.address.postal_code
                 account.saved_country = shipping_details.address.country
                 account.save()
@@ -85,7 +84,7 @@ class StripeWH_Handler:
                 purchase = Purchase.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
-                    phone__iexact=billing_details.phone,
+                    phone__iexact=shipping_details.phone,
                     address_line1__iexact=shipping_details.address.line1,
                     address_line2__iexact=shipping_details.address.line2,
                     city__iexact=shipping_details.address.city,
@@ -129,7 +128,7 @@ class StripeWH_Handler:
                         purchase_item = PurchaseItem(
                             purchase=purchase,
                             treasure=treasure,
-                            quantity=item_data,
+                            qty=item_data,
                         )
                         purchase_item.save()
                     else:
@@ -137,7 +136,7 @@ class StripeWH_Handler:
                             purchase_item = PurchaseItem(
                                 purchase=purchase,
                                 treasure=treasure,
-                                quantity=quantity,
+                                qty=quantity,
                                 treasure_size=size,
                             )
                             purchase_item.save()
