@@ -71,8 +71,8 @@ form.addEventListener('submit', function(ev) {
                 }
             },
             shipping: {
-                name: $.trim(form.full_name.value),
-                phone: $.trim(form.phone.value),
+                name: $.trim(form.shp_full_name.value),
+                // phone: $.trim(form.phone.value),
                 address: {
                     line1: $.trim(form.shp_address_line1.value),
                     line2: $.trim(form.shp_address_line2.value),
@@ -82,6 +82,18 @@ form.addEventListener('submit', function(ev) {
                     country: $.trim(form.shp_country.value),
                 }
             }
+            // shipping: {
+            //     name: $.trim(form.full_name.value),
+            //     phone: $.trim(form.phone.value),
+            //     address: {
+            //         line1: $.trim(form.shp_address_line1.value),
+            //         line2: $.trim(form.shp_address_line2.value),
+            //         city: $.trim(form.shp_city.value),
+            //         state: $.trim(form.shp_county.value),
+            //         postal_code: $.trim(form.shp_postcode.value),
+            //         country: $.trim(form.shp_country.value),
+            //     }
+            // }
         }).then(function(result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');

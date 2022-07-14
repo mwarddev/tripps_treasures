@@ -62,6 +62,12 @@ class Purchase(models.Model):
     original_basket = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
+    class Meta:
+        """
+        Order the purchases
+        """
+        ordering = ['-purchase_date']
+
     def generate_purchase_number(self):
         """ Generate a unique purchase number for purchase reference """
         return uuid.uuid4().hex.upper()

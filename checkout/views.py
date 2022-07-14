@@ -6,8 +6,6 @@ from django.shortcuts import (render, redirect, reverse,
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-# from django.core.mail import send_mail
-# from django.template.loader import render_to_string
 
 from treasures.models import Treasure
 from user_accounts.forms import UserAccountForm
@@ -40,6 +38,7 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """ Checkout view """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -156,33 +155,12 @@ def checkout(request):
 
     return render(request, template, context)
 
-
-# def _send_confirmation_email(purchase):
-#     """ Send a confirmation email to the user on payment completion """
-#     cust_email = purchase.email
-#     subject = render_to_string(
-#         'checkout/confirmation_emails/confirmation_email_subject.txt',
-#         {'purchase': purchase})
-
-#     body = render_to_string(
-#         'checkout/confirmation_emails/confirmation_email_body.txt',
-#         {'purchase': purchase, 'treasure_email': settings.DEFAULT_FROM_EMAIL})
-
-#     send_mail(
-#         subject,
-#         body,
-#         settings.DEFAULT_FROM_EMAIL,
-#         [cust_email]
-#     )
-
 def checkout_success(request, purchase_number):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     purchase = get_object_or_404(Purchase, purchase_number=purchase_number)
-
-    # _send_confirmation_email(purchase)
 
     if request.user.is_authenticated:
         account = UserAccount.objects.get(user=request.user)

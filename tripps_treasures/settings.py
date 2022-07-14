@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'reviews',
     'home_page',
     'basket',
+    'contact',
 
     # Other
     'storages',
