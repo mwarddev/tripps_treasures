@@ -41,7 +41,6 @@ def checkout(request):
     """ Checkout view """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    print(request.method)
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})

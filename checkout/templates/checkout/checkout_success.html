@@ -24,12 +24,15 @@
         <div class="col-12">
             <div class="row">
                 <div class="col">
-                   <p class="text-break mb-0"><strong>Purchase Number: </strong>{{ purchase.purchase_number }}</p>
-                   <p><strong>Purchase Date: </strong>{{ purchase.purchase_date }}</p> 
+                    
                 </div>
             </div>
             <hr class="d-block d-md-none">
             <div class="row">
+                <div class="col-12 col-md-3 right-border">
+                   <p class="text-break mb-0"><strong>Purchase Number: </strong>{{ purchase.purchase_number }}</p>
+                   <p><strong>Purchase Date: </strong>{{ purchase.purchase_date }}</p>
+                </div>
                 <div class="col-12 col-md-3 right-border mb-3">
                     <p class="title-font"><u><strong>Purchased Items:</strong></u></p>
                     {% for item in purchase.purchaseitems.all %}
@@ -45,21 +48,6 @@
                 </div>
                 <div class="col-12 col-md-3 right-border mb-3">
                     <p class="title-font"><u><strong>Delivering to:</strong></u></p>
-                    <p class="mb-0">{{ purchase.shp_full_name }}</p>
-                    <p class="mb-0">{{ purchase.shp_address_line1 }}</p>
-                    {% if purchase.shp_address_line2 %}
-                        <p class="mb-0">{{ purchase.shp_address_line2 }}</p>
-                    {% endif %}
-                    <p class="mb-0">{{ purchase.shp_city }}</p>
-                    {% if purchase.shp_county %}
-                        <p class="mb-0">{{ purchase.shp_county }}</p>
-                    {% endif %}
-                    <p class="mb-0">{{ purchase.shp_postcode }}</p>
-                    <p class="mb-0">{{ purchase.shp_country }}</p>
-                    <hr class="d-block d-md-none">
-                </div>
-                <div class="col-12 col-md-3 right-border mb-3">
-                    <p class="title-font"><u><strong>Billing Address:</strong></u></p>
                     <p class="mb-0">{{ purchase.full_name }}</p>
                     <p class="mb-0">{{ purchase.address_line1 }}</p>
                     {% if purchase.address_line2 %}
@@ -71,7 +59,6 @@
                     {% endif %}
                     <p class="mb-0">{{ purchase.postcode }}</p>
                     <p class="mb-0">{{ purchase.country }}</p>
-                    <hr class="d-block d-md-none">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
                     <p class="title-font"><u><strong>Purchase Cost:</strong></u></p>
@@ -80,11 +67,14 @@
                     <p><strong>Grand Total: </strong><span class="float-right"><strong>£{{ purchase.grand_total }}</strong></span></p>
                 </div>
             </div>
-            <div class="col text-center">                    
-                <a href="{% url 'home' %}" class="btn shadow bg-blue mr-2">
-                    <strong>Continue Shopping</strong>
-                </a>
-            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">                    
+            <a href="{% url 'home' %}" class="btn shadow bg-blue mr-2">
+                <strong>Continue Shopping</strong>
+            </a>
         </div>
     </div>
 </div>

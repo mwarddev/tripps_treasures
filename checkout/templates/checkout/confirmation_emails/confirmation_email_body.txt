@@ -10,17 +10,15 @@ Below is a summary of your order:
 Purchase Number:  {{ purchase.purchase_number }}
 Purchase Date:    {{ purchase.purchase_date }}
 
-Delivery Address: {{ purchase.shp_full_name }}
-                  {{ purchase.shp_address_line1 }}
-                  {% if purchase.shp_address_line2 %}{{ purchase.shp_address_line2 }}{% endif %}
-                  {{ purchase.shp_city }}
-                  {% if purchase.shp_county %}{{ purchase.shp_county }}{% endif %}
-                  {{ purchase.shp_postcode }}
-                  {{ purchase.shp_country }}
+Delivery Address: {{ purchase.full_name }}
+                  {{ purchase.address_line1 }}
+                  {{ purchase.city }}
+                  {{ purchase.postcode }}
+                  {{ purchase.country }}
 
-Subtotal:         {{ purchase.subtotal }}
-Delivery Cost:    {{ purchase.delivery_cost }}
-Grand Toatal:     {{ purchase.grand_total }}
+Subtotal:         £{{ purchase.subtotal }}
+Delivery Cost:    £{{ purchase.delivery_cost }}
+Grand Toatal:     £{{ purchase.grand_total }}
 
 If you have any questions about your order please contact us by email: {{ treasure_email }}
 
