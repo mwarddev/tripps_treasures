@@ -69,12 +69,12 @@ class StripeWH_Handler:
             if save_info:
                 account.saved_full_name = shipping_details.name
                 account.saved_phone = shipping_details.phone
+                account.saved_country = shipping_details.address.country
+                account.saved_postcode = shipping_details.address.postal_code
+                account.saved_city = shipping_details.address.city
                 account.saved_address_line1 = shipping_details.address.line1
                 account.saved_address_line2 = shipping_details.address.line2
-                account.saved_city = shipping_details.address.city
                 account.saved_county = shipping_details.address.state
-                account.saved_postcode = shipping_details.address.postal_code
-                account.saved_country = shipping_details.address.country
                 account.save()
 
         purchase_exists = False
@@ -85,12 +85,12 @@ class StripeWH_Handler:
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
                     phone__iexact=shipping_details.phone,
+                    country__iexact=shipping_details.address.country,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    city__iexact=shipping_details.address.city,
                     address_line1__iexact=shipping_details.address.line1,
                     address_line2__iexact=shipping_details.address.line2,
-                    city__iexact=shipping_details.address.city,
                     county__iexact=shipping_details.address.state,
-                    postcode__iexact=shipping_details.address.postal_code,
-                    country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
                     original_basket=basket,
                     stripe_pid=pid,
@@ -113,12 +113,12 @@ class StripeWH_Handler:
                     user_account=account,
                     email=billing_details.email,
                     phone=shipping_details.phone,
+                    country=shipping_details.address.country,
+                    postcode=shipping_details.address.postal_code,
+                    city=shipping_details.address.city,
                     address_line1=shipping_details.address.line1,
                     address_line2=shipping_details.address.line2,
-                    city=shipping_details.address.city,
                     county=shipping_details.address.state,
-                    postcode=shipping_details.address.postal_code,
-                    country=shipping_details.address.country,
                     original_basket=basket,
                     stripe_pid=pid,
                 )
