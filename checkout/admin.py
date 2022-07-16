@@ -17,9 +17,7 @@ class PurchaseAdmin(admin.ModelAdmin):
     fields = ('purchase_number', 'user_account',
               'full_name', 'email', 'phone', 'address_line1',
               'address_line2', 'city', 'county', 'country',
-              'postcode', 'shp_full_name', 'shp_address_line1',
-              'shp_address_line2', 'shp_city', 'shp_county', 'shp_country',
-              'shp_postcode', 'purchase_date', 'delivery_cost',
+              'postcode', 'purchase_date', 'delivery_cost',
               'subtotal', 'grand_total', 'purchase_status',
               'original_basket', 'stripe_pid',)
 

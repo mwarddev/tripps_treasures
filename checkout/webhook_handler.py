@@ -47,7 +47,9 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+        print('Attempt payment success')
         intent = event.data.object
+        print(intent)
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
@@ -55,11 +57,6 @@ class StripeWH_Handler:
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-
-        # Clean data in the billing details
-        for field, value in billing_details.address.items():
-            if value == "":
-                billing_details.address[field] = None
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
@@ -72,22 +69,14 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             account = UserAccount.objects.get(user__username=username)
             if save_info:
-                account.saved_full_name = billing_details.name
-                account.saved_phone = billing_details.phone
-                account.saved_address_line1 = billing_details.address.line1
-                account.saved_address_line2 = billing_details.address.line2
-                account.saved_city = billing_details.address.city
-                account.saved_county = billing_details.address.state
-                account.saved_postcode = billing_details.address.postal_code
-                account.saved_country = billing_details.address.country
                 # account.saved_full_name = shipping_details.name
-                # account.saved_phone = shipping_details.phone
-                # account.saved_address_line1 = shipping_details.address.line1
-                # account.saved_address_line2 = shipping_details.address.line2
-                # account.saved_city = shipping_details.address.city
-                # account.saved_county = shipping_details.address.state
-                # account.saved_postcode = shipping_details.address.postal_code
-                # account.saved_country = shipping_details.address.country
+                account.saved_phone = shipping_details.phone
+                account.saved_address_line1 = shipping_details.address.line1
+                account.saved_address_line2 = shipping_details.address.line2
+                account.saved_city = shipping_details.address.city
+                account.saved_county = shipping_details.address.state
+                account.saved_postcode = shipping_details.address.postal_code
+                account.saved_country = shipping_details.address.country
                 account.save()
 
         purchase_exists = False
@@ -95,31 +84,15 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 purchase = Purchase.objects.get(
-                    full_name__iexact=billing_details.name,
+                    full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
-                    phone__iexact=billing_details.phone,
-                    address_line1__iexact=billing_details.address.line1,
-                    address_line2__iexact=billing_details.address.line2,
-                    city__iexact=billing_details.address.city,
-                    county__iexact=billing_details.address.state,
-                    # postcode__iexact=billing_details.address.postal_code,
-                    country__iexact=billing_details.address.country,
-                    shp_full_name__iexact=shipping_details.name,
-                    shp_address_line1__iexact=shipping_details.address.line1,
-                    shp_address_line2__iexact=shipping_details.address.line2,
-                    shp_city__iexact=shipping_details.address.city,
-                    shp_county__iexact=shipping_details.address.state,
-                    shp_postcode__iexact=shipping_details.address.postal_code,
-                    shp_country__iexact=shipping_details.address.country,
-                    # full_name__iexact=shipping_details.name,
-                    # email__iexact=billing_details.email,
-                    # phone__iexact=shipping_details.phone,
-                    # address_line1__iexact=shipping_details.address.line1,
-                    # address_line2__iexact=shipping_details.address.line2,
-                    # city__iexact=shipping_details.address.city,
-                    # county__iexact=shipping_details.address.state,
-                    # postcode__iexact=shipping_details.address.postal_code,
-                    # country__iexact=shipping_details.address.country,
+                    phone__iexact=shipping_details.phone,
+                    address_line1__iexact=shipping_details.address.line1,
+                    address_line2__iexact=shipping_details.address.line2,
+                    city__iexact=shipping_details.address.city,
+                    county__iexact=shipping_details.address.state,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
                     original_basket=basket,
                     stripe_pid=pid,
@@ -131,7 +104,6 @@ class StripeWH_Handler:
                 time.sleep(1)
         if purchase_exists:
             self._send_confirmation_email(purchase)
-            print('first email sent')
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS:\
                     Verified order already in database', status=200)
@@ -139,33 +111,16 @@ class StripeWH_Handler:
             purchase = None
             try:
                 purchase = Purchase.objects.create(
-                    full_name=billing_details.name,
+                    full_name=shipping_details.name,
                     user_account=account,
                     email=billing_details.email,
-                    phone=billing_details.phone,
-                    address_line1=billing_details.address.line1,
-                    address_line2=billing_details.address.line2,
-                    city=billing_details.address.city,
-                    county=billing_details.address.state,
-                    postcode=billing_details.address.postal_code,
-                    country=billing_details.address.country,
-                    shp_full_name=shipping_details.name,
-                    shp_address_line1=shipping_details.address.line1,
-                    shp_address_line2=shipping_details.address.line2,
-                    shp_city=shipping_details.address.city,
-                    shp_county=shipping_details.address.state,
-                    shp_postcode=shipping_details.address.postal_code,
-                    shp_country=shipping_details.address.country,
-                    # full_name=shipping_details.name,
-                    # user_account=account,
-                    # email=billing_details.email,
-                    # phone=shipping_details.phone,
-                    # address_line1=shipping_details.address.line1,
-                    # address_line2=shipping_details.address.line2,
-                    # city=shipping_details.address.city,
-                    # county=shipping_details.address.state,
-                    # postcode=shipping_details.address.postal_code,
-                    # country=shipping_details.address.country,
+                    phone=shipping_details.phone,
+                    address_line1=shipping_details.address.line1,
+                    address_line2=shipping_details.address.line2,
+                    city=shipping_details.address.city,
+                    county=shipping_details.address.state,
+                    postcode=shipping_details.address.postal_code,
+                    country=shipping_details.address.country,
                     original_basket=basket,
                     stripe_pid=pid,
                 )
@@ -194,7 +149,6 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR:\
                         {exception}', status=500)
         self._send_confirmation_email(purchase)
-        print('Second email sent')
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS:\
                 Created purchase in webhook', status=200)

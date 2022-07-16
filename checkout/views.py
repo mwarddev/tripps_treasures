@@ -41,6 +41,7 @@ def checkout(request):
     """ Checkout view """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    print(request.method)
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})
@@ -55,13 +56,6 @@ def checkout(request):
             'county': request.POST['county'],
             'postcode': request.POST['postcode'],
             'country': request.POST['country'],
-            'shp_full_name': request.POST['shp_full_name'],
-            'shp_address_line1': request.POST['shp_address_line1'],
-            'shp_address_line2': request.POST['shp_address_line2'],
-            'shp_city': request.POST['shp_city'],
-            'shp_county': request.POST['shp_county'],
-            'shp_postcode': request.POST['shp_postcode'],
-            'shp_country': request.POST['shp_country'],
         }
 
         purchase_form = PurchaseForm(form_data)
@@ -154,6 +148,7 @@ def checkout(request):
     }
 
     return render(request, template, context)
+
 
 def checkout_success(request, purchase_number):
     """

@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-sm-4 right-border">
+        <div class="col-12 col-sm-4 offset-sm-2 right-border">
             <p class="text-muted">Summary: {{ treasure_count }} item(s)</p>
             {% for item in basket_items %}
                 <div class="row">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-4 right-border">
+        <div class="col-12 col-sm-4">
             <form action="{% url 'checkout' %}" method="POST" id="purchase-form">
                 {% csrf_token %}
                 <fieldset>
@@ -72,54 +72,39 @@
                     {{ purchase_form.county | as_crispy_field }}
                     {{ purchase_form.postcode | as_crispy_field }}
                     {{ purchase_form.country | as_crispy_field }}
+                    <div class="form-check form-check-inline">
+                        {% if user.is_authenticated %}
+                            <label class="form-check-label" for="save-info">Speed up future purchases by saving this information to my account.</label>
+                            <input class="form-check-input" type="checkbox" id="save-user-info" name="save-info" checked>
+                        {% else %}
+                            <label class="form-check-label" for="save-info">
+                                <a class="text-info" href="{% url 'account_signup' %}">Register </a>for an account or 
+                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information and speed up future purchases.
+                            </label>
+                        {% endif %}
+                    </div>
                 </fieldset>
-            
-        </div>
-        <div class="col-12 col-sm-4">
-            <fieldset>
-                <legend class="fieldset-lable title-font">
-                    Deliver to:
-                </legend>
-                {{ purchase_form.shp_full_name | as_crispy_field }}
-                {{ purchase_form.shp_address_line1 | as_crispy_field }}
-                {{ purchase_form.shp_address_line2 | as_crispy_field }}
-                {{ purchase_form.shp_city | as_crispy_field }}
-                {{ purchase_form.shp_county | as_crispy_field }}
-                {{ purchase_form.shp_postcode | as_crispy_field }}
-                {{ purchase_form.shp_country | as_crispy_field }}
-                <div class="form-check form-check-inline">
-                    {% if user.is_authenticated %}
-                        <label class="form-check-label" for="save-info">Speed up future purchases by saving this information to my account.</label>
-                        <input class="form-check-input" type="checkbox" id="save-user-info" name="save-info" checked>
-                    {% else %}
-                        <label class="form-check-label" for="save-info">
-                            <a class="text-info" href="{% url 'account_signup' %}">Register </a>for an account or 
-                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information and speed up future purchases.
-                        </label>
-                    {% endif %}
+                <fieldset class="mt-3">
+                    <legend class="fieldset-label title-font mt-2 w-auto">Payment Details</legend>
+                    <!-- A Stripe card element will go here -->
+                    <div class="mb-3" id="card-element"></div>
+                    <!-- Used to display form errors -->
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                </fieldset>
+                <span>Powered by <i class="fa-brands fa-cc-stripe fa-lg"></i></span>
+                <div class="container-fluid text-center">                    
+                    <p class="text-right"><strong>Pay £{{ grand_total|floatformat:2 }}</strong></p>
+                    <a href="{% url 'home' %}" class="btn bg-grey text-white mr-2">
+                        <strong>Continue Shopping</strong>
+                    </a>
+                    <button class="btn bg-blue" id="submit-purchase">
+                        Confirm Purchase
+                    </button>
                 </div>
-            </fieldset>
-            <fieldset class="mt-3">
-                <legend class="fieldset-label title-font mt-2 w-auto">Payment Details</legend>
-                <!-- A Stripe card element will go here -->
-                <div class="mb-3" id="card-element"></div>
-                <!-- Used to display form errors -->
-                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                <!-- Pass the client secret to the view so we can get the payment intent id -->
-                <input type="hidden" value="{{ client_secret }}" name="client_secret">
-            </fieldset>
-            <span>Powered by <i class="fa-brands fa-cc-stripe fa-lg"></i></span>
-            <div class="container-fluid text-center">                    
-                <p class="text-right"><strong>Pay £{{ grand_total|floatformat:2 }}</strong></p>
-                <a href="{% url 'home' %}" class="btn bg-grey text-white mr-2">
-                    <strong>Continue Shopping</strong>
-                </a>
-                <button class="btn bg-blue" id="submit-purchase">
-                    Confirm Purchase
-                </button>
-            </div>
-        </div>
             </form>
+        </div>  
     </div>
 </div>
 {% endblock %}

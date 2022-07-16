@@ -4,6 +4,7 @@ from .models import Contact
 
 class ContactAdmin(admin.ModelAdmin):
     list_details = (
+        'cust_name',
         'email_address',
         'message',
     )

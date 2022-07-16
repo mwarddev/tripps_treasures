@@ -1,6 +1,6 @@
-var stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
-var client_secret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripe_public_key);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
+var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
@@ -48,13 +48,13 @@ form.addEventListener('submit', function(ev) {
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
-        'client_secret': client_secret,
+        'client_secret': clientSecret,
         'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function () {
-        stripe.confirmCardPayment(client_secret, {
+        stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
                 billing_details: {
@@ -71,29 +71,17 @@ form.addEventListener('submit', function(ev) {
                 }
             },
             shipping: {
-                name: $.trim(form.shp_full_name.value),
-                // phone: $.trim(form.phone.value),
+                name: $.trim(form.full_name.value),
+                phone: $.trim(form.phone.value),
                 address: {
-                    line1: $.trim(form.shp_address_line1.value),
-                    line2: $.trim(form.shp_address_line2.value),
-                    city: $.trim(form.shp_city.value),
-                    state: $.trim(form.shp_county.value),
-                    postal_code: $.trim(form.shp_postcode.value),
-                    country: $.trim(form.shp_country.value),
+                    line1: $.trim(form.address_line1.value),
+                    line2: $.trim(form.address_line2.value),
+                    city: $.trim(form.city.value),
+                    state: $.trim(form.county.value),
+                    postal_code: $.trim(form.postcode.value),
+                    country: $.trim(form.country.value),
                 }
-            }
-            // shipping: {
-            //     name: $.trim(form.full_name.value),
-            //     phone: $.trim(form.phone.value),
-            //     address: {
-            //         line1: $.trim(form.shp_address_line1.value),
-            //         line2: $.trim(form.shp_address_line2.value),
-            //         city: $.trim(form.shp_city.value),
-            //         state: $.trim(form.shp_county.value),
-            //         postal_code: $.trim(form.shp_postcode.value),
-            //         country: $.trim(form.shp_country.value),
-            //     }
-            // }
+            },
         }).then(function(result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
