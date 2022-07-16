@@ -120,7 +120,7 @@ def checkout(request):
             try:
                 account = UserAccount.objects.get(user=request.user)
                 purchase_form = PurchaseForm(initial={
-                    'full_name': account.user.get_full_name(),
+                    'full_name': account.saved_full_name,
                     'email': account.user.email,
                     'phone': account.saved_phone,
                     'address_line1': account.saved_address_line1,

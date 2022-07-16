@@ -29,25 +29,18 @@ class Purchase(models.Model):
                                      related_name='purchases')
     full_name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
-    phone = models.CharField(max_length=20, null=True, blank=True)
+    phone = models.CharField(max_length=20, null=False, blank=False)
     address_line1 = models.CharField(max_length=100, null=False, blank=False)
     address_line2 = models.CharField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=50, null=False, blank=False)
     county = models.CharField(max_length=100, null=True, blank=True)
     country = CountryField(blank_label='Country *', null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=False, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
     purchase_date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6,
                                         decimal_places=2,
                                         null=False,
                                         default=0)
-    shp_full_name = models.CharField(max_length=100, null=False, blank=False)
-    shp_address_line1 = models.CharField(max_length=100, null=False, blank=False)
-    shp_address_line2 = models.CharField(max_length=100, null=True, blank=True)
-    shp_city = models.CharField(max_length=50, null=False, blank=False)
-    shp_county = models.CharField(max_length=100, null=True, blank=True)
-    shp_country = CountryField(blank_label='Country *', null=False, blank=False)
-    shp_postcode = models.CharField(max_length=20, null=False, blank=False)
     subtotal = models.DecimalField(max_digits=6,
                                    decimal_places=2,
                                    null=False,

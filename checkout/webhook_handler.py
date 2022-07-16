@@ -69,7 +69,7 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             account = UserAccount.objects.get(user__username=username)
             if save_info:
-                # account.saved_full_name = shipping_details.name
+                account.saved_full_name = shipping_details.name
                 account.saved_phone = shipping_details.phone
                 account.saved_country = shipping_details.address.country
                 account.saved_postcode = shipping_details.address.postal_code
@@ -142,12 +142,12 @@ class StripeWH_Handler:
                                 treasure_size=size,
                             )
                             purchase_item.save()
-            except Exception as exception:
+            except Exception as e:
                 if purchase:
                     purchase.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR:\
-                        {exception}', status=500)
+                        {e}', status=500)
         self._send_confirmation_email(purchase)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS:\
