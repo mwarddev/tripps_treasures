@@ -69,7 +69,7 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             account = UserAccount.objects.get(user__username=username)
             if save_info:
-                account.saved_full_name = shipping_details.name
+                # account.saved_full_name = shipping_details.name
                 account.saved_phone = shipping_details.phone
                 account.saved_country = shipping_details.address.country
                 account.saved_postcode = shipping_details.address.postal_code
