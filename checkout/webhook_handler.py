@@ -58,6 +58,8 @@ class StripeWH_Handler:
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
+            print(field)
+            print(value)
             if value == "":
                 shipping_details.address[field] = None
 
