@@ -89,7 +89,7 @@ a:link {
 /* Treasures */
 
 .preview {
-    width: 300xp;
+    width: 300px;
     height: 400px;
 }
 
@@ -106,7 +106,8 @@ a:link {
 /* Basket */
 
 .update-link,
-.remove-item {
+.remove-item,
+.delete-message {
     cursor: pointer;
 }
 

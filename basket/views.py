@@ -93,7 +93,6 @@ def delete_from_basket(request, treasure_id):
         basket = request.session.get('basket', {})
 
         if size:
-            # Find a way to output messages for multiple size delete
             del basket[treasure_id]['sizeable'][size]
             if not basket[treasure_id]['sizeable']:
                 basket.pop(treasure_id)

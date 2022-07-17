@@ -9,23 +9,24 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h4 class="title-font text-center mt-3">Customer Messages</h4>
+            <h3 class="title-font text-center mt-3">Customer Messages</h3>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-10 offset-1">
-            <div class="table-responsive-md">
-                <table class="table table-borderless">
-                    <thead>
+            <div class="table-responsive-md mt-3">
+                <table class="table">
+                    <thead class="bg-blue title-font">
                         <tr>
                             <th>Date</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Message</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for message in messages %}
+                        {% for message in cust_messages %}
                         <tr>
                             <td>
                                 {{ message.message_date }}
@@ -38,6 +39,11 @@
                             </td>
                             <td>
                                 {{ message.message }}
+                            </td>
+                            <td>
+                                <a class="text-dark" href="{% url 'delete_message' message.id %}">
+                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                </a>
                             </td>
                         </tr>
                         {% endfor %}
