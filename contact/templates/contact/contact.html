@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_nav %}
+    {% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mx-auto mt-5 text-center">
+            <h4 class="title-font">Contact Us</h4>
+            <form action="{% url 'contact_us' %}" method="POST" class="border-dark">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="input-group">
+                    <button class="btn-sm border-info rounded-right bg-blue mx-auto" type="submit">
+                        Contact Us
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

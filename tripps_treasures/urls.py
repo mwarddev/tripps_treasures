@@ -14,5 +14,6 @@ urlpatterns = [
     path('user_account/', include('user_accounts.urls')),
     path('news_letter/', include('newsletter.urls')),
     path('banner/', include('banner.urls')),
+    path('contact/', include('contact.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'tripps_treasures.views.handler404'

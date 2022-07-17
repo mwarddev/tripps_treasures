@@ -101,6 +101,7 @@
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
                             <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
+                            <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
                             {% else %}
                             <a href="{% url 'account' %}" class="dropdown-item pl-0">My Account</a>
                             {% endif %}
@@ -183,7 +184,7 @@
                         Sign up for our newsletter <a href="{% url 'news_letter' %}">here!</a>
                     </li>
                     <li>
-                        Contact us: tripps.treasures.online@gmail.com
+                        <a class="btn bg-blue shadow" href="{% url 'contact_us' %}"><strong>Contact Us</strong></a>
                     </li>
                 </ul>
             </div>

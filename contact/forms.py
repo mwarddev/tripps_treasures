@@ -7,11 +7,15 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ('cust_name', 'email_address', 'message',)
+        labels = {}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'border-dark w-25 mx-auto'
+            # Add placeholders
             self.fields['cust_name'].widget.attrs['placeholder'] = 'Your name here'
             self.fields['email_address'].widget.attrs['placeholder'] = 'example@example.com'
             self.fields['message'].widget.attrs['placeholder'] = 'Your message here'
+            # Change label name
+            self.fields['cust_name'].label = 'Customer name'

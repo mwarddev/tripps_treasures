@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_nav %}
+    {% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h4 class="title-font text-center mt-3">Customer Messages</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-10 offset-1">
+            <div class="table-responsive-md">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for message in messages %}
+                        <tr>
+                            <td>
+                                {{ message.message_date }}
+                            </td>
+                            <td>
+                                {{ message.cust_name }}
+                            </td>
+                            <td>
+                                {{ message.email_address }}
+                            </td>
+                            <td>
+                                {{ message.message }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
