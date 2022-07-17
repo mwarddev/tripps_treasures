@@ -7,6 +7,8 @@ class ContactAdmin(admin.ModelAdmin):
         'cust_name',
         'email_address',
         'message',
+        'message_date',
+        'purchase_number',
     )
 
 

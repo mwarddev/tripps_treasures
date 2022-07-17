@@ -103,7 +103,7 @@
                             <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
                             <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
                             {% else %}
-                            <a href="{% url 'account' %}" class="dropdown-item pl-0">My Account</a>
+                            <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
                             {% endif %}
                         </div>
                     </li>
@@ -184,7 +184,7 @@
                         Sign up for our newsletter <a href="{% url 'news_letter' %}">here!</a>
                     </li>
                     <li>
-                        <a class="btn bg-blue shadow" href="{% url 'contact_us' %}"><strong>Contact Us</strong></a>
+                        <a class="btn btn-sm bg-blue border-info shadow" href="{% url 'contact_us' %}"><strong>Contact Us</strong></a>
                     </li>
                 </ul>
             </div>

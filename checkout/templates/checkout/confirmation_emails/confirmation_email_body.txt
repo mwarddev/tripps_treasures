@@ -2,6 +2,9 @@ Hello {{ purchase.full_name }}!
 
 Thank you for your purchase from Tripp's Treasures!
 
+If you would like to customise your treasure(s), please contact us here: https://tripps-treasures.herokuapp.com/contact/ 
+and provide your purchase number for reference.
+
 Your treasure(s) are being created and may take a little time, 
 so we'll email you again to let you know when your treasure(s) have been despatched for delivery.
 

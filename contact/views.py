@@ -1,6 +1,7 @@
 from django.shortcuts import (render, redirect, reverse,
                               get_object_or_404, HttpResponse)
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .forms import ContactForm
 from .models import Contact
@@ -29,27 +30,37 @@ def contact_us(request):
     return render(request, template, context)
 
 
+@login_required
 def view_messages(request):
     """ Get all customer messages """
-    cust_messages = Contact.objects.all()
-    template = 'contact/messages.html'
-    context = {
-        'cust_messages': cust_messages,
-    }
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that')
+        return redirect(reverse('home'))
+    else:
+        cust_messages = Contact.objects.all()
+        template = 'contact/messages.html'
+        context = {
+            'cust_messages': cust_messages,
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
 
 
+@login_required
 def delete_message(request, message_id):
     """ Delete a customer message """
-    try:
-        message = get_object_or_404(Contact, pk=message_id)
-        message.delete()
-        messages.success(request, f'Message from {message.cust_name}\
-             successfully deleted')
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that')
+        return redirect(reverse('home'))
+    else:
+        try:
+            message = get_object_or_404(Contact, pk=message_id)
+            message.delete()
+            messages.success(request, f'Message from {message.cust_name}\
+                successfully deleted')
 
-        return redirect(reverse('view_messages'))
+            return redirect(reverse('view_messages'))
 
-    except Exception as exception:
-        messages.error(request, f'Unable to delete message {exception}')
-        return HttpResponse(status=500)
+        except Exception as exception:
+            messages.error(request, f'Unable to delete message {exception}')
+            return HttpResponse(status=500)

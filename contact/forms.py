@@ -6,7 +6,7 @@ class ContactForm(forms.ModelForm):
     """ A form for mdessaging the site owner """
     class Meta:
         model = Contact
-        fields = ('cust_name', 'email_address', 'message',)
+        fields = ('cust_name', 'email_address', 'purchase_number', 'message',)
         labels = {}
 
     def __init__(self, *args, **kwargs):
@@ -16,6 +16,7 @@ class ContactForm(forms.ModelForm):
             # Add placeholders
             self.fields['cust_name'].widget.attrs['placeholder'] = 'Your name here'
             self.fields['email_address'].widget.attrs['placeholder'] = 'example@example.com'
+            self.fields['purchase_number'].widget.attrs['placeholder'] = '(optional)'
             self.fields['message'].widget.attrs['placeholder'] = 'Your message here'
             # Change label name
             self.fields['cust_name'].label = 'Customer name'

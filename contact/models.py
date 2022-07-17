@@ -5,6 +5,7 @@ class Contact(models.Model):
     """ A model for contacting the site owner """
     cust_name = models.CharField(max_length=100, null=False, blank=False)
     email_address = models.EmailField(max_length=254, null=False, blank=False)
+    purchase_number = models.CharField(max_length=32, null=True, blank=True)
     message = models.TextField()
     message_date = models.DateTimeField(auto_now_add=True)
 
