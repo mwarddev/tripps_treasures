@@ -6,9 +6,9 @@
 {% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
 
 
-{% block content %}
+{% block inner_content %}
 <div class="row">
-    <div class="col-12 col-md-4 offset-4">
+    <div class="col-12">
         <h3 class="title-font text-center">{% trans "Confirm E-mail Address" %}</h3>
 
         {% if confirmation %}
@@ -21,7 +21,7 @@
         {% csrf_token %}
             <div class="text-center">
                 <a class="btn bg-grey shadow text-white mr-1" href="{% url 'home' %}"><strong>Home</strong></a>
-                <button class="btn bg-blue shadow ml-1" type="submit"><strong>{% trans 'Confirm' %}</strong></button>
+                <button class="btn bg-blue border-info shadow ml-1" type="submit"><strong>{% trans 'Confirm' %}</strong></button>
             </div>
             
         </form>

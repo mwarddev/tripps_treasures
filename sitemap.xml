@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/basket/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/accounts/login/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/?category=baby_gifts</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/?category=gifts_for_her</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/?category=gifts_for_him</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/?category=gifts_for_pets</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/news_letter/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/contact/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/12/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/10/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/19/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/11/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/4/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/1/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/6/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/7/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/8/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/2/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/5/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/57/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/51/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/59/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/44/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/61/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/46/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/60/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/50/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/54/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/48/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/52/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/58/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/49/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/43/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/55/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/56/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/62/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/36/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/45/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/63/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/47/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/53/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/35/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/3/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/81/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/83/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/88/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/82/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/86/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/85/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/87/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/84/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/13/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/15/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/17/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/21/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/22/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/16/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/18/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/29/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/98/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/99/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/100/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/77/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/20/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/96/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/97/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/90/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/26/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/27/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/24/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tripps-treasures.herokuapp.com/treasures/25/</loc>
+  <lastmod>2022-07-18T01:28:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

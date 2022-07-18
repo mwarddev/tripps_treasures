@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /basket/
+Disallow: /checkout/
+Disallow: /user_account/
+Disallow: /banner/
+Disallow: /contact/
+Disallow: /news_letter/
+Sitemap: https://tripps-treasures.herokuapp.com/sitemap.xml
