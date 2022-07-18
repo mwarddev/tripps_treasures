@@ -46,9 +46,6 @@
                                         <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="1"
                                             max="99" class="form-control-sm qty-input border-secondary mr-5"
                                             id="id_qty_{{ item.treasure_id }}">
-                                        <button type="submit" class="border-0 bg-white">
-                                        <i class="fa-solid fa-arrows-rotate fa-xl text-dark"></i>
-                                        </button>
                                     </div>
                                     {% if item.treasure.sizable %}
                                         <input type="hidden" name="treasure_size" value="{{ item.size }}">
@@ -116,6 +113,11 @@
             .done(function () {
                 location.reload();
             });
+    })
+
+    // Update qty onchange
+    $('.qty-input').change(function (e) {
+        $('.update-form').submit();
     })
 </script>
 {% endblock %}
