@@ -4,6 +4,7 @@ import stripe
 from django.shortcuts import (render, redirect, reverse,
                               get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 
@@ -191,3 +192,19 @@ def checkout_success(request, purchase_number):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def purchase_list(request):
+    """ A list of purchases for the site owner to create """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that')
+        return redirect(reverse('home'))
+    else:
+        purchases = Purchase.objects.all()
+        template = 'checkout/purchase_list.html'
+        context = {
+            'purchases': purchases,
+        }
+
+        return render(request, template, context)

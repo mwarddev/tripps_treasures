@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_nav %}
+    {% include 'extra_html/main_nav.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h3 class="title-font text-center mt-3">Purchase List</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive-md mt-3">
+                <table class="table table-sm">
+                    <thead class="bg-blue title-font">
+                        <tr>
+                            <th>Purchase Info</th>
+                            <th>Purchased Items</th>
+                            <th>Deliver to:</th>
+                            <th>Purchase Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for purchase in purchases %}
+                        <tr>
+                            <td class="text-no-wrap small">
+                                <p class="mb-1"><strong>Purchase Number: </strong>{{ purchase.purchase_number }}</p>
+                                <p class="mb-1"><strong>Purchase Date: </strong>{{ purchase.purchase_date }}</p>
+                                <p class="mb-1"><strong>Customer Name: </strong>{{ purchase.full_name }}</p>
+                                <p class="mb-1"><strong>Customer Email: </strong>{{ purchase.email }}</p>
+                                <p><strong>Customer Phone: </strong>{{ purchase.phone }}</p>
+                            </td>
+                            <td class="text-break small">
+                                {% for item in purchase.purchaseitems.all %}
+                                    <p class="mb-1"><strong>Item Name: </strong>{{ item.treasure.name }}</p>
+                                    {% if item.item_size %}
+                                    <p class="mb-1"><strong>Item Size: </strong>{{ item.item_size }}</p>
+                                    {% endif %}
+                                    <p class="mb-1"><strong>Qty: </strong>{{ item.qty }}</p>
+                                    <p class="mb-1"><strong>Price: </strong>£{{ item.item_total }}</p>
+                                    <hr>
+                                {% endfor %}
+                            </td>
+                            <td class="text-nowrap small">
+                                <p class="mb-0">{{ purchase.full_name }}</p>
+                                <p class="mb-0">{{ purchase.address_line1 }}</p>
+                                {% if purchase.address_line2 %}
+                                    <p class="mb-0">{{ purchase.address_line2 }}</p>
+                                {% endif %}
+                                <p class="mb-0">{{ purchase.city }}</p>
+                                {% if purchase.county %}
+                                    <p class="mb-0">{{ purchase.county }}</p>
+                                {% endif %}
+                                <p class="mb-0">{{ purchase.postcode }}</p>
+                                <p class="mb-0">{{ purchase.country }}</p>
+                            </td>
+                            <td class="text-nowrap small">
+                                <p class="mb-0"><strong>Subtotal: </strong>£{{ purchase.subtotal }}</p>
+                                <p class="mb-0"><strong>Delivery: </strong>£{{ purchase.delivery_cost }}</p>
+                                <p><strong>Total: </strong>£{{ purchase.grand_total }}</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

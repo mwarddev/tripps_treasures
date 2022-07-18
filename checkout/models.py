@@ -11,10 +11,10 @@ from user_accounts.models import UserAccount
 
 # Order status
 STATUS = (
-    ('new', 'New Order'),
-    ('in_prod', 'In Production'),
-    ('prod_comp', 'Production Complete'),
-    ('despd', 'Despatched'),
+    ('New Order', 'new_order'),
+    ('In Production', 'in_production'),
+    ('Production Complete', 'production_complete'),
+    ('Despatched', 'despatched'),
 )
 
 
@@ -49,11 +49,14 @@ class Purchase(models.Model):
                                       decimal_places=2,
                                       null=False,
                                       default=0)
-    purchase_status = models.CharField(max_length=9,
+    purchase_status = models.CharField(max_length=19,
                                        choices=STATUS,
-                                       default='new')
+                                       default='New Order')
     original_basket = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254,
+                                  null=False,
+                                  blank=False,
+                                  default='')
 
     class Meta:
         """

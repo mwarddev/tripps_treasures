@@ -1,5 +1,5 @@
 from django import forms
-from .models import Purchase
+from .models import Purchase, STATUS
 
 
 class PurchaseForm(forms.ModelForm):
