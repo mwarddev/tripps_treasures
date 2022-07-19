@@ -56,31 +56,33 @@
                 </h4>
             </div>
         </div>
-        <div class="row pt-2 d-flex shadow-sm">
-            <div class="col-12 col-lg-6 pr-1">
+        <div class="row d-flex shadow">
+            <div class="col-12 col-lg-6 d-none d-lg-block">
                 <a class="no-dec" href="{% url 'home' %}">
-                    <div class="row px-1">
+                    <div class="row p-0">
                         <div class="col-2">
-                            <img class="img-fluid w-60 h-75" src="{% static 'images/logo.jpg' %}" alt="Site logo">
+                            <img class="img-fluid lg-logo d-none d-lg-block" src="{% static 'images/logo.jpg' %}" alt="Site logo">
                         </div>
                         <div class="col-10">   
                             <div>
                                 <h2 class="title-font text-dark">Tripp's Treasures</h2>
                             </div>
-                            <div clss="">
-                                <h4 class="title-font text-dark d-none d-lg-block">Handmade Personalised Gifts</h4>
+                            <div>
+                                <h5 class="title-font text-dark text-center mb-0">Handmade Personalised Gifts</h5>
                             </div>
                         </div>    
                     </div>
                 </a>
-                <hr class="d-md-none m-0">
             </div>
-            <div class="col-12 col-lg-6 my-auto d-none d-lg-flex">
-                <form method="GET" action="{% url 'treasures' %}" class="my-auto ml-auto px-3">
+            <div class="col-12 col-lg-6 my-auto d-none d-md-flex">
+                <a class="no-dec" href="{% url 'home' %}">
+                    <img class="img-fluid logo d-none d-md-inline d-lg-none" src="{% static 'images/logo.jpg' %}" alt="Site logo">
+                </a>
+                <form method="GET" action="{% url 'treasures' %}" class="my-auto mx-auto px-3">
                     <div class="input-group">
-                        <input type="text" class="form-control-sm border-secondary py-3" name="search" placeholder="Search here">
+                        <input type="text" class="form-control-sm border-info py-3" name="search" placeholder="Search here">
                         <div class="input-group-append">
-                            <button class="btn-sm border-secondary bg-blue" type="submit">
+                            <button class="btn-sm border-info bg-blue" type="submit">
                                 <span>
                                     <i class="fas fa-search p-0"></i>
                                 </span>
@@ -113,7 +115,7 @@
                         <a href="{% url 'basket_view' %}">
                             <div class="text-center text-secondary">
                                 <div><i class="fa-solid fa-basket-shopping fa-lg"><span
-                                            class="badge badge-danger badge-pill p-1">{{ treasure_count }}</span></i></div>
+                                            class="badge badge-danger badge-pill p-1 pill-count">{{ treasure_count }}</span></i></div>
                                 <p class="mb-0">Basket</p>
                             </div>
                         </a>
@@ -141,11 +143,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="row">
-                <nav>
+            <nav>
+                {% block mobile %}
                     {% include 'extra_html/mobile_nav.html' %}
-                </nav>
-            </div>
+                {% endblock mobile %}
+            </nav>
         </div>
     </header>
 

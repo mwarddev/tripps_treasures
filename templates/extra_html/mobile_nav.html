@@ -1,62 +1,84 @@
-<div class="col-12 d-block d-sm-none justify-content-center">
-    <ul class="list-group list-group-horizontal list-unstyled text-center">
-        <li class="list-group-item border-0">
-            <a href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-center">
-                    <div><i class="fa-solid fa-search"></i></div>
-                    <p class="mb-0">Search</p>
-                </div>
-            </a>
-            <div class="dropdown-menu w-100 border-0" aria-labelledby="mobile-search">
-                <form method="GET" action="{% url 'treasures' %}">
+{% load static %}
+{% block mobile %}
+<div class="mobile-container">
+    <div class="col-12 d-md-none justify-content-center">
+        <a class="no-dec" href="{% url 'home' %}">
+            <img class="img-fluid logo d-inline" src="{% static 'images/logo.jpg' %}" alt="Site logo">
+        </a>
+        <ul class="list-group list-group-horizontal list-unstyled text-center float-right">
+            <li class="d-none d-sm-block my-auto">
+                <form method="GET" action="{% url 'treasures' %}" class="mx-auto px-3">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="search" placeholder="Search here">
+                        <input type="text" class="form-control-sm border-info py-3" name="search" placeholder="Search here">
                         <div class="input-group-append">
-                            <button class="btn border" type="submit">
+                            <button class="btn-sm border-info bg-blue" type="submit">
                                 <span>
-                                    <i class="fas fa-search"></i>
+                                    <i class="fas fa-search p-0"></i>
                                 </span>
                             </button>
                         </div>
                     </div>
                 </form>
-            </div>
-        </li>
-        <li class="list-group-item border-0">
-            <a href="{% url 'basket_view' %}">
-                <div class="text-center">
-                    <div><i class="fa-solid fa-basket-shopping"><span class="badge badge-danger badge-pill">{{ treasure_count }}</span></i></div>
-                    <p class="mb-0">Basket</p>
+            </li>
+            <li class="list-group-item border-0 d-sm-none">
+                <a href="#" id="mobile-search" class="text-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                        <div><i class="fa-solid fa-search fa-lg"></i></div>
+                        <p class="mb-0 d-none d-sm-block">Search</p>
+                    </div>
+                </a>
+                <div class="dropdown-menu w-100 border-0" aria-labelledby="mobile-search">
+                    <form method="GET" action="{% url 'treasures' %}">
+                        <div class="input-group">
+                            <input type="text" class="form-control py-0" name="search" placeholder="Search here">
+                            <div class="input-group-append">
+                                <button class="btn border-info bg-blue py-0" type="submit">
+                                    <span>
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </a>
-        </li>
-        <li class="list-group-item border-0">
-            <a href="#" id="mobile-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-center">
-                    <div><i class="fa-solid fa-bars"></i></div>
-                    <p class="mb-0">Menu</p>
-                </div>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="mobile-menu">
-                <a href="{% url 'treasures' %}?category=baby_gifts" class="dropdown-item bg-yellow">Baby Gifts</a>
-                <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item bg-purple">Gifts for Her</a>
-                <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item bg-green">Gifts for Him</a>
-                <a href="{% url 'treasures' %}?category=gifts_for_pets" class="dropdown-item bg-pink">Gifts for Pets</a>
-                {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                        <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
-                        <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
-                        <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
-                        <a href="{% url 'purchase_list' %}" class="dropdown-item">Purchase List</a>
+            </li>
+            <li class="list-group-item border-0">
+                <a href="{% url 'basket_view' %}" class="text-secondary">
+                    <div class="text-center">
+                        <div><i class="fa-solid fa-basket-shopping fa-lg"><span class="badge badge-danger badge-pill pill-count">{{ treasure_count }}</span></i></div>
+                        <p class="mb-0 d-none d-sm-block">Basket</p>
+                    </div>
+                </a>
+            </li>
+            <li class="list-group-item border-0">
+                <a href="#" class="text-secondary" id="mobile-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                        <div><i class="fa-solid fa-bars fa-lg"></i></div>
+                        <p class="mb-0 d-none d-sm-block">Menu</p>
+                    </div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="mobile-menu">
+                    <a href="{% url 'treasures' %}?category=baby_gifts" class="dropdown-item bg-yellow">Baby Gifts</a>
+                    <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item bg-purple">Gifts for Her</a>
+                    <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item bg-green">Gifts for Him</a>
+                    <a href="{% url 'treasures' %}?category=gifts_for_pets" class="dropdown-item bg-pink">Gifts for Pets</a>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
+                            <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
+                            <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
+                            <a href="{% url 'purchase_list' %}" class="dropdown-item">Purchase List</a>
+                        {% else %}
+                            <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
+                        {% endif %}
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}
-                        <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        <a href="{% url 'account_signup' %" class="dropdown-item">Register</a>
                     {% endif %}
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                {% else %}
-                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                    <a href="{% url 'account_signup' %" class="dropdown-item">Register</a>
-                {% endif %}
-            </div>
-        </li>
-    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
+{% endblock mobile %}

@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <p><strong>Size: </strong>{% if item.treasure.sizable %}{{ item.size }}{% else %}N/A{% endif %}</p>
-                                    <div class="container d-flex p-0">
+                                    <div class="container d-flex p-0 form-group">
                                         <p class="d-inline pr-2"><strong>Qty:</strong></p>
                                         <input type="number" name="treasure_qty" value="{{ item.quantity }}" min="1"
                                             max="99" class="form-control-sm qty-input border-secondary mr-5"
