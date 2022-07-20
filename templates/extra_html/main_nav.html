@@ -1,48 +1,50 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-6 col-md-3 text-center">
-            <a href="{% url 'treasures' %}?category=baby_gifts">
-                <div class="card shadow mb-2 bg-yellow">
-                    <div class="card-body p-1">
-                        <h3 class="card-title m-0 text-dark title-font">
-                            Baby Gifts
-                        </h3>
+{% block page_nav %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 text-center">
+                <a href="{% url 'treasures' %}?category=baby_gifts">
+                    <div class="card shadow mb-2 bg-yellow">
+                        <div class="card-body p-1">
+                            <h5 class="card-title m-0 text-dark title-font">
+                                Baby Gifts
+                            </h5>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3 text-center">
-            <a href="{% url 'treasures' %}?category=gifts_for_her">
-                <div class="card shadow mb-2 bg-purple">
-                    <div class="card-body p-1">
-                        <h3 class="card-title m-0 text-dark title-font">
-                            Gifts for Her
-                        </h3>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a href="{% url 'treasures' %}?category=gifts_for_her">
+                    <div class="card shadow mb-2 bg-purple">
+                        <div class="card-body p-1">
+                            <h5 class="card-title m-0 text-dark title-font">
+                                Gifts for Her
+                            </h5>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3 text-center">
-            <a href="{% url 'treasures' %}?category=gifts_for_him">
-                <div class="card shadow mb-2 bg-green">
-                    <div class="card-body p-1">
-                        <h3 class="card-title m-0 text-dark title-font">
-                            Gifts for Him
-                        </h3>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a href="{% url 'treasures' %}?category=gifts_for_him">
+                    <div class="card shadow mb-2 bg-green">
+                        <div class="card-body p-1">
+                            <h5 class="card-title m-0 text-dark title-font">
+                                Gifts for Him
+                            </h5>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3 text-center">
-            <a href="{% url 'treasures' %}?category=gifts_for_pets">
-                <div class="card shadow mb-2 bg-pink">
-                    <div class="card-body p-1">
-                        <h3 class="card-title m-0 text-dark title-font">
-                            Gifts for Pets
-                        </h3>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a href="{% url 'treasures' %}?category=gifts_for_pets">
+                    <div class="card shadow mb-2 bg-pink">
+                        <div class="card-body p-1">
+                            <h5 class="card-title m-0 text-dark title-font">
+                                Gifts for Pets
+                            </h5>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+{% endblock %}

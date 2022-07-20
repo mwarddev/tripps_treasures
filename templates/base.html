@@ -179,11 +179,11 @@
 
     <!-- Footer -->
     <footer class="container-fluid">
-        <hr>
+        <hr class="my-2">
         <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 text-center text-md-left order-2 order-md-1">
                 <ul class="list-unstyled">
-                    <li>
+                    <li class="mb-2">
                         Sign up for our newsletter <a href="{% url 'news_letter' %}">here!</a>
                     </li>
                     <li>
@@ -191,14 +191,14 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-md-4 text-center external-link">
+            <div class="col-12 col-md-4 text-center external-link order-1 order-md-2">
                 <a href="https://www.etsy.com/uk/shop/TrippsTreasuresUK?ref=seller-platform-mcnav" target="_blank" rel="noopener" aria-label="External link to Tripp's Treasures Etsy site">
                     <i class="fa-brands fa-etsy text-dark px-2"></i></a>
                 <a href="https://www.facebook.com/TrippsTreasure"target="_blank" rel="noopener" aria-label="External link to Tripp's Treasures facebook page.">
                     <i class="fa-brands fa-facebook-f text-dark px-2"></i></a>
             </div>
-            <div class="col-12 col-md-4 text-right">
-                <p class="text-right copywrite">
+            <div class="col-12 col-md-4 text-center text-md-right order-3">
+                <p class="copywrite">
                     <span>&copy;</span> {% now 'Y' %} Tripp's Treasures
                 </p>
             </div>

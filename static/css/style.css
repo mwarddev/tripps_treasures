@@ -5,7 +5,7 @@ body {
 }
 
 main {
-    margin-top: 170px;
+    margin-top: 130px;
     flex: 1;
 }
 
@@ -72,12 +72,6 @@ a:link {
     font-size: 1.5rem;
 }
 
-/* Treasures */
-
-.preview {
-    width: 300px;
-    height: 400px;
-}
 
 /* Full Details */
 
