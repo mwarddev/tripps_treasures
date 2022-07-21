@@ -25,10 +25,10 @@
                 <a href="{% url 'full_details' treasure.id %}"> 
                     <div class="card shadow mb-4">
                         {% if treasure.image %}
-                            <img class="img-fluid h-50 preview" src="{{ treasure.image.url }}"
+                            <img class="img-fluid rounded-top" src="{{ treasure.image.url }}"
                                 alt="{{ treasure.name }}">
                         {% else %}
-                            <img class="img-fluid h-50 preview" src="{{ MEDIA_URL }}no_image.png"
+                            <img class="img-fluid rounded-top" src="{{ MEDIA_URL }}no_image.png"
                                 alt="{{ treasure.name }}">
                         {% endif %}
                         <div class="card-body">

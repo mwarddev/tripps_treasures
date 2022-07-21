@@ -42,7 +42,9 @@
                                     {% endif %}
                                     <p class="mb-1"><strong>Qty: </strong>{{ item.qty }}</p>
                                     <p class="mb-1"><strong>Price: </strong>£{{ item.item_total }}</p>
-                                    <hr>
+                                    {% if not forloop.last %}
+                                        <hr>
+                                    {% endif %}
                                 {% endfor %}
                             </td>
                             <td class="text-nowrap small">

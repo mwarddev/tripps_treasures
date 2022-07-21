@@ -36,7 +36,9 @@
                                 {{ message.cust_name }}
                             </td>
                             <td class="text-break">
-                                {{ message.email_address }}
+                                <a href="mailto:{{ message.email_address }}?subject=Tripp's Treasures Contact">
+                                    {{ message.email_address }}
+                                </a>
                             </td>
                             <td class="text-break">
                                 {{ message.purchase_number }}
