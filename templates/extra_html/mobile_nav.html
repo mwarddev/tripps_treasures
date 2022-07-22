@@ -57,14 +57,14 @@
                         <p class="mb-0 d-none d-sm-block">Menu</p>
                     </div>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="mobile-menu">
+                <div class="dropdown-menu border-dark" aria-labelledby="mobile-menu">
                     <a href="{% url 'treasures' %}?category=baby_gifts" class="dropdown-item bg-yellow">Baby Gifts</a>
                     <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item bg-purple">Gifts for Her</a>
                     <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item bg-green">Gifts for Him</a>
                     <a href="{% url 'treasures' %}?category=gifts_for_pets" class="dropdown-item bg-pink">Gifts for Pets</a>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                            <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
+                            <a href="{% url 'add_treasure' %}" class="dropdown-item">Add Treasures</a>
                             <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
                             <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
                             <a href="{% url 'purchase_list' %}" class="dropdown-item">Purchase List</a>

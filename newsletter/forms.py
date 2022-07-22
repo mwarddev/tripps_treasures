@@ -11,6 +11,6 @@ class NewsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'border-dark w-25 mx-auto'
+            self.fields[field].widget.attrs['class'] = 'border-secondary'
             self.fields[field].widget.attrs['placeholder'] = 'example@example.com'
             self.fields['email_address'].label = False

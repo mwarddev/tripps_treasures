@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load crispy_forms_tags %}
 
 {% block page_nav %}
 {% include 'extra_html/main_nav.html' %}
@@ -10,17 +9,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h2 class="title-font text-center mt-3 mb-4">Update Info Banner</h2>
+                <h4 class="title-font text-center">Update Info Banner</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6 offset-3 px-5">
-                <form method="POST" action="{% url 'update_banner' %}" class="border-dark mb-3">
+            <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+                <form method="POST" action="{% url 'update_banner' %}">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-center">
-                        <a class="btn bg-grey shadow text-white" href="{% url 'home' %}"><strong>Home</strong></a>
-                        <button class="btn bg-blue shadow" type="submit"><strong>Update Banner</strong></button>
+                        <a class="btn btn-sm bg-grey border-dark shadow text-white" href="{% url 'home' %}"><strong>Home</strong></a>
+                        <button class="btn btn-sm bg-blue border-info shadow" type="submit"><strong>Update Banner</strong></button>
                     </div>
                 </form>
             </div>         

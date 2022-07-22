@@ -30,7 +30,7 @@ class PurchaseForm(forms.ModelForm):
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             self.fields[field].widget.attrs['placeholder'] = placeholders[field]
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].widget.attrs['class'] = 'border-secondary'
             # Adjust labels for full name, address line 1 & 2
             self.fields['full_name'].label = 'Full Name'
             self.fields['address_line1'].label = 'Address Line 1'

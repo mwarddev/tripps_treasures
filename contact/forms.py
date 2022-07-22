@@ -12,7 +12,7 @@ class ContactForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'border-dark w-25 mx-auto'
+            self.fields[field].widget.attrs['class'] = 'border-secondary'
             # Add placeholders
             self.fields['cust_name'].widget.attrs['placeholder'] = 'Your name here'
             self.fields['email_address'].widget.attrs['placeholder'] = 'example@example.com'

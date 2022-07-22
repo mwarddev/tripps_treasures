@@ -8,14 +8,14 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col mx-auto mt-5 text-center">
-            <h4 class="title-font">Contact Us</h4>
-            <form action="{% url 'contact_us' %}" method="POST" class="border-dark">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+            <h4 class="title-font text-center">Contact Us</h4>
+            <form action="{% url 'contact_us' %}" method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="input-group">
-                    <button class="btn-sm border-info rounded-right bg-blue mx-auto" type="submit">
-                        Contact Us
+                    <button class="btn btn-sm border-info bg-blue shadow mx-auto" type="submit">
+                        <strong>Contact Us</strong>
                     </button>
                 </div>
             </form>
