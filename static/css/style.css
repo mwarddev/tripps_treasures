@@ -90,6 +90,12 @@ a:link {
     cursor: pointer;
 }
 
+/* Messages */
+
+#message-table {
+    min-width: 1245px;
+}
+
 /* Toasts */
 
 .toast {

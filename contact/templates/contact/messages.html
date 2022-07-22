@@ -14,8 +14,8 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="table-responsive-md mt-3">
-                <table class="table table-sm">
+            <div class="table-responsive">
+                <table class="table table-sm" id="message-table">
                     <thead class="bg-blue title-font">
                         <tr>
                             <th>Date</th>
@@ -35,7 +35,7 @@
                             <td>
                                 {{ message.cust_name }}
                             </td>
-                            <td class="text-break">
+                            <td class="text-nowrap">
                                 <a href="mailto:{{ message.email_address }}?subject=Tripp's Treasures Contact">
                                     {{ message.email_address }}
                                 </a>
