@@ -14,21 +14,23 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-sm-8 right-border">
+        <div class="col-12 col-md-8 right-border">
             <p><strong>{{ treasure_count }}</strong> item(s)</p>
             {% if basket_items %}
                 {% for item in basket_items %}
                     <div class="row my-2">
-                        <div class="col-12 col-sm-6">
+                        <div class="col-12 col-md-6">
                             <div class="row">
                                 <div class="col-6">
-                                {% if item.treasure.image %}
-                                    <img class="img-fluid w-100 preview" src="{{ item.treasure.image.url }}"
-                                        alt="{{ item.treasure.name }}">
-                                {% else %}
-                                    <img class="img-fluid w-100 preview" src="{{ MEDIA_URL }}no_image.png"
-                                        alt="{{ item.treasure.name }}">
-                                {% endif %}
+                                    <a href="{% url 'full_details' item.treasure.id %}">
+                                        {% if item.treasure.image %}
+                                            <img class="img-fluid w-100" src="{{ item.treasure.image.url }}"
+                                                alt="{{ item.treasure.name }}">
+                                        {% else %}
+                                            <img class="img-fluid w-100" src="{{ MEDIA_URL }}no_image.png"
+                                                alt="{{ item.treasure.name }}">
+                                        {% endif %}
+                                    </a>
                                 </div>
                                 <div class="col-6">
                                     <p class="title-font"><strong>{{ item.treasure.name }}</strong></p>
@@ -37,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6">
+                        <div class="col-12 col-md-6">
                             <div class="row">
                                 <div class="col-8">
                                     <p><strong>Size: </strong>{% if item.treasure.sizable %}{{ item.size }}{% else %}N/A{% endif %}</p>
@@ -62,7 +64,9 @@
                             </div>
                         </div>  
                     </div>
-                    <hr>
+                    {% if not forloop.last %}
+                        <hr>
+                    {% endif %}
                 {% endfor %}
             {% else %}
                 <p class="mt-5">There's nothing in your basket.</p>
@@ -71,22 +75,19 @@
                 </a>
             {% endif %}
             </div>
-        <div class="col-12 col-sm-4">
-            <div class="row">
-                <div class="col-12 mt-md-5">
-                    <p>If you would like to customise your treasure(s), please contact us when you've purchased your treasure(s) and provide your purchase number.</p>
-                    <p><strong>Basket Total: </strong>£{{ total|floatformat:2 }}</p>
-                    <p><strong>Delivery: </strong>£{{ delivery|floatformat:2 }}</p>
-                    <p><strong>Grand Total: </strong>£{{ grand_total|floatformat:2 }}</p>
-                    <div class="container-fluid text-center">
-                        <a href="{% url 'home' %}" class="btn bg-grey text-white mr-2">
-                            <strong>Continue Shopping</strong>
-                        </a>
-                        <a href="{% url 'checkout' %}" class="btn bg-blue ml-2">
-                            <strong>Go to Checkout</strong>
-                        </a>
-                    </div>
-                </div>
+        <div class="col-12 col-md-4 mt-md-5">
+            <hr class="d-md-none">
+            <p>If you would like to customise your treasure(s), please <a href="{% url 'contact_us' %}">contact us</a> when you've made your purchase and provide your purchase number for reference.</p>
+            <p><strong>Basket Total: </strong>£{{ total|floatformat:2 }}</p>
+            <p><strong>Delivery: </strong>£{{ delivery|floatformat:2 }}</p>
+            <p><strong>Grand Total: </strong>£{{ grand_total|floatformat:2 }}</p>
+            <div class="text-center">
+                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark shadow text-white mb-2">
+                    <strong>Continue Shopping</strong>
+                </a>
+                <a href="{% url 'checkout' %}" class="btn btn-sm bg-blue border-info shadow mb-2">
+                    <strong>Go to Checkout</strong>
+                </a>
             </div>
         </div>
     </div>

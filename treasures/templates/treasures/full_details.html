@@ -45,10 +45,10 @@
                             <p class="text-right mt-4 mb-0 price"><strong>£{{ treasure.price }}</strong></p>
                         </div>
                         <div class="col-12 text-center my-3">
-                            <a href="{% url 'home' %}" class="btn bg-grey border-dark text-white shadow">
+                            <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow">
                                 Continue Shopping
                             </a>
-                            <input type="submit" class="btn bg-blue border-info shadow" value="Add to Basket">
+                            <input type="submit" class="btn btn-sm bg-blue border-info shadow" value="Add to Basket">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
