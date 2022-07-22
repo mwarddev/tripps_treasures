@@ -92,24 +92,34 @@
                 </form>
                 <ul class="list-group list-group-horizontal list-unstyled text-center">
                     {% if request.user.is_authenticated %}
-                    <li class="list-group-item dropdown border-0 p-2">
-                        <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center text-secondary">
-                                <div><i class="fa-solid fa-circle-user fa-lg"></i></div>
-                                <p class="mb-0">Account</p>
+                        {% if request.user.is_superuser %}
+                        <li class="list-group-item dropdown border-0 p-2">
+                            <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center text-secondary">
+                                    <div><i class="fa-solid fa-screwdriver-wrench fa-lg"></i></div>
+                                    <p class="mb-0">Manage Site</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="user-menu">
+                                <a href="{% url 'add_treasure' %}" class="dropdown-item">Add Treasures</a>
+                                <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
+                                <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
+                                <a href="{% url 'purchase_list' %}" class="dropdown-item">Purchase List</a>
                             </div>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="user-menu">
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'add_treasure' %}" class="dropdown-item">Manage Site</a>
-                            <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
-                            <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
-                            <a href="{% url 'purchase_list' %}" class="dropdown-item">Purchase List</a>
-                            {% else %}
-                            <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
-                            {% endif %}
-                        </div>
-                    </li>
+                        </li>
+                        {% else %}
+                        <li class="list-group-item dropdown border-0 p-2">
+                            <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center text-secondary">
+                                    <div><i class="fa-solid fa-circle-user fa-lg"></i></div>
+                                    <p class="mb-0">Account</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="user-menu">
+                                <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
+                            </div>
+                        </li>
+                        {% endif %}
                     {% endif %}
                     <li class="list-group-item border-0 p-2">
                         <a href="{% url 'basket_view' %}">
