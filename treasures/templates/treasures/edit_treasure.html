@@ -8,19 +8,14 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <h2 class="title-font text-center mt-3 mb-4">Manage Treasures</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 offset-3 px-5">
-                <h3 class="title-font">Edit Treasures</h3>
+            <div class="col-10 offset-1 col-md-6 offset-md-3 mt-3">
+                <h4 class="title-font text-center">Edit Treasures</h4>
                 <form method="POST" action="{% url 'edit_treasure' treasure.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-center">
-                        <a class="btn bg-grey shadow text-white" href="{% url 'edit_treasure' treasure.id %}"><strong>Cancel</strong></a>
-                        <button class="btn bg-blue shadow" type="submit"><strong>Edit Treasure</strong></button>
+                        <a class="btn btn-sm bg-grey border-dark shadow text-white" href="{% url 'edit_treasure' treasure.id %}"><strong>Cancel</strong></a>
+                        <button class="btn btn-sm bg-blue border-info shadow" type="submit"><strong>Edit Treasure</strong></button>
                     </div>
                 </form>
             </div>          

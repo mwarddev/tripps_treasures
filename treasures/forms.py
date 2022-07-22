@@ -7,7 +7,8 @@ class TreasureForm(forms.ModelForm):
 
     class Meta:
         model = Treasure
-        fields = '__all__'
+        fields = ('category', 'name', 'description',
+                  'image', 'sizable', 'price',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -16,4 +17,4 @@ class TreasureForm(forms.ModelForm):
 
         self.fields['category'].choices = display_names
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-dark'
+            field.widget.attrs['class'] = 'border-secondary'

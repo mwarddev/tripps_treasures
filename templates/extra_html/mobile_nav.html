@@ -27,7 +27,7 @@
                         <p class="mb-0 d-none d-sm-block">Search</p>
                     </div>
                 </a>
-                <div class="dropdown-menu w-100 border-0" aria-labelledby="mobile-search">
+                <div class="dropdown-menu border-0" aria-labelledby="mobile-search">
                     <form method="GET" action="{% url 'treasures' %}">
                         <div class="input-group">
                             <input type="text" class="form-control py-0" name="search" placeholder="Search here">
@@ -57,7 +57,7 @@
                         <p class="mb-0 d-none d-sm-block">Menu</p>
                     </div>
                 </a>
-                <div class="dropdown-menu border-dark" aria-labelledby="mobile-menu">
+                <div class="dropdown-menu border-secondary" aria-labelledby="mobile-menu">
                     <a href="{% url 'treasures' %}?category=baby_gifts" class="dropdown-item bg-yellow">Baby Gifts</a>
                     <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item bg-purple">Gifts for Her</a>
                     <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item bg-green">Gifts for Him</a>

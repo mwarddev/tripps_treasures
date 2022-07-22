@@ -80,7 +80,7 @@
                 </a>
                 <form method="GET" action="{% url 'treasures' %}" class="my-auto mx-auto px-3">
                     <div class="input-group">
-                        <input type="text" class="form-control-sm border-info py-3" name="search" placeholder="Search here">
+                        <input type="text" class="form-control-sm border-secondary py-3" name="search" placeholder="Search here">
                         <div class="input-group-append">
                             <button class="btn-sm border-info bg-blue" type="submit">
                                 <span>
@@ -100,7 +100,7 @@
                                     <p class="mb-0">Manage Site</p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="user-menu">
+                            <div class="dropdown-menu border-secondary" aria-labelledby="user-menu">
                                 <a href="{% url 'add_treasure' %}" class="dropdown-item">Add Treasures</a>
                                 <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
                                 <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
@@ -115,7 +115,7 @@
                                     <p class="mb-0">Account</p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="user-menu">
+                            <div class="dropdown-menu border-secondary" aria-labelledby="user-menu">
                                 <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
                             </div>
                         </li>
@@ -145,7 +145,7 @@
                                 <p class="mb-0">Login/Register</p>
                             </div>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="auth">
+                        <div class="dropdown-menu border-secondary" aria-labelledby="auth">
                             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                         </div>
