@@ -46,9 +46,11 @@
                         </div>
                         <div class="col-12 text-center my-3">
                             <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow">
-                                Continue Shopping
+                                <strong>Continue Shopping</strong>
                             </a>
-                            <input type="submit" class="btn btn-sm bg-blue border-info shadow" value="Add to Basket">
+                            <button type="submit" class="btn btn-sm bg-blue border-info shadow">
+                                <strong>Add to Basket</strong>
+                            </button>
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>

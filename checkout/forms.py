@@ -18,7 +18,7 @@ class PurchaseForm(forms.ModelForm):
         placeholders = {
             'full_name': 'First name, Surname',
             'email': 'example@email.com',
-            'phone': '(optional)',
+            'phone': 'Phone number',
             'address_line1': 'Example: 42 Church Street',
             'address_line2': '(optional)',
             'city': 'Town or City',

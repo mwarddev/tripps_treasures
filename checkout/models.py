@@ -29,7 +29,7 @@ class Purchase(models.Model):
                                      related_name='purchases')
     full_name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
-    phone = models.CharField(max_length=20, null=True, blank=True)
+    phone = models.CharField(max_length=20, null=False, blank=False)
     address_line1 = models.CharField(max_length=100, null=False, blank=False)
     address_line2 = models.CharField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=50, null=False, blank=False)

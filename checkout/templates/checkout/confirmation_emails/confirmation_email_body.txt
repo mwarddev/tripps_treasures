@@ -23,7 +23,7 @@ Subtotal:         £{{ purchase.subtotal }}
 Delivery Cost:    £{{ purchase.delivery_cost }}
 Grand Toatal:     £{{ purchase.grand_total }}
 
-If you have any questions about your order please contact us by email: {{ treasure_email }}
+If you have any questions about your order please contact us using the link above.
 
 Thank you again for your order!
 

@@ -34,6 +34,7 @@ class Treasure(models.Model):
     def __str__(self):
         return self.name
 
+
 class Image(models.Model):
     """ Image model to allow multiple images per Treasure (product) """
     treasure = models.ForeignKey(Treasure,
