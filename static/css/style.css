@@ -96,6 +96,12 @@ a:link {
     min-width: 1245px;
 }
 
+/* Purchase History */
+
+#purchase-history {
+    min-width: 650px;
+}
+
 /* Toasts */
 
 .toast {
