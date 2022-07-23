@@ -58,10 +58,10 @@
                 {% if request.user.is_superuser %}
                     <div class="text-right">
                         <a href="{% url 'edit_treasure' treasure.id %}" class="text-muted mr-3">
-                            <i class="fa-solid fa-pencil"></i>
+                            <i class="fa-solid fa-pencil icon"></i>
                         </a>
-                        <a href="{% url 'delete_treasure' treasure.id %}" class="text-danger">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <a href="{% url 'delete_treasure' treasure.id %}" class="text-dark">
+                            <i class="fa-solid fa-trash-can bin"></i>
                         </a>
                     </div>
                 {% endif %}

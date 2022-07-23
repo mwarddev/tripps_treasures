@@ -99,6 +99,10 @@ a:link {
     color: #000 !important;
 }
 
+.bin:hover {
+    color: red !important;
+}
+
 .home:hover,
 .ext-link:hover {
     color: #aaa !important;
