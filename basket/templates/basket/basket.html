@@ -70,7 +70,7 @@
                 {% endfor %}
             {% else %}
                 <p class="mt-5">There's nothing in your basket.</p>
-                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow mt-4">
+                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow btn-grey mt-4">
                     Continue Shopping
                 </a>
             {% endif %}
@@ -82,10 +82,10 @@
             <p><strong>Delivery: </strong>£{{ delivery|floatformat:2 }}</p>
             <p><strong>Grand Total: </strong>£{{ grand_total|floatformat:2 }}</p>
             <div class="text-center">
-                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark shadow text-white mb-2">
+                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark shadow text-white btn-grey mb-2">
                     <strong>Continue Shopping</strong>
                 </a>
-                <a href="{% url 'checkout' %}" class="btn btn-sm bg-blue border-info shadow mb-2">
+                <a href="{% url 'checkout' %}" class="btn btn-sm bg-blue border-info shadow btn-blue mb-2">
                     <strong>Go to Checkout</strong>
                 </a>
             </div>

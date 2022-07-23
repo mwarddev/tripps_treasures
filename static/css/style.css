@@ -44,6 +44,22 @@ main {
     background-color: #a9def9;
 }
 
+/* Banner */
+
+#scroll {
+    animation: slide 15s linear infinite;
+    -webkit-animation: slide 15s linear infinite;
+    -moz-animation: slide 15s linear infinite;
+}
+@keyframes slide {
+    0% {
+        transform: translate(75vw);
+    }
+    100% {
+        transform: translate(-75vw);
+    }
+}
+
 /* Page header */
 
 .title-font {
@@ -60,6 +76,32 @@ a:link {
 
 .pill-count {
     font-size: 0.6rem;
+}
+
+/* Buttons & Menus */
+
+.hover:hover {
+    background-color: #a9def9;
+}
+
+.btn-blue:hover {
+    box-shadow: none !important;
+    background-color: #d3f8e2;
+}
+
+.btn-grey:hover {
+    box-shadow: none !important;
+    background-color: #d3f8e2;
+    color: #000 !important;
+}
+
+.icon:hover {
+    color: #000 !important;
+}
+
+.home:hover,
+.ext-link:hover {
+    color: #aaa !important;
 }
 
 /* Footer */

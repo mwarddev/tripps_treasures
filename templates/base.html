@@ -49,7 +49,7 @@
     <header class="container-fluid fixed-top bg-white">
         <div id="info-banner" class="row text-center">
             <div class="col bg-info text-white">
-                <h4 class="m-0 py-1">
+                <h4 class="m-0 py-1" id="scroll">
                     {% for banner in banners %}
                         {{ banner.info }}
                     {% endfor %}
@@ -61,14 +61,14 @@
                 <a class="no-dec" href="{% url 'home' %}">
                     <div class="row p-0">
                         <div class="col-2">
-                            <img class="img-fluid lg-logo d-none d-lg-block" src="{% static 'images/logo.jpg' %}" alt="Site logo">
+                            <img class="img-fluid lg-logo d-none d-lg-block logo" src="{% static 'images/logo.jpg' %}" alt="Site logo">
                         </div>
                         <div class="col-10">   
                             <div>
-                                <h2 class="title-font text-dark">Tripp's Treasures</h2>
+                                <h2 class="title-font text-dark home">Tripp's Treasures</h2>
                             </div>
                             <div>
-                                <h5 class="title-font text-dark text-center mb-0">Handmade Personalised Gifts</h5>
+                                <h5 class="title-font text-dark text-center mb-0 home">Handmade Personalised Gifts</h5>
                             </div>
                         </div>    
                     </div>
@@ -82,7 +82,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control-sm border-secondary py-3" name="search" placeholder="Search here">
                         <div class="input-group-append">
-                            <button class="btn-sm border-info bg-blue" type="submit">
+                            <button class="btn-sm border-info bg-blue btn-blue" type="submit">
                                 <span>
                                     <i class="fas fa-search p-0"></i>
                                 </span>
@@ -95,35 +95,35 @@
                         {% if request.user.is_superuser %}
                         <li class="list-group-item dropdown border-0 p-2">
                             <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center text-secondary">
+                                <div class="text-center text-secondary icon">
                                     <div><i class="fa-solid fa-screwdriver-wrench fa-lg"></i></div>
                                     <p class="mb-0">Manage Site</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-secondary" aria-labelledby="user-menu">
-                                <a href="{% url 'add_treasure' %}" class="dropdown-item">Add Treasures</a>
-                                <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
-                                <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
-                                <a href="{% url 'purchase_list' %}" class="dropdown-item">Purchase List</a>
+                                <a href="{% url 'add_treasure' %}" class="dropdown-item hover">Add Treasures</a>
+                                <a href="{% url 'update_banner' %}" class="dropdown-item hover">Banner Update</a>
+                                <a href="{% url 'view_messages' %}" class="dropdown-item hover">Messages</a>
+                                <a href="{% url 'purchase_list' %}" class="dropdown-item hover">Purchase List</a>
                             </div>
                         </li>
                         {% else %}
                         <li class="list-group-item dropdown border-0 p-2">
                             <a href="#" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center text-secondary">
+                                <div class="text-center text-secondary icon">
                                     <div><i class="fa-solid fa-circle-user fa-lg"></i></div>
                                     <p class="mb-0">Account</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-secondary" aria-labelledby="user-menu">
-                                <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
+                                <a href="{% url 'account' %}" class="dropdown-item hover">My Account</a>
                             </div>
                         </li>
                         {% endif %}
                     {% endif %}
                     <li class="list-group-item border-0 p-2">
                         <a href="{% url 'basket_view' %}">
-                            <div class="text-center text-secondary">
+                            <div class="text-center text-secondary icon">
                                 <div><i class="fa-solid fa-basket-shopping fa-lg"><span
                                             class="badge badge-danger badge-pill p-1 pill-count">{{ treasure_count }}</span></i></div>
                                 <p class="mb-0">Basket</p>
@@ -133,21 +133,21 @@
                     <li class="list-group-item dropdown border-0 p-2">
                         {% if request.user.is_authenticated %}
                         <a href="{% url 'account_logout' %}">
-                            <div class="text-center text-secondary">
+                            <div class="text-center text-secondary icon">
                                 <div><i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></div>
                                 <p class="mb-0">Logout</p>
                             </div>
                         </a>
                         {% else %}
                         <a href="#" id="auth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center text-secondary">
+                            <div class="text-center text-secondary icon">
                                 <div><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
                                 <p class="mb-0">Login/Register</p>
                             </div>
                         </a>
                         <div class="dropdown-menu border-secondary" aria-labelledby="auth">
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item hover">Login</a>
+                            <a href="{% url 'account_signup' %}" class="dropdown-item hover">Register</a>
                         </div>
                         {% endif %}
                     </li>
@@ -197,15 +197,15 @@
                         Sign up for our newsletter <a href="{% url 'news_letter' %}">here!</a>
                     </li>
                     <li>
-                        <a class="btn btn-sm bg-blue border-info shadow" href="{% url 'contact_us' %}"><strong>Contact Us</strong></a>
+                        <a class="btn btn-sm bg-blue border-info shadow btn-blue" href="{% url 'contact_us' %}"><strong>Contact Us</strong></a>
                     </li>
                 </ul>
             </div>
             <div class="col-12 col-md-4 text-center external-link order-1 order-md-2">
                 <a href="https://www.etsy.com/uk/shop/TrippsTreasuresUK?ref=seller-platform-mcnav" target="_blank" rel="noopener" aria-label="External link to Tripp's Treasures Etsy site">
-                    <i class="fa-brands fa-etsy text-dark px-2"></i></a>
+                    <i class="fa-brands fa-etsy text-dark px-2 ext-link"></i></a>
                 <a href="https://www.facebook.com/TrippsTreasure"target="_blank" rel="noopener" aria-label="External link to Tripp's Treasures facebook page.">
-                    <i class="fa-brands fa-facebook-f text-dark px-2"></i></a>
+                    <i class="fa-brands fa-facebook-f text-dark px-2 ext-link"></i></a>
             </div>
             <div class="col-12 col-md-4 text-center text-md-right order-3">
                 <p class="copywrite">

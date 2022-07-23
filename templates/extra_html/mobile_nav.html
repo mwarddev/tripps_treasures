@@ -11,7 +11,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control-sm border-info py-3" name="search" placeholder="Search here">
                         <div class="input-group-append">
-                            <button class="btn-sm border-info bg-blue" type="submit">
+                            <button class="btn-sm border-info bg-blue btn-blue" type="submit">
                                 <span>
                                     <i class="fas fa-search p-0"></i>
                                 </span>
@@ -21,7 +21,7 @@
                 </form>
             </li>
             <li class="list-group-item border-0 d-sm-none">
-                <a href="#" id="mobile-search" class="text-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="#" id="mobile-search" class="text-secondary icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <div><i class="fa-solid fa-search fa-lg"></i></div>
                         <p class="mb-0 d-none d-sm-block">Search</p>
@@ -43,7 +43,7 @@
                 </div>
             </li>
             <li class="list-group-item border-0">
-                <a href="{% url 'basket_view' %}" class="text-secondary">
+                <a href="{% url 'basket_view' %}" class="text-secondary icon">
                     <div class="text-center">
                         <div><i class="fa-solid fa-basket-shopping fa-lg"><span class="badge badge-danger badge-pill pill-count">{{ treasure_count }}</span></i></div>
                         <p class="mb-0 d-none d-sm-block">Basket</p>
@@ -51,30 +51,30 @@
                 </a>
             </li>
             <li class="list-group-item border-0">
-                <a href="#" class="text-secondary" id="mobile-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="#" class="text-secondary icon" id="mobile-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <div><i class="fa-solid fa-bars fa-lg"></i></div>
                         <p class="mb-0 d-none d-sm-block">Menu</p>
                     </div>
                 </a>
                 <div class="dropdown-menu border-secondary" aria-labelledby="mobile-menu">
-                    <a href="{% url 'treasures' %}?category=baby_gifts" class="dropdown-item bg-yellow">Baby Gifts</a>
-                    <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item bg-purple">Gifts for Her</a>
-                    <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item bg-green">Gifts for Him</a>
-                    <a href="{% url 'treasures' %}?category=gifts_for_pets" class="dropdown-item bg-pink">Gifts for Pets</a>
+                    <a href="{% url 'treasures' %}?category=baby_gifts" class="dropdown-item bg-yellow hover">Baby Gifts</a>
+                    <a href="{% url 'treasures' %}?category=gifts_for_her" class="dropdown-item bg-purple hover">Gifts for Her</a>
+                    <a href="{% url 'treasures' %}?category=gifts_for_him" class="dropdown-item bg-green hover">Gifts for Him</a>
+                    <a href="{% url 'treasures' %}?category=gifts_for_pets" class="dropdown-item bg-pink hover">Gifts for Pets</a>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                            <a href="{% url 'add_treasure' %}" class="dropdown-item">Add Treasures</a>
-                            <a href="{% url 'update_banner' %}" class="dropdown-item">Banner Update</a>
-                            <a href="{% url 'view_messages' %}" class="dropdown-item">Messages</a>
-                            <a href="{% url 'purchase_list' %}" class="dropdown-item">Purchase List</a>
+                            <a href="{% url 'add_treasure' %}" class="dropdown-item hover">Add Treasures</a>
+                            <a href="{% url 'update_banner' %}" class="dropdown-item hover">Banner Update</a>
+                            <a href="{% url 'view_messages' %}" class="dropdown-item hover">Messages</a>
+                            <a href="{% url 'purchase_list' %}" class="dropdown-item hover">Purchase List</a>
                         {% else %}
-                            <a href="{% url 'account' %}" class="dropdown-item">My Account</a>
+                            <a href="{% url 'account' %}" class="dropdown-item hover">My Account</a>
                         {% endif %}
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item hover">Logout</a>
                     {% else %}
-                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        <a href="{% url 'account_signup' %" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item hover">Login</a>
+                        <a href="{% url 'account_signup' %" class="dropdown-item hover">Register</a>
                     {% endif %}
                 </div>
             </li>
