@@ -13,6 +13,5 @@ class BannerForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'border-secondary'
-            self.fields[field].widget.attrs['placeholder'] = 'Please enter the\
-                 info banner text here.'
+            self.fields[field].widget.attrs['placeholder'] = 'Please enter the info banner text here.'  # noqa
             self.fields['info'].label = False
