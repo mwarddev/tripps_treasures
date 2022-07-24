@@ -46,17 +46,23 @@ main {
 
 /* Banner */
 
-#scroll {
-    animation: slide 15s linear infinite;
-    -webkit-animation: slide 15s linear infinite;
-    -moz-animation: slide 15s linear infinite;
+#scroll-container {
+    overflow: hidden;
 }
+
+#scroll {
+    width: fit-content;
+    animation: slide 20s linear infinite;
+    -webkit-animation: slide 20s linear infinite;
+    -moz-animation: slide 20s linear infinite;
+}
+
 @keyframes slide {
     0% {
-        transform: translate(75vw);
+        transform: translateX(100vw);
     }
     100% {
-        transform: translate(-75vw);
+        transform: translateX(-105%);
     }
 }
 

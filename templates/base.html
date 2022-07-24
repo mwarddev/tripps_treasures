@@ -47,9 +47,9 @@
 
 <body class="d-flex flex-column min-vh-100">
     <header class="container-fluid fixed-top bg-white">
-        <div id="info-banner" class="row text-center">
-            <div class="col bg-info text-white">
-                <h4 class="m-0 py-1" id="scroll">
+        <div id="info-banner" class="row">
+            <div class="col bg-info text-white" id="scroll-container">
+                <h4 class="m-0 py-1 text-nowrap" id="scroll">
                     {% for banner in banners %}
                         {{ banner.info }}
                     {% endfor %}
