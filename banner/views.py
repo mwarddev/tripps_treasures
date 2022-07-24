@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Banner
 from .forms import BannerForm
 
+
 @login_required
 def update_banner(request):
     """ Update the info banner """

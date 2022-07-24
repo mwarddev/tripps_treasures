@@ -121,4 +121,5 @@ class PurchaseItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'Name: {self.treasure.name} on order {self.purchase.purchase_number}'
+        return f'Name: {self.treasure.name} on order\
+             {self.purchase.purchase_number}'

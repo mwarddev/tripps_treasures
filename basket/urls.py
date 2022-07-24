@@ -5,5 +5,7 @@ urlpatterns = [
     path('', views.basket_view, name='basket_view'),
     path('add/<treasure_id>/', views.add_to_basket, name='add_to_basket'),
     path('update/<treasure_id>/', views.update_basket, name='update_basket'),
-    path('delete/<treasure_id>/', views.delete_from_basket, name='delete_from_basket'),
+    path('delete/<treasure_id>/',
+         views.delete_from_basket,
+         name='delete_from_basket'),
 ]

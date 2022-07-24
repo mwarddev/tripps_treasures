@@ -28,7 +28,7 @@ def all_treasures(request):
                 messages.error(request, 'No search criteria entered')
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query)  # noqa
             treasures = treasures.filter(queries)
 
     template_name = 'treasures/treasures.html'
