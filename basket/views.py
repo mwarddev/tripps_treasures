@@ -27,16 +27,17 @@ def add_to_basket(request, treasure_id):
         if treasure_id in list(basket.keys()):
             if size in basket[treasure_id]['sizeable'].keys():
                 basket[treasure_id]['sizeable'][size] += quantity
-                messages.success(request, f'{treasure.name} {size} quantity\
-                    successfully updated to {basket[treasure_id]["sizeable"][size]}')
+                messages.success(request, f'{treasure.name} {size}\
+                    quantity successfully updated to\
+                    {basket[treasure_id]["sizeable"][size]}')
             else:
                 basket[treasure_id]['sizeable'][size] = quantity
-                messages.success(request, f'{treasure.name} {size} successfully\
-                     added to the basket.')
+                messages.success(request, f'{treasure.name} {size}\
+                    successfully added to the basket.')
         else:
             basket[treasure_id] = {'sizeable': {size: quantity}}
             messages.success(request, f'{treasure.name} {size} successfully\
-                 added to the basket.')
+                added to the basket.')
     else:
         if treasure_id in list(basket.keys()):
             basket[treasure_id] += quantity
@@ -45,7 +46,7 @@ def add_to_basket(request, treasure_id):
         else:
             basket[treasure_id] = quantity
             messages.success(request, f'{treasure.name}\
-                 successfully added to the basket')
+                successfully added to the basket')
 
     request.session['basket'] = basket
     return redirect(redirect_url)
@@ -94,10 +95,13 @@ def delete_from_basket(request, treasure_id):
 
         if size:
             del basket[treasure_id]['sizeable'][size]
+            messages.success(request, f'{treasure.name} {size}\
+                successfully deleted from your basket.')
             if not basket[treasure_id]['sizeable']:
                 basket.pop(treasure_id)
                 messages.success(request, f'{treasure.name} {size}\
                     successfully deleted from your basket.')
+                print('third')
         else:
             basket.pop(treasure_id)
             messages.success(request, f'{treasure.name}\

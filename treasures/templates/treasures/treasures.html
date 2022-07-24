@@ -39,7 +39,10 @@
                                     <a href="{% url 'edit_treasure' treasure.id %}" class="text-muted mr-3">
                                         <i class="fa-solid fa-pencil icon"></i>
                                     </a>
-                                    <a href="{% url 'delete_treasure' treasure.id %}" class="text-dark">
+                                    {% include 'treasures/confirm_delete.html' %}
+                                    <!-- Button trigger modal -->
+                                    <a href="{% url 'delete_treasure' treasure.id %}" class="confirm-delete text-dark" 
+                                    data-toggle="modal" data-target="#deleteTreasure" id="delete_button{{ treasure.id }}">
                                         <i class="fa-solid fa-trash-can bin"></i>
                                     </a>
                                 </div>
@@ -51,4 +54,19 @@
             {% endfor %}
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script type="text/javascript">
+    $(document).on('click', '.confirm-delete', function() {
+        $("#deleteTreasure").attr("treasure-id", $(this).attr("id"));
+    });
+
+    $(document).on('click', '#confirmDeleteButton', function () {
+    var treasure = $("#confirmDeleteButton").closest(".modal").attr("treasure-id");
+    window.location = $("#".concat(treasure)).attr("href");
+    });
+</script>
 {% endblock %}

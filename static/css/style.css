@@ -136,6 +136,17 @@ a:link {
     cursor: pointer;
 }
 
+/* Basket Confirm Delete */
+
+.delete-treasure {
+	display: none;
+}
+#cancel:hover,
+#delete:hover {
+    color: red !important;
+    background-color: #fff !important;
+}
+
 /* Messages */
 
 #message-table {

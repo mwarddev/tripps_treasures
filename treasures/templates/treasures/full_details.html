@@ -60,9 +60,31 @@
                         <a href="{% url 'edit_treasure' treasure.id %}" class="text-muted mr-3">
                             <i class="fa-solid fa-pencil icon"></i>
                         </a>
-                        <a href="{% url 'delete_treasure' treasure.id %}" class="text-dark">
+                        <!-- Button trigger modal -->
+                        <a data-toggle="modal" data-target="#delete_treasure">
                             <i class="fa-solid fa-trash-can bin"></i>
                         </a>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="delete_treasure" tabindex="-1" role="dialog" aria-labelledby="delete_treasure_label" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-danger">
+                                        <h5 class="modal-title text-white" id="delete_treasure_label">Delete Treasure</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete {{ treasure.name }}?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-grey bg-grey shadow border-dark text-white" data-dismiss="modal"><strong>No</strong></button>
+                                        <a href="{% url 'delete_treasure' treasure.id %}" class="btn btn-sm btn-blue bg-blue border-info shadow"><strong>Yes</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 {% endif %}
             </div>

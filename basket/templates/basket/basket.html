@@ -9,6 +9,15 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
+        <div class="col-12">
+            <div class="delete-treasure bg-danger text-center p-2">
+                <h3 class="text-white">Are you sure you want to delete this Treasure?</h3>
+                <button class="btn btn-sm bg-danger border-white text-white" id="cancel"><strong>No</strong></button>
+                <button class="btn btn-sm bg-danger border-white text-white" id="delete"><strong>Yes</strong></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 text-center mt-3">
             <h3 class="title-font">Shopping Basket</h3>
         </div>
@@ -54,10 +63,9 @@
                                     {% endif %}
                                 </div>
                                 <div class="col-4 text-right align-self-end">
-                                    
                                     <a class="remove-item text-dark pb-3" id="remove_{{item.treasure_id}}" data-treasure_size="{{ item.size }}">
                                         <i class="fa-solid fa-trash-can fa-xl bin"></i>
-                                    </a>
+                                    </a>                                    
                                     <p class="mt-4 mb-0"><strong>£{{ item.treasure.price | calc_subtotal:item.quantity }}</strong></p>
                                 </div>
                                     </form>
@@ -98,7 +106,7 @@
 {{ block.super }}
 
 <script type="text/javascript">
-    
+
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
@@ -110,11 +118,29 @@
             'treasure_size': size,
         };
 
-        $.post(url, data)
-            .done(function () {
-                location.reload();
+        message();
+        window.scrollTo(0, 0);
+
+        $("#cancel").click(function(){
+            hide();
+        });
+        $("#delete").click(function(){
+            $.post(url, data)
+                .done(function () {
+                    location.reload();
             });
-    })
+        });
+        
+        function message()
+        {
+        $(".delete-treasure").slideDown();
+        }
+
+        function hide()
+        {
+        $(".delete-treasure").slideUp();
+        }
+    });
 
     // Update qty onchange
     $('.qty-input').change(function (e) {
