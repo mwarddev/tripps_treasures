@@ -21,12 +21,12 @@ class UserAccountForm(forms.ModelForm):
             'saved_city': 'Town or City',
             'saved_county': 'County/State',
             'saved_postcode': 'Postcode/Zipcode',
-            'saved_country': 'Country',
         }
 
         self.fields['saved_full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].widget.attrs['placeholder'] = placeholders[field]  # noqa
+            if field != 'saved_country':
+                self.fields[field].widget.attrs['placeholder'] = placeholders[field]  # noqa
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             # Adjust labels to remove the word "saved"
             self.fields['saved_full_name'].label = 'Full Name'

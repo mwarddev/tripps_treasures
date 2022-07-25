@@ -36,7 +36,7 @@
                                 {{ message.cust_name }}
                             </td>
                             <td class="text-nowrap">
-                                <a href="mailto:{{ message.email_address }}?subject=Tripp's Treasures Contact {{ message.purchase_number }}">
+                                <a href="mailto:{{ message.email_address }}?subject=Tripp's_Treasures_Contact_{{ message.purchase_number }}">
                                     {{ message.email_address }}
                                 </a>
                             </td>
@@ -70,7 +70,7 @@
 {% block postloadjs %}
 {{ block.super }}
 
-<script type="text/javascript">
+<script>
     $(document).on('click', '.confirm-delete', function() {
         $("#deleteMessage").attr("message-id", $(this).attr("id"));
     });

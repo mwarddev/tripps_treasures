@@ -188,6 +188,8 @@ Keywords and phrases entered as metadata in the head of the HTML document and th
 View the SEO keywords and phrases brainstoming session [here](readme_images/seo_keywords.pdf). The highlighted words and phrases ranked higher in a Google search and so were used in the site.
 The footer contains links to the site owner's [Facebook Business page](https://www.facebook.com/business/pages) ![facebook pages](readme_images/facebook_pages.png) and [Etsy](https://www.etsy.com/uk/?ref=lgo) page. ![Etsy](readme_images/etsy.png)
 
+On site build completion a sitemap.xml file was generated using [xml-sitemaps.com](www.xml-sitemaps.com). This enables search engines to find searchable content easily on the site and increase the site's standings in web searches. To make the site GDPR compliant, a robots.txt file was created to restrict access for search engines to parts of the site that contain customer information.
+
 ### Marketing
 In the footer of every page, site visitors can find a link to sign up to to The Tripp's Treasures newsletter.
 ![newsletter](readme_images/newsletter.png)
@@ -341,14 +343,100 @@ This list is not exhaustive.
 ## Testing
 ### Validator Testing
 #### Lighthouse
+![light home](readme_images/validation/light_home.png)
+[light baby](readme_images/validation/light_baby.png),
+[light full](readme_images/validation/light_full.png),
+[light basket](readme_images/validation/light_basket.png),
+[light checkout](readme_images/validation/light_checkout.png),
+[light confirmation](readme_images/validation/light_conf.png),
+[light add](readme_images/validation/light_add.png),
+[light banner](readme_images/validation/light_banner.png),
+[light contact](readme_images/validation/light_contact.png),
+[light edit](readme_images/validation/light_edit.png),
+[light list](readme_images/validation/light_list.png),
+[light messages](readme_images/validation/light_messages.png),
+[light news](readme_images/validation/light_news.png),
+[light account](readme_images/validation/light_account.png)
+Some image size issues. All images have been run through [tinypng.com](https://tinypng.com/).
 
 #### W3C Markup Validation
-#### W3C CSS Validation
+![html home](readme_images/validation/html_val/html_home.png)
+[html account](readme_images/validation/html_val/html_account.png),
+[html add](readme_images/validation/html_val/html_add.png),
+[html checkout](readme_images/validation/html_val/html_checkout.png),
+[html confirm purchase](readme_images/validation/html_val/html_conf.png),
+[html contact us](readme_images/validation/html_val/html_contact.png),
+[html edit](readme_images/validation/html_val/html_edit.png),
+[html full details](readme_images/validation/html_val/html_full.png),
+[html purchase list](readme_images/validation/html_val/html_list.png),
+[html messages](readme_images/validation/html_val/html_messages.png),
+[html newsletter](readme_images/validation/html_val/html_news.png),
+[html treasures](readme_images/validation/html_val/html_treasures.png) (some multiple id errors resulting from a confirmation delete modal used as an include. Can be ignored),
+[html banner update](readme_images/validation/html_val/html_banner.png),
+[html basket](readme_images/validation/html_val/html_basket.png),
+
+#### W3C Jigsaw CSS Validation
+![css style](readme_images/validation/css_style.png)
+[css checkout](readme_images/validation/css_checkout.png)
+Only vendor warnings showing.
+
 #### JShint
+![js stripe](readme_images/validation/js_stripe.png)
+[js basket](readme_images/validation/js_basket.png)
+No issues
+
 #### PEP8
+![pep settings](readme_images/validation/pep/pep_settings.png)
+[pep urls](readme_images/validation/pep/pep_urls.png),
+[pep views](readme_images/validation/pep/pep_views.png)
+##### User Accounts PEP8
+[pep accounts forms](readme_images/validation/pep/pep_accounts_forms.png),
+[pep accounts models](readme_images/validation/pep/pep_accounts_models.png),
+[pep accounts urls](readme_images/validation/pep/pep_accounts_urls.png),
+[pep accounts views](readme_images/validation/pep/pep_accounts_views.png)
+##### Banner PEP8
+[pep banner context](readme_images/validation/pep/pep_banner_context.png),
+[pep banner form](readme_images/validation/pep/pep_banner_form.png),
+[pep banner model](readme_images/validation/pep/pep_banner_model.png),
+[pep banner urls](readme_images/validation/pep/pep_banner_urls.png),
+[pep banner views](readme_images/validation/pep/pep_banner_views.png)
+##### Basket PEP8
+[pep basket contexts](readme_images/validation/pep/pep_basket_contexts.png),
+[pep basket urls](readme_images/validation/pep/pep_basket_urls.png),
+[pep basket views](readme_images/validation/pep/pep_basket_views.png)
+##### Checkout PEP8
+[pep checkout admin](readme_images/validation/pep/pep_checkout_admin.png),
+[pep checkout forms](readme_images/validation/pep/pep_checkout_forms.png),
+[pep checkout models](readme_images/validation/pep/pep_checkout_models.png),
+[pep checkout signals](readme_images/validation/pep/pep_checkout_signals.png),
+[pep checkout urls](readme_images/validation/pep/pep_checkout_urls.png),
+[pep checkout views](readme_images/validation/pep/pep_checkout_views.png),
+[pep checkout webhook handler](readme_images/validation/pep/pep_checkout_web_hand.png),
+[pep checkout webhooks](readme_images/validation/pep/pep_checkout_webhooks.png)
+##### Contact PEP8
+[pep contact admin](readme_images/validation/pep/pep_contact_admin.png),
+[pep contact forms](readme_images/validation/pep/pep_contact_forms.png),
+[pep contact models](readme_images/validation/pep/pep_contact_models.png),
+[pep contact urls](readme_images/validation/pep/pep_contact_urls.png),
+[pep contact views](readme_images/validation/pep/pep_contact_views.png)
+##### Home PEP8
+[pep home urls](readme_images/validation/pep/pep_home_urls.png),
+[pep home views](readme_images/validation/pep/pep_home_views.png)
+##### Newsletter PEP8
+[pep news admin](readme_images/validation/pep/pep_news_admin.png),
+[pep news forms](readme_images/validation/pep/pep_news_forms.png),
+[pep news models](readme_images/validation/pep/pep_news_models.png),
+[pep news urls](readme_images/validation/pep/pep_news_urls.png),
+[pep news views](readme_images/validation/pep/pep_news_views.png)
+##### Treasures PEP8
+[pep treasures admin](readme_images/validation/pep/pep_treasures_admin.png),
+[pep treasures forms](readme_images/validation/pep/pep_treasures_forms.png),
+[pep treasures models](readme_images/validation/pep/pep_treasures_models.png),
+[pep treasures urls](readme_images/validation/pep/pep_treasures_urls.png),
+[pep treasures views](readme_images/validation/pep/pep_treasures_views.png)
 
 ### Manual Testing
-### Automated Testing
+
 ### Bugs and Fixes
 ## Deployment
 ## Credits

@@ -59,7 +59,7 @@
 {% block postloadjs %}
 {{ block.super }}
 
-<script type="text/javascript">
+<script>
     $(document).on('click', '.confirm-delete', function() {
         $("#deleteTreasure").attr("treasure-id", $(this).attr("id"));
     });

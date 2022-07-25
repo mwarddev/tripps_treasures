@@ -24,14 +24,14 @@ class PurchaseForm(forms.ModelForm):
             'city': 'Town or City',
             'county': 'County/State',
             'postcode': 'Postcode/Zipcode',
-            'country': 'Country',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].widget.attrs['placeholder'] = placeholders[field]  # noqa
-            self.fields[field].widget.attrs['class'] = 'border-secondary'
-            # Adjust labels for full name, address line 1 & 2
-            self.fields['full_name'].label = 'Full Name'
-            self.fields['address_line1'].label = 'Address Line 1'
-            self.fields['address_line2'].label = 'Address Line 2'
+            if field != 'country':
+                self.fields[field].widget.attrs['placeholder'] = placeholders[field]  # noqa
+                self.fields[field].widget.attrs['class'] = 'border-secondary'
+                # Adjust labels for full name, address line 1 & 2
+                self.fields['full_name'].label = 'Full Name'
+                self.fields['address_line1'].label = 'Address Line 1'
+                self.fields['address_line2'].label = 'Address Line 2'
