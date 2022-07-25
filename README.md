@@ -310,8 +310,43 @@ Instead of the site owner having to use an external email platform and copy past
 This list is not exhaustive.
 
 ## Technologies Used
+
+* [GitPod](https://gitpod.io/)
+  * The environment used to create the site
+* [Github](https://github.com/)
+  * Used to store the repo and for version control
+* [Django framework](https://www.djangoproject.com/)
+  * The framework for the entire site
+* [PostgreSQL](https://www.postgresql.org/)
+  * Housed the database for the site
+* [Python](https://www.python.org/)
+  * The main language the site was written in
+* [HTML](https://html.com/semantic-markup/)
+  * Markup for the site itegrated with Bootstrap
+* [Bootstrap](https://getbootstrap.com/)
+  * The site was largely styled using Bootstrap
+* [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
+  * Used to style the small portion of the site Bootstrap couldn't handle.
+* [JavaScript](https://www.javascript.com/)
+  * Used to handle small events such as popups
+* [AWS S3](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Categories=categories%23storage&trk=9845b571-f118-41f9-ae80-53f3364524c4&sc_channel=ps&sc_campaign=acquisition&sc_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Storage|S3|GB|EN|Text&s_kwcid=AL!4422!3!489216385180!e!!g!!aws%20s3&ef_id=CjwKCAjwkMeUBhBuEiwA4hpqEJmK52Rp_outs9Ama8hbA1IhA0MOr-OkiPis4BSWVAuobKN7yEmQsRoCSNMQAvD_BwE:G:s&s_kwcid=AL!4422!3!489216385180!e!!g!!aws%20s3&awsf.Free%20Tier%20Types=*all)
+  * Used to store site images
+* [Stripe](https://stripe.com/gb)
+  * Used to handle customer payments
+* [Heroku](https://id.heroku.com/login)
+  * The hosting site for Tripp's Treasures
+* [Dango Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+  * Used for creating forms in the site.
+
 ## Testing
 ### Validator Testing
+#### Lighthouse
+
+#### W3C Markup Validation
+#### W3C CSS Validation
+#### JShint
+#### PEP8
+
 ### Manual Testing
 ### Automated Testing
 ### Bugs and Fixes
