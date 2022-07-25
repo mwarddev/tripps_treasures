@@ -36,13 +36,13 @@
                             <p class="mb-0"><strong class="text-dark">£{{ treasure.price }}</strong></p>
                             {% if request.user.is_superuser %}
                                 <div class="text-right">
-                                    <a href="{% url 'edit_treasure' treasure.id %}" class="text-muted mr-3">
+                                    <a href="{% url 'edit_treasure' treasure.id %}" class="text-muted mr-3" aria-label="edit treasure">
                                         <i class="fa-solid fa-pencil icon"></i>
                                     </a>
                                     {% include 'treasures/confirm_delete.html' %}
                                     <!-- Button trigger modal -->
                                     <a href="{% url 'delete_treasure' treasure.id %}" class="confirm-delete text-dark" 
-                                    data-toggle="modal" data-target="#deleteTreasure" id="delete_button{{ treasure.id }}">
+                                    data-toggle="modal" data-target="#deleteTreasure" id="delete_button{{ treasure.id }}" aria-label="delete treasure">
                                         <i class="fa-solid fa-trash-can bin"></i>
                                     </a>
                                 </div>

@@ -34,7 +34,7 @@
                         <div class="col-12 col-md-6">
                             <div class="row">
                                 <div class="col-3">
-                                    <a href="{% url 'full_details' item.treasure.id %}">
+                                    <a href="{% url 'full_details' item.treasure.id %}" aria-label="treasure full details">
                                         {% if item.treasure.image %}
                                             <img class="img-fluid w-100" src="{{ item.treasure.image.url }}"
                                                 alt="{{ item.treasure.name }}">
@@ -68,7 +68,7 @@
                                 </div>
                                 <!-- Remove an item from the basket -->
                                 <div class="col-4 text-right align-self-end">
-                                    <a class="remove-item text-dark pb-3" id="remove_{{item.treasure_id}}" data-treasure_size="{{ item.size }}">
+                                    <a class="remove-item text-dark pb-3" id="remove_{{item.treasure_id}}" data-treasure_size="{{ item.size }}" aria-label="delete item">
                                         <i class="fa-solid fa-trash-can fa-xl bin"></i>
                                     </a>                                    
                                     <p class="mt-4 mb-0"><strong>£{{ item.treasure.price | calc_subtotal:item.quantity }}</strong></p>
@@ -84,7 +84,7 @@
             <!-- If no basket items -->
             {% else %}
                 <p class="mt-5">There's nothing in your basket.</p>
-                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow btn-grey mt-4">
+                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow btn-grey mt-4" aria-label="go to home page">
                     Continue Shopping
                 </a>
             {% endif %}
@@ -97,10 +97,10 @@
             <p><strong>Delivery: </strong>£{{ delivery|floatformat:2 }}</p>
             <p><strong>Grand Total: </strong>£{{ grand_total|floatformat:2 }}</p>
             <div class="text-center">
-                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark shadow text-white btn-grey mb-2">
+                <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark shadow text-white btn-grey mb-2" aria-label="go to home page">
                     <strong>Continue Shopping</strong>
                 </a>
-                <a href="{% url 'checkout' %}" class="btn btn-sm bg-blue border-info shadow btn-blue mb-2">
+                <a href="{% url 'checkout' %}" class="btn btn-sm bg-blue border-info shadow btn-blue mb-2" aria-label="go to home page">
                     <strong>Go to Checkout</strong>
                 </a>
             </div>

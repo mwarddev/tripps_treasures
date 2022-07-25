@@ -86,8 +86,8 @@
                             <input class="form-check-input" type="checkbox" id="save-user-info" name="save-info" checked>
                         {% else %}
                             <label class="form-check-label" for="save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Register </a>for an account or 
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information and speed up future purchases.
+                                <a class="text-info" href="{% url 'account_signup' %}" aria-label="register">Register </a>for an account or 
+                                <a class="text-info" href="{% url 'account_login' %}" aria-label="login">login</a> to save this information and speed up future purchases.
                             </label>
                         {% endif %}
                     </div>
@@ -104,7 +104,7 @@
                 <span>Powered by <i class="fa-brands fa-cc-stripe fa-lg"></i></span>
                 <div class="container-fluid text-center px-0">                    
                     <p class="text-right"><strong>Pay £{{ grand_total|floatformat:2 }}</strong></p>
-                    <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow btn-grey mb-2">
+                    <a href="{% url 'home' %}" class="btn btn-sm bg-grey border-dark text-white shadow btn-grey mb-2" aria-label="go to home page">
                         <strong>Continue Shopping</strong>
                     </a>
                     <button class="btn btn-sm bg-blue border-info shadow btn-blue mb-2" id="submit-purchase">

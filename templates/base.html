@@ -62,7 +62,7 @@
         </div>
         <div class="row d-flex shadow">
             <div class="col-12 col-lg-6 d-none d-lg-block">
-                <a class="no-dec" href="{% url 'home' %}">
+                <a class="no-dec" href="{% url 'home' %}" aria-label="link to home page">
                     <div class="row p-0">
                         <div class="col-2">
                             <img class="img-fluid lg-logo d-none d-lg-block logo" src="{% static 'images/logo.jpg' %}" alt="Site logo">
@@ -79,7 +79,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-6 my-auto d-none d-md-flex">
-                <a class="no-dec" href="{% url 'home' %}">
+                <a class="no-dec" href="{% url 'home' %}" aria-label="link to home page">
                     <img class="img-fluid logo d-none d-md-inline d-lg-none" src="{% static 'images/logo.jpg' %}" alt="Site logo">
                 </a>
                 <form method="GET" action="{% url 'treasures' %}" class="my-auto mx-auto">
@@ -105,10 +105,10 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu border-secondary" aria-labelledby="user-menu">
-                                <a href="{% url 'add_treasure' %}" class="dropdown-item hover">Add Treasures</a>
-                                <a href="{% url 'update_banner' %}" class="dropdown-item hover">Banner Update</a>
-                                <a href="{% url 'view_messages' %}" class="dropdown-item hover">Messages</a>
-                                <a href="{% url 'purchase_list' %}" class="dropdown-item hover">Purchase List</a>
+                                <a href="{% url 'add_treasure' %}" class="dropdown-item hover" aria-label="add treasure">Add Treasures</a>
+                                <a href="{% url 'update_banner' %}" class="dropdown-item hover" aria-label="banner update">Banner Update</a>
+                                <a href="{% url 'view_messages' %}" class="dropdown-item hover" aria-label="messages">Messages</a>
+                                <a href="{% url 'purchase_list' %}" class="dropdown-item hover" aria-label="purchase list">Purchase List</a>
                             </div>
                         </li>
                         {% else %}
@@ -120,13 +120,13 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu border-secondary" aria-labelledby="user-menu">
-                                <a href="{% url 'account' %}" class="dropdown-item hover">My Account</a>
+                                <a href="{% url 'account' %}" class="dropdown-item hover" aria-label="my account">My Account</a>
                             </div>
                         </li>
                         {% endif %}
                     {% endif %}
                     <li class="list-group-item border-0 p-2">
-                        <a href="{% url 'basket_view' %}">
+                        <a href="{% url 'basket_view' %}" aria-label="got to shopping basket">
                             <div class="text-center text-secondary icon">
                                 <div><i class="fa-solid fa-basket-shopping fa-lg"><span
                                             class="badge badge-danger badge-pill p-1 pill-count">{{ treasure_count }}</span></i></div>
@@ -136,7 +136,7 @@
                     </li>
                     <li class="list-group-item dropdown border-0 p-2">
                         {% if request.user.is_authenticated %}
-                        <a href="{% url 'account_logout' %}">
+                        <a href="{% url 'account_logout' %}" aria-label="logout">
                             <div class="text-center text-secondary icon">
                                 <div><i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></div>
                                 <p class="mb-0">Logout</p>
@@ -150,8 +150,8 @@
                             </div>
                         </a>
                         <div class="dropdown-menu border-secondary" aria-labelledby="auth">
-                            <a href="{% url 'account_login' %}" class="dropdown-item hover">Login</a>
-                            <a href="{% url 'account_signup' %}" class="dropdown-item hover">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item hover" aria-label="signup">Login</a>
+                            <a href="{% url 'account_signup' %}" class="dropdown-item hover" aria-label="register">Register</a>
                         </div>
                         {% endif %}
                     </li>
@@ -201,7 +201,7 @@
                         Sign up for our newsletter <a href="{% url 'news_letter' %}">here!</a>
                     </li>
                     <li>
-                        <a class="btn btn-sm bg-blue border-info shadow btn-blue" href="{% url 'contact_us' %}"><strong>Contact Us</strong></a>
+                        <a class="btn btn-sm bg-blue border-info shadow btn-blue" href="{% url 'contact_us' %}" aria-label="contact us"><strong>Contact Us</strong></a>
                     </li>
                 </ul>
             </div>
