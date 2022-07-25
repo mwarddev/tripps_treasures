@@ -437,8 +437,187 @@ No issues
 
 ### Manual Testing
 
+#### Allauth
+
+| Test | Result |
+| --- | --- |
+| Does login/register button work? | Yes |
+| Does registration form render correctly | Yes |
+| Does the required field validation work? | Yes |
+| Able to submit a registration? | Yes |
+| Does the notification of email confirmation message render correctly? | Yes |
+| Does the confirmation email send? | Yes |
+| Able to confirm email address and login? | Yes |
+| Does the logout button render after login? | Yes |
+| Does the logout form render correctly? | Yes |
+| Able to logout? | Yes |
+| Does forgotten password form render correctly? | Yes |
+| Able to enter email address to reset password? | Yes |
+| Able to reset password? | Yes |
+
+#### Home Page
+
+| Test | Result |
+| --- | --- |
+| Info banner scrolling? | Yes |
+| Search bar working correctly? | Yes |
+| Category links working? | Yes |
+| External links working? | Yes |
+| External links open in new window? | Yes |
+| Account button working? | Yes |
+| Contact Us button working? | Yes |
+| Newsletter link working? | Yes |
+| Able to Submit Contact Us form? | Yes |
+| Privacy policy link in newsletter form working correctly? | Yes |
+| Privacy policy open in new window? | Yes |
+| Able to submit Newsletter form? | Yes |
+| Able to access My Account? | Yes |
+
+#### Treasures Page
+
+| Test | Result |
+| --- | --- |
+| Page rendering correctly? | Yes |
+| All menus and links from home page available? | Yes |
+| Able to link back to home page via site logo or title/s? | Yes |
+| Able to link to selcted product full details? | Yes |
+
+
+#### Treasure Full Details Page
+
+| Test | Result |
+| --- | --- |
+| All menus and links from home page available? | Yes |
+| Able to adjust quantity of product? | Yes |
+| Able to adjust size if available? | Yes |
+| Able to add product to the basket? | Yes |
+| Basket item counter adjusting on item add? | Yes | 
+| Related product visible on page? | Yes |
+| Related product different from selected product? | Yes |
+| Able to link to related product? | Yes |
+
+#### Basket Page
+
+| Test | Result |
+| --- | --- |
+| All menus and links from home page available? | Yes |
+| All selected items visible in basket? | Yes |
+| Able to update individual item quantity? | Yes |
+| Pricing adjusting accordingly? | Yes |
+| Able to delete individal items from basket? | Yes |
+| Delete confirmation working? | Yes |
+| Able to go to checkout page? | Yes |
+
+#### Checkout Page
+
+| Test | Result |
+| --- | --- |
+| All menus and links from home page available? | Yes |
+| Selected items and pricing displaying correctly? | Yes |
+| Able to fill in checkout forms? | Yes |
+| Checkout form validation working correctly? | Yes |
+| Able to save form info or have the option to login/register? | Yes |
+| Able to submit purchase? | Yes |
+
+#### Order Summary page
+
+| Test | Result |
+| --- | --- |
+| All menus and links from home page available? | Yes |
+| Redirected to order summary page after purchase submit? | Yes |
+| Summary page rendered correctly? | yes |
+| Confirmation email received? | Yes |
+| Order information correct? | No - Time stamp is one hour behind |
+| Back button redirects to home page? | yes |
+
+Time stamp isn't a big worry and can be rectified at a later date
+
+#### My Account
+
+| Test | Result |
+| --- | --- |
+| All menus and links from home page available? | Yes |
+| Personal info available if saved? | Yes |
+| Able to update pesonal info? | yes |
+| Able to view purchase history? | Yes |
+| Able to link to order summary of historic purchases? | Yes |
+
+
+#### Superuser
+
+| Test | Result |
+| --- | --- |
+| All menus and links from home page available? | Yes |
+| Manage Site button renders instead of account button? | Yes |
+| Able to access Add Treasure Page? | Yes |
+| Able to add new treasures? | Yes |
+| New treasures rendering? | Yes |
+| Able to access Update Banner page? | Yes |
+| Able to Update Banner? | Yes |
+| New banner message rendering? | Yes |
+| Able to access Messages Page? | Yes |
+| Able to view customer messages? | Yes |
+| Able to delete messages with confirmation? | Yes |
+| Able to access Purchase List page? | Yes |
+| Purchase List page rendering correctly? | Yes |
+| Edit and delete buttons rendering on treasures cards and in full details page? | Yes |
+| Able to Access edit form from both pages? | Yes |
+| Able to edit tresures? | Yes |
+| Able to delete treasures with confirmation from both pages? | Yes |
+
 ### Bugs and Fixes
+
+| Bug | Fix |
+| --- | --- |
+| Delete confirmation modal not working in html document for multiple treasures page due to the use of ids | Moved the modal script to a seperate page and used as an include, adjusted jquery to link to the modal |
+| Session id not clearing on window close | Not fixed. Not necessary for project |
+
 ## Deployment
+### Heroku
+To deploy to Heroku take the following steps:
+
+* Generate a secret key and store it in an env.py file in your local environment.
+* Add the env.pyfile to gitignore
+
+* Create a requirements.txt by running
+```
+pip3 freeze --local > requirements.txt
+```
+* Create a Procfile containing the following code:
+```
+web: gunicorn tripps_treasures.wsgi
+```
+* Sign up to heroku then create a new app
+* Choose a unique app name and set your location
+* Click on the "Resources" tab and search for postgres then select Heroku Postgres
+* Click on the "Deploy" tab and choose to connect with GitHub
+* Once connected with GitHub, choose your project repo from a list or search for your repo and select it.
+* Click on the "Settings" tab then click "Config Vars"
+* Add the secret key from the env.py file
+* Copy the database url key and add it to the env.py file
+* Select Enable automatic deploys to deploy the site every time you commit and push your code to your repo
+* Click "Deploy branch" and when the build is finished click on "View site". The site has been deployed
+
+### AWS
+
+* Create an aws account
+* create a bucket
+* Set up IAM 
+* Set up bucket
+* Place keys in Heroku and env.py
+
+### Stripe
+* Add stripe keys (public and private) to heroku config vars
+* Set up Stripe
+
 ## Credits
+* Stack overflow
+* Boutique Ado Walkthrough
+* [talkerscode](http://talkerscode.com/webtricks/simple-and-best-delete-confirmation-box-message-using-jquery-html-and-css.php) for inspiration for delete confirmation dropdown
+* [Elise Lennion](https://elennion.wordpress.com/2018/10/08/bootstrap-4-delete-confirmation-modal-for-list-of-items/) for delete cofirmation modal for multiple items
+* Tutor support
 ## Aknowledgements
+* Everyone that has helped me along the way (friends, family)
+* My wife Suzanne
+* My mentor Tim 
 
