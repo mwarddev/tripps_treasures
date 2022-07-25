@@ -75,12 +75,12 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body text-center">
                                         <p>Are you sure you want to delete {{ treasure.name }}?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-sm btn-grey bg-grey shadow border-dark text-white" data-dismiss="modal"><strong>No</strong></button>
-                                        <a href="{% url 'delete_treasure' treasure.id %}" class="btn btn-sm btn-blue bg-blue border-info shadow"><strong>Yes</strong></a>
+                                        <button type="button" class="btn btn-grey bg-grey shadow border-dark text-white ml-auto" data-dismiss="modal"><strong>No</strong></button>
+                                        <a href="{% url 'delete_treasure' treasure.id %}" class="btn btn-blue bg-blue border-info shadow mr-auto"><strong>Yes</strong></a>
                                     </div>
                                 </div>
                             </div>

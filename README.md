@@ -201,14 +201,114 @@ This site is a B2C (business to customer) e-commerce website built for a small i
 
 By utilising SEO and marketing techniques, and advertising her USP (unique selling point) of handmade personalised gifts, the site owner aims to increase her client base and expand her business.
 
-As the products are handmade to order, there are no stock levels to control. However, there is a purchase list feature available to the site owner to work from and to prioritise the oldest orders.
+As the products are handmade to order, there are no stock levels to control. However, there is a purchase list feature available to the site owner to work from and to manage orders. A notification email is sent to the customer on purchase with a summary of their order and there's scope for further site enhancements in the [Future Features](#future-features) section.
 
+For this site the database will need to store product details such as, name, description, images, sizing, price, available customisations/personalisations. It will need to store customer information such as, name, address, email address, phone number, and will also need to include order details, such as product quantity, sizing, costs etc.  
 
-
+Customers will pay a one time payment for their order which incorporates product price and delivery costs.
 
 ## Features
 ### Existing Features
-### Future Features 
+
+#### Info Banner
+The first feature on every page is the scrolling info banner.
+![info banner](readme_images/info_banner.png)
+This is the first item that most people will see when they enter the site as the scrolling text is eye-catching. The info banner is to be used to promote future features, products, events, and existing offers. The site owner has exclusive access to the banner and can change the text with a simple form.
+![banner form](readme_images/banner_form.png)
+
+#### Dynamic Navigation bar
+The navigation bar changes depending on user login, user status, and screen size.
+
+Not logged in:
+![logged out](readme_images/logged_out.png)
+
+Customer logged in:
+![logged in](readme_images/logged_in.png)
+
+Superuser logged in:
+![superuser login](readme_images/super_login.png)
+
+Medium screens:
+![medium nav](readme_images/medium_nav.png)
+
+Small screens:
+![small screen](readme_images/small_screen.png)
+
+Mobile Screens:
+![mobile screen](readme_images/mobile_screen.png)
+
+Smaller screens condence the navbar icons and category nav buttons into one dropdown menu, giving more screen real estate to content.
+
+#### Footer
+The footer contains a link to the site's newsletter signup page where anyone can register their email address and join the mailing list for the site's newsletter. There's also a link to the site's privacy policy, to be read before submitting their email address.
+![newsletter](readme_images/newsletter.png)
+
+The footer also contains a Contact Us button for anyone who wishes to query the site owner about products, and (post payment) customisations.
+![contact us](readme_images/contact_us.png)
+Susequently, the site owner can view the messages from the Manage Site menu.
+![messages](readme_images/messages.png)
+Clicking a customer's email address will open the devices default email application.
+
+Finally, the footer houses links to external sites with relevant connections. In this case we have a link to the site owner's [Etsy page](https://www.etsy.com/uk/?ref=lgo) and [Facebook Business page](https://www.facebook.com/business/pages).
+![footer](readme_images/footer.png)
+
+#### You May Also Like
+In the product full details page, to the right (on large screens, underneath on smaller screens), of the full product, there is a related product section to entice the customer to by something they may not have been originally looking for. The product is selected randomly from the same category as the product they selected.
+![related](readme_images/related.png)
+
+#### User Account
+Registered users have the option of saving their information at the checkout page. This is then stored for the next time the user makes a purchse and speeds the whole process up.
+The stored information can be viewed and edited in the user's account. The user can also view their purchase history.
+![my account](readme_images/my_account.png)
+Each purchase can be selected and viewed.
+![purchase](readme_images/purchase.png)
+
+#### Purchase List
+In order for the site owner to create the orders, she needsto know what they are. The purchase list output's a list of all orders with all the information needed to manage production.
+![purchase list](readme_images/purchase_list.png)
+
+#### Add Products
+To give the site full CRUD functionality, the site owner is able to add new products to the site using the Add Treasures form in the Manage Site dropdown list.
+![add treasure](readme_images/add_products.png)
+
+#### Edit/Delete Products
+To complete the CRUD functionality the site owner can edit and delete products. This can be done from 2 locations, the treasures list:
+![treasures crud](readme_images/treasures_crud.png)
+Clicking the bin icon will trigger a delete confirmation modal and clicking the pencil icon will redirect to the edit product page.
+![treasure edit](readme_images/product_edit.png)
+The edit form is pre-populated with the existing data to be updated.
+Edit and delete can also be actioned from the product full details page.
+![full treasure crud](readme_images/full_treasure_crud.png)
+
+### Future Features
+This site has scope for a myriad of features that were unable to be implemented in the time frame of the build. These include:
+
+#### Multiple images
+Each product can be better advertised if the customer can see it in several different contexts, either being used or displayed in different locations/situations, making the product more relatable. This could be implemented with an image carousel on the product full details page.
+
+#### Customisation & Personalisation
+The ability to add customisation and or personalisation to the product in the product full details page (instead of post purchase via a contact form) would improve the user experience of the site.
+
+#### Ratings and reviews
+Giving customers the abilty to rate and review the products improves the site's marketing. More customers are likely to purchase products if they've read good reviews about the product and the service other customers have received.
+
+#### Gift wrapping
+The site is all about unique gifts, so why not send the item(s) to the recipient wrapped and with a gift tag. This option could be selected at the checkout.
+
+#### Shipping
+Not all customers buy gifts in advance, and with next day deliveries rapidly becoming the norm, and with this business creating each order by hand, it's already on the back foot. The option to select a faster courier sevice at the checkout could appeal to customers in a rush.
+
+#### Estimated delivery times
+Collecting production data of build times for products would allow for a calculated estimate of delivery, taking the current purchase list into account. This would improve the customer's user experience.
+
+#### Feature Rich Purchase list
+The purchase list is the site owners work-to-list and anything that can be done to track production and manage orders is a must to ensure the products reach the customer in the shortest time possible. Giving each order a changable status, the list can be automatically sorted and orders prioritised. Notifications could be sent to the site owner if an order has idled for too long, and despatched emails sent to the customer on change of status.
+
+#### In-Site Emailing
+Instead of the site owner having to use an external email platform and copy pasting customer details, a light weight emailing sevice could be set up within the site. This also allows for new message alerts within the site, allowing the site owner to better monitor communication.
+
+This list is not exhaustive.
+
 ## Technologies Used
 ## Testing
 ### Validator Testing

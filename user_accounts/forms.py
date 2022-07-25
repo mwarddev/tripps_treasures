@@ -15,7 +15,7 @@ class UserAccountForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'saved_full_name': 'First name, Surname',
-            'saved_phone': '(optional)',
+            'saved_phone': 'Phone number',
             'saved_address_line1': 'Example: 42 Church Street',
             'saved_address_line2': '(optional)',
             'saved_city': 'Town or City',
