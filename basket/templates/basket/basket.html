@@ -148,6 +148,10 @@
         $(".delete-treasure").slideUp();
         }
     });
+    // Prevent manual entry for qty
+    $('.qty-input').keypress(function(event) {
+        event.preventDefault();
+    });
 
     // Update qty onchange
     $('.qty-input').change(function (e) {
