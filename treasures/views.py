@@ -26,7 +26,7 @@ def all_treasures(request):
             query = request.GET['search']
             if not query:
                 messages.error(request, 'No search criteria entered')
-                return redirect(reverse('products'))
+                return redirect(reverse('treasures'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)  # noqa
             treasures = treasures.filter(queries)
