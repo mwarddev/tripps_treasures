@@ -601,14 +601,21 @@ web: gunicorn tripps_treasures.wsgi
 ### AWS
 
 * Create an aws account
-* create a bucket
-* Set up IAM 
-* Set up bucket
-* Place keys in Heroku and env.py
+* Navigate to S3 in services and create a bucket
+* Set up IAM
+* Create a static file and a media file within the bucket using the information aquired during the bucket creation (i.e. access key and secret key)
+* Configure in settings.py
+* Add access key and secret key to env.py
+* Add keys to config vars in Heroku
+* Disable collectstatic in config vars
+* Add new directory path for static files in settings.py
 
 ### Stripe
-* Add stripe keys (public and private) to heroku config vars
-* Set up Stripe
+* Create a developer account
+* Add stripe keys (public and private) to env.py and heroku config vars
+* Set up Stripe according to Stripe's documentation
+* Add site url to Stripe's webhooks section
+* Add the webhook secret key to env.py and Heroku config vars
 
 ## Credits
 * Stack overflow
@@ -616,8 +623,9 @@ web: gunicorn tripps_treasures.wsgi
 * [talkerscode](http://talkerscode.com/webtricks/simple-and-best-delete-confirmation-box-message-using-jquery-html-and-css.php) for inspiration for delete confirmation dropdown
 * [Elise Lennion](https://elennion.wordpress.com/2018/10/08/bootstrap-4-delete-confirmation-modal-for-list-of-items/) for delete cofirmation modal for multiple items
 * Tutor support
-## Aknowledgements
-* Everyone that has helped me along the way (friends, family)
-* My wife Suzanne
-* My mentor Tim 
 
+## Aknowledgements
+* Everyone that has helped me along the way and helped test the site (friends and family)
+* My wife, Suzanne
+* My mentor, Tim Nelson
+* The Slack community for advice and support
