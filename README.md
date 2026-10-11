@@ -1,11 +1,11 @@
+> :information_source: This project is no longer being maintained
+
 # Tripp's Treasures
 
 Tripp's Treasures is an online e-commerce boutique, selling hand crafted homewares and baby clothes.
 Customers can request customisation of each item, making them ideal gifts for friends or loved ones.
 
 ![responsive image](readme_images/responsive.png)
-
-Visit the live site: https://tripps-treasures.herokuapp.com/
 
 The site uses the [Stripe](https://stripe.com/gb) payment system. When entering payment info, enter 42424242... until you run out of space to send a mock payment (please don't use real card details).
 
